@@ -21,12 +21,12 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install Playwright
+      - name: Install Playwright (Chromium)
         run: |
           npm i playwright@1.47.2
           npx playwright install --with-deps chromium
 
-      - name: Fetch Switch2 games -> JSON
+      - name: Fetch Switch2 games -> JSON (inkl. EUR-Preis)
         run: node scripts/fetch-switch2.js
 
       - name: Commit JSON (if changed)
