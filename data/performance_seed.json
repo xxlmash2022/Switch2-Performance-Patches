@@ -1,0 +1,164 @@
+[
+  {
+    "name": "ARMS",
+    "de": "https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/ARMS-1173200.html",
+    "us": "https://www.nintendo.com/us/store/products/arms-switch/",
+    "eu": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Arms_image1600w.jpg",
+    "us_hero": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/arms-switch/hero",
+    "kern": "Visuelle Optimierung, stabilere Framerate, HDR (TV)",
+    "sources": ["https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/ARMS-1173200.html"]
+  },
+  {
+    "name": "Captain Toad: Treasure Tracker",
+    "de": "https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Captain-Toad-Treasure-Tracker-1348071.html",
+    "us": "https://www.nintendo.com/us/store/products/captain-toad-treasure-tracker-switch/",
+    "eu": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_CaptainToadTreasureTracker_image1600w.png",
+    "us_hero": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/captain-toad-treasure-tracker-switch/hero",
+    "kern": "Visuelle Optimierung, HDR (TV)",
+    "sources": ["https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Captain-Toad-Treasure-Tracker-1348071.html"]
+  },
+  {
+    "name": "Spielestudio (Game Builder Garage)",
+    "de": "https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Download-Software/Spielestudio-1964648.html",
+    "us": "https://www.nintendo.com/us/store/products/game-builder-garage-switch/",
+    "eu": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_GameBuilderGarage_deDE_image1600w.jpg",
+    "us_hero": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/g/game-builder-garage-switch/hero",
+    "kern": "Visuelle Optimierung (höhere Bildqualität)",
+    "sources": ["https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Download-Software/Spielestudio-1964648.html"]
+  },
+  {
+    "name": "New Super Mario Bros. U Deluxe",
+    "de": "https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/New-Super-Mario-Bros-U-Deluxe-1438640.html",
+    "us": "https://www.nintendo.com/us/store/products/new-super-mario-bros-u-deluxe-switch/",
+    "eu": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_NewSuperMarioBrosUDeluxe_image1600w.jpg",
+    "us_hero": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/n/new-super-mario-bros-u-deluxe-switch/hero",
+    "kern": "Visuelle Optimierung (höhere Bildqualität)",
+    "sources": ["https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/New-Super-Mario-Bros-U-Deluxe-1438640.html"]
+  },
+  {
+    "name": "Pokémon Karmesin",
+    "de": "https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Pokemon-Karmesin-2179556.html",
+    "us": "https://www.nintendo.com/us/store/products/pokemon-scarlet-switch/",
+    "eu": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_PokemonScarletViolet_Scarlet_deDE_image1600w.jpg",
+    "us_hero": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pokemon-scarlet-switch/hero",
+    "kern": "Visuelle Optimierung, höhere FPS",
+    "sources": ["https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Pokemon-Karmesin-2179556.html"]
+  },
+  {
+    "name": "Pokémon Purpur",
+    "de": "https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Pokemon-Purpur-2179557.html",
+    "us": "https://www.nintendo.com/us/store/products/pokemon-violet-switch/",
+    "eu": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_PokemonScarletViolet_Violet_deDE_image1600w.jpg",
+    "us_hero": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pokemon-violet-switch/hero",
+    "kern": "Visuelle Optimierung, höhere FPS",
+    "sources": ["https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Pokemon-Purpur-2179557.html"]
+  },
+  {
+    "name": "Splatoon 3",
+    "de": "https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Splatoon-3-2008811.html",
+    "us": "https://www.nintendo.com/us/store/products/splatoon-3-switch/",
+    "eu": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Splatoon3_image1600w.jpg",
+    "us_hero": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/splatoon-3-switch/hero",
+    "kern": "Visuelle Optimierung, flüssigeres Bewegen im Hub",
+    "sources": ["https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Splatoon-3-2008811.html"]
+  },
+  {
+    "name": "Super Mario 3D World + Bowser’s Fury",
+    "de": "https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Super-Mario-3D-World-Bowser-s-Fury-1832228.html",
+    "us": "https://www.nintendo.com/us/store/products/super-mario-3d-world-bowsers-fury-switch/",
+    "eu": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperMario3DWorldBowsersFury_image1600w.jpg",
+    "us_hero": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/super-mario-3d-world-bowsers-fury-switch/hero",
+    "kern": "Visuelle Optimierung, bessere FPS; HDR (nur Bowser’s Fury)",
+    "sources": ["https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Super-Mario-3D-World-Bowser-s-Fury-1832228.html"]
+  },
+  {
+    "name": "Super Mario Odyssey",
+    "de": "https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Super-Mario-Odyssey-1173332.html",
+    "us": "https://www.nintendo.com/us/store/products/super-mario-odyssey-switch/",
+    "eu": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperMarioOdyssey_image1600w.jpg",
+    "us_hero": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/super-mario-odyssey-switch/hero",
+    "kern": "Visuelle Optimierung, HDR (TV)",
+    "sources": ["https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Super-Mario-Odyssey-1173332.html"]
+  },
+  {
+    "name": "The Legend of Zelda: Echoes of Wisdom",
+    "de": "https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/The-Legend-of-Zelda-Echoes-of-Wisdom-2590490.html",
+    "us": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-echoes-of-wisdom-switch/",
+    "eu": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaEchoesOfWisdom_image1600w.jpg",
+    "us_hero": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-echoes-of-wisdom-switch/hero",
+    "kern": "Visuelle Optimierung, HDR (TV)",
+    "sources": ["https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/The-Legend-of-Zelda-Echoes-of-Wisdom-2590490.html"]
+  },
+  {
+    "name": "The Legend of Zelda: Link’s Awakening",
+    "de": "https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/The-Legend-of-Zelda-Link-s-Awakening-1514327.html",
+    "us": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-links-awakening-switch/",
+    "eu": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaLinksAwakening_image1600w.jpg",
+    "us_hero": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-links-awakening-switch/hero",
+    "kern": "Visuelle Optimierung, HDR (TV)",
+    "sources": ["https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/The-Legend-of-Zelda-Link-s-Awakening-1514327.html"]
+  },
+  {
+    "name": "Fortnite",
+    "de": "https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Fortnite-1510812.html",
+    "us": "https://www.nintendo.com/us/store/products/fortnite-switch/",
+    "eu": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Fortnite_image1600w.jpg",
+    "us_hero": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/f/fortnite-switch/hero",
+    "kern": "60 FPS, höhere Auflösung, zusätzliche Systeme-Features",
+    "sources": ["https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Fortnite-1510812.html"]
+  },
+  {
+    "name": "Apex Legends",
+    "de": "https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Apex-Legends--1910595.html",
+    "us": "https://www.nintendo.com/us/store/products/apex-legends-switch/",
+    "eu": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_ApexLegends_image1600w.jpg",
+    "us_hero": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/apex-legends-switch/hero",
+    "kern": "Bis 60 FPS; 1080p (Dock) / 1792×1008 (Handheld)",
+    "sources": ["https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Apex-Legends--1910595.html"]
+  },
+  {
+    "name": "No Man’s Sky",
+    "de": "https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/No-Man-s-Sky-2197037.html",
+    "us": "https://www.nintendo.com/us/store/products/no-mans-sky-switch/",
+    "eu": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_NoMansSky_image1600w.jpg",
+    "us_hero": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/n/no-mans-sky-switch/hero",
+    "kern": "Enhanced Visuals, Multiplayer u. Features (Switch-2-Upgrade-Pack)",
+    "sources": ["https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/No-Man-s-Sky-2197037.html"]
+  },
+  {
+    "name": "DRAGON QUEST III HD-2D Remake",
+    "de": "https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/DRAGON-QUEST-III-HD-2D-Remake-2639673.html",
+    "us": "https://www.nintendo.com/us/store/products/dragon-quest-iii-hd-2d-remake-switch/",
+    "eu": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_DragonQuestIIIHD2DRemake_image1600w.jpg",
+    "us_hero": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/dragon-quest-iii-hd-2d-remake-switch/hero",
+    "kern": "Performance-Update: schärfere Grafik + Anzeigemodi",
+    "sources": ["https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/DRAGON-QUEST-III-HD-2D-Remake-2639673.html"]
+  },
+  {
+    "name": "The Legend of Zelda: Breath of the Wild – Nintendo Switch 2 Edition",
+    "de": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-breath-of-the-wild-nintendo-switch-2-edition-switch-2/",
+    "us": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-breath-of-the-wild-nintendo-switch-2-edition-upgrade-pack-switch-2/",
+    "eu": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaBreathOfTheWild_image1600w.jpg",
+    "us_hero": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-breath-of-the-wild-switch/hero",
+    "kern": "Upgrade-Pack (Leistungs-Boost: Auflösung/FPS, schnellere Ladezeiten)",
+    "sources": ["https://www.nintendo.com/us/store/"]
+  },
+  {
+    "name": "The Legend of Zelda: Tears of the Kingdom – Nintendo Switch 2 Edition",
+    "de": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-tears-of-the-kingdom-nintendo-switch-2-edition-switch-2/",
+    "us": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-tears-of-the-kingdom-nintendo-switch-2-edition-upgrade-pack-switch-2/",
+    "eu": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaTearsOfTheKingdom_image1600w.jpg",
+    "us_hero": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-tears-of-the-kingdom-switch/hero",
+    "kern": "Upgrade-Pack: Leistungs-Optimierungen",
+    "sources": ["https://www.nintendo.com/us/store/"]
+  },
+  {
+    "name": "Kirby und das vergessene Land – Nintendo Switch 2 Edition + Sternensplitter-Welt",
+    "de": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/Kirby-and-the-Forgotten-Land-Nintendo-Switch-2-Edition-Star-Crossed-World-2787773.html",
+    "us": "https://www.nintendo.com/us/store/products/kirby-and-the-forgotten-land-nintendo-switch-2-edition-plus-star-crossed-world-upgrade-pack-switch-2/",
+    "eu": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_KirbyAndTheForgottenLand_image1600w.jpg",
+    "us_hero": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/k/kirby-and-the-forgotten-land-switch/hero",
+    "kern": "Upgrade-Pack: neue Story + Performance-Verbesserungen",
+    "sources": ["https://www.nintendo.com/en-gb/"]
+  }
+]
