@@ -3,43 +3,49 @@ name: Update New Switch 2 Games
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 */6 * * *" # alle 6 Stunden
+    - cron: "0 */6 * * *"  # alle 6 Stunden
 
 jobs:
   update:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout Repository
+      - name: 📥 Checkout
         uses: actions/checkout@v4
 
-      - name: ⚙️ Setup Node.js
+      - name: ⚙️ Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: 📦 Install Dependencies
-        run: npm install   # <-- FIX: kein `ci` mehr
-
-      - name: ▶️ Run fetch script
-        id: fetch
+      - name: 📦 Install deps
         run: |
-          echo "🚀 Starte Scraper..."
+          npm install
+          npx playwright install --with-deps chromium
+
+      - name: ▶️ Run scraper
+        run: |
           set -e
           node scripts/fetch-switch2.js || echo "SCRAPER_FAILED=true" >> $GITHUB_ENV
 
-      - name: 💾 Commit and Push changes
+      - name: 💾 Commit JSON
         if: env.SCRAPER_FAILED != 'true'
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add new_switch2_games.json
-          git commit -m "Update Switch 2 games JSON"
-          git push
+          if git diff --cached --quiet; then
+            echo "No JSON changes."
+          else
+            git commit -m "chore: update new_switch2_games.json"
+            git push
+          fi
 
-      - name: 📸 Upload Debug Screenshot
+      - name: 📸 Upload debug artifacts (if failed)
         if: env.SCRAPER_FAILED == 'true'
         uses: actions/upload-artifact@v4
         with:
-          name: scraper_debug
-          path: scraper_debug.png
+          name: switch2-scraper-debug
+          path: |
+            debug_list.html
+            debug_list.png
