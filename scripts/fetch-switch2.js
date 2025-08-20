@@ -4,57 +4,53 @@ import fs from "fs";
 
 (async () => {
   console.log("🚀 Starte Scraper...");
-
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
 
-  // US Nintendo Store – Switch 2 Games
-  const url =
-    "https://www.nintendo.com/us/store/games/nintendo-switch-2-games/#sort=df&p=0";
-  await page.goto(url, { waitUntil: "domcontentloaded", timeout: 120000 });
-
+  const url = "https://www.nintendo.com/us/store/games/nintendo-switch-2-games/#sort=df&p=0";
   console.log("🌍 Gehe auf Nintendo US Store Seite...");
-  await page.waitForSelector("[data-grid-item]", { timeout: 60000 });
-  console.log("✅ Spieleliste gefunden!");
+  await page.goto(url, { waitUntil: "networkidle" });
+  await page.waitForLoadState("domcontentloaded");
 
-  // Alle Spiele extrahieren
-  const games = await page.$$eval("[data-grid-item]", (cards) =>
-    cards.map((card) => {
-      const title =
-        card.querySelector("a[data-qa='product-title']")?.innerText?.trim() ||
-        null;
+  console.log("⏳ Warte auf game-card Elemente...");
+  await page.waitForSelector("game-card", { timeout: 120000 });
 
+  const games = await page.$$eval("game-card", cards =>
+    cards.map(card => {
+      const title = card.querySelector(".game-title")?.textContent?.trim() || "Unbekannt";
+      const link = card.querySelector("a")?.href || null;
+
+      // Preis – Nintendo US hat meist data-price oder innerhalb price-text
       const price =
-        card.querySelector("span[data-qa='product-price']")?.innerText?.trim() ||
+        card.querySelector(".price")?.textContent?.trim() ||
+        card.getAttribute("data-price") ||
         null;
 
+      // Release-Datum
       const release =
-        card.querySelector("span[data-qa='product-release-date']")
-          ?.innerText?.trim() || null;
+        card.querySelector(".release-date")?.textContent?.trim() ||
+        card.getAttribute("data-release-date") ||
+        null;
 
-      const link =
-        card.querySelector("a[data-qa='product-title']")?.href || null;
-
-      const img =
+      // Thumbnail (Hero-Image)
+      let thumb =
         card.querySelector("img")?.src ||
-        "https://via.placeholder.com/270x153?text=No+Image";
+        card.querySelector("source")?.srcset ||
+        null;
 
       return {
         title,
-        price,
-        releaseDate: release,
         link,
-        thumbnail: img,
+        price,
+        release,
+        thumb,
       };
     })
   );
 
+  console.log(`✅ ${games.length} Spiele gefunden`);
+  fs.writeFileSync("new_switch2_games.json", JSON.stringify(games, null, 2));
+  console.log("💾 JSON gespeichert: new_switch2_games.json");
+
   await browser.close();
-
-  console.log(`📦 ${games.length} Spiele gefunden.`);
-
-  // JSON speichern
-  const outputPath = "./new_switch2_games.json";
-  fs.writeFileSync(outputPath, JSON.stringify(games, null, 2));
-  console.log(`💾 Daten gespeichert in ${outputPath}`);
 })();
