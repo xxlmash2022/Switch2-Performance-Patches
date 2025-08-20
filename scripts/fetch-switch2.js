@@ -12,31 +12,27 @@ import fs from "fs";
   await page.goto(url, { waitUntil: "networkidle" });
   await page.waitForLoadState("domcontentloaded");
 
-  console.log("⏳ Warte auf game-card Elemente...");
-  await page.waitForSelector("game-card", { timeout: 120000 });
+  console.log("⏳ Warte auf data-grid-item Elemente...");
+  await page.waitForSelector("[data-grid-item]", { timeout: 120000 });
 
-  const games = await page.$$eval("game-card", cards =>
-    cards.map(card => {
-      const title = card.querySelector(".game-title")?.textContent?.trim() || "Unbekannt";
-      const link = card.querySelector("a")?.href || null;
+  const games = await page.$$eval("[data-grid-item]", items =>
+    items.map(item => {
+      const title = item.querySelector("h3")?.textContent?.trim() || "Unbekannt";
+      const link = item.querySelector("a")?.href || null;
 
-      // Preis – Nintendo US hat meist data-price oder innerhalb price-text
+      // Preis
       const price =
-        card.querySelector(".price")?.textContent?.trim() ||
-        card.getAttribute("data-price") ||
+        item.querySelector(".msrp, .price, [data-test='price']")?.textContent?.trim() ||
         null;
 
-      // Release-Datum
+      // Release
       const release =
-        card.querySelector(".release-date")?.textContent?.trim() ||
-        card.getAttribute("data-release-date") ||
+        item.querySelector(".release-date")?.textContent?.trim() ||
+        item.getAttribute("data-release-date") ||
         null;
 
-      // Thumbnail (Hero-Image)
-      let thumb =
-        card.querySelector("img")?.src ||
-        card.querySelector("source")?.srcset ||
-        null;
+      // Thumbnail
+      let thumb = item.querySelector("img")?.src || null;
 
       return {
         title,
