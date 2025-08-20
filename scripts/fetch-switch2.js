@@ -1,7 +1,9 @@
 // scripts/fetch-switch2.js
-const fs = require("fs");
-const path = require("path");
-const { chromium } = require("playwright");
+import fs from "fs";
+import path from "path";
+import { chromium } from "playwright";
+
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 (async () => {
   console.log("🚀 Starte Scraper...");
