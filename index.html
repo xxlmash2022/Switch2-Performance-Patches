@@ -43,4 +43,226 @@
     #debug-panel>summary{ cursor:pointer; padding:10px 12px; font-weight:700 }
     #dbg-meta{ display:flex; gap:18px; flex-wrap:wrap; padding:0 12px 10px; color:#9aa7b2 }
     #dbg-log{ max-height:260px; overflow:auto; background:#0b0e11; margin:0 12px 12px; padding:10px; border:1px dashed #26303b; border-radius:8px;
-              font:12px/1.45 ui-monospace,SFM
+              font:12px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; color:#e6edf3 }
+    .dbg-ok{ color:#26c281 } .dbg-warn{ color:#ffcc66 } .dbg-err{ color:#ff6b6b }
+  </style>
+</head>
+<body>
+  <!-- Hero-Banner mit Fallback-Loader -->
+  <div class="hero-wrap">
+    <img id="hero" class="hero"
+         alt="Nintendo Switch 2 – Spiele & Performance-Patches"
+         data-src1="assets/switch2-banner.png"
+         data-src2="assets/switch2-banner.jpg"
+         data-src3="assets/banner-fallback.svg">
+    <div class="hero-tag">Stand: <time id="today"></time></div>
+  </div>
+
+  <!-- Globale Suche -->
+  <div class="toolbar">
+    <div class="search"><input id="q" type="search" placeholder="Suche nach Spielen – filtert beide Tabellen …"></div>
+    <button id="clearQ" class="btn-clear" type="button">Zurücksetzen</button>
+  </div>
+
+  <!-- Tabs (mit dynamischer Anzahl in Klammern) -->
+  <nav class="tabs" role="tablist" aria-label="Listenwahl">
+    <button class="tab-btn" role="tab" id="tab-perf" data-base="Performance-Patches" aria-selected="true" aria-controls="panel-perf">Performance-Patches (0)</button>
+    <button class="tab-btn" role="tab" id="tab-new"  data-base="Neue Switch 2 Spiele" aria-selected="false" aria-controls="panel-new">Neue Switch 2 Spiele (0)</button>
+  </nav>
+
+  <div class="wrap">
+    <!-- Panel 1: Performance (JSON-basiert) -->
+    <section id="panel-perf" class="table-card" role="tabpanel" aria-labelledby="tab-perf">
+      <table id="games-perf">
+        <thead>
+          <tr><th>Thumbnail</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Kern-Patch-Inhalte</th><th>Quelle</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- Panel 2: Neue Spiele (JSON + Preis in €) -->
+    <section id="panel-new" class="table-card hidden" role="tabpanel" aria-labelledby="tab-new">
+      <table id="games-new">
+        <thead>
+          <tr><th>Thumbnail</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Preis (€)</th><th>Quelle</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <p class="foot" id="newCount"></p>
+    </section>
+  </div>
+
+  <!-- Debug-Panel -->
+  <details id="debug-panel"><summary>🔧 Debug</summary>
+    <div id="dbg-meta">
+      <div>Perf-JSON: <b id="dbg-perf">init</b></div>
+      <div>New-JSON: <b id="dbg-new">init</b></div>
+      <div>Perf Items: <b id="dbg-perf-items">0</b></div>
+      <div>New Items: <b id="dbg-new-items">0</b></div>
+      <div>Bildfehler: <b id="dbg-img-errors">0</b></div>
+    </div>
+    <pre id="dbg-log"></pre>
+  </details>
+
+  <script>
+    // Datum im Banner
+    try { document.getElementById('today').textContent = new Intl.DateTimeFormat('de-DE').format(new Date()); } catch(_){}
+
+    // Hero-Loader
+    (function(){
+      const img = document.getElementById('hero');
+      const tries = [img.dataset.src1, img.dataset.src2, img.dataset.src3].filter(Boolean);
+      let i=0; function next(){ if(i>=tries.length) return; img.src = tries[i++]; }
+      img.onerror = next; img.onload = ()=>{ if(!img.naturalWidth) next(); };
+      next();
+    })();
+
+    // Tabs
+    const tabPerf = document.getElementById('tab-perf');
+    const tabNew  = document.getElementById('tab-new');
+    const panelPerf = document.getElementById('panel-perf');
+    const panelNew  = document.getElementById('panel-new');
+    function select(tab){ const isPerf = tab.id === 'tab-perf'; tabPerf.setAttribute('aria-selected', isPerf); tabNew.setAttribute('aria-selected', !isPerf); panelPerf.classList.toggle('hidden', !isPerf); panelNew.classList.toggle('hidden', isPerf); }
+    tabPerf.addEventListener('click', () => select(tabPerf));
+    tabNew .addEventListener('click', () => select(tabNew ));
+
+    // Button-Count dynamisch
+    function setTabCount(btn, count){
+      const base = btn.getAttribute('data-base');
+      btn.textContent = `${base} (${count})`;
+      btn.setAttribute('aria-label', `${base} (${count})`);
+    }
+
+    // Debug helpers
+    const dbg = {
+      logEl: document.getElementById('dbg-log'),
+      perfEl: document.getElementById('dbg-perf'),
+      newEl:  document.getElementById('dbg-new'),
+      perfItemsEl: document.getElementById('dbg-perf-items'),
+      newItemsEl:  document.getElementById('dbg-new-items'),
+      imgErrEl: document.getElementById('dbg-img-errors'),
+      imgErrors: 0,
+      log(msg, cls){ const span=document.createElement('span'); span.textContent = `[DBG] ${msg}\n`; if(cls) span.className=cls; dbg.logEl.appendChild(span); dbg.logEl.scrollTop=dbg.logEl.scrollHeight; }
+    };
+
+    // Bild-Fallback
+    function svgData(title, reason){
+      const svg = encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='270' height='153'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop offset='0' stop-color='#1b2a33'/><stop offset='1' stop-color='#0f1720'/></linearGradient></defs><rect width='100%' height='100%' fill='url(#g)'/><text x='16' y='84' font-family='system-ui,Segoe UI,Arial' font-size='20' fill='#e6edf3'>${title}</text><text x='16' y='120' font-family='system-ui,Segoe UI,Arial' font-size='12' fill='#9aa7b2'>${reason}</text></svg>`);
+      return `data:image/svg+xml;charset=utf-8,${svg}`;
+    }
+    function prox(u){ return u ? ('https://images.weserv.nl/?url=' + encodeURIComponent(u.replace(/^https?:\/\//,''))) : ''; }
+    function initThumb(img){
+      const tryList = [img.dataset.src1, img.dataset.src2, img.dataset.src3, img.dataset.src4].filter(Boolean);
+      let i = 0;
+      function next(){ if(i>=tryList.length){ dbg.imgErrors++; dbg.imgErrEl.textContent = String(dbg.imgErrors); img.src = svgData(img.alt.replace('Thumbnail ','')||'Spiel','Kein Bild verfügbar'); return; } img.src = tryList[i++]; }
+      img.onerror = next; img.onload = ()=>{ if(!img.naturalWidth) next(); };
+      next();
+    }
+
+    // Renderer
+    function rowPerf(e){
+      const link = e.de || e.us || '#';
+      const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
+      const title = e.name || 'Unbekannt';
+      const kern  = e.kern || '—';
+      const img1  = e.img || e.img2 || e.eu || '';  // og:image bevorzugt
+      const img2  = e.img2 || e.us_hero || '';      // hero fallback
+      return `<tr data-name="${title.toLowerCase()}">
+        <td><a href="${link}" target="_blank" rel="noopener"><img class="thumb" alt="Thumbnail ${title}"
+             data-src1="${img1}" data-src2="${img2}" data-src3="${prox(img1)}" data-src4="${prox(img2)}"></a></td>
+        <td class="game"><a href="${link}" target="_blank" rel="noopener">${title}</a></td>
+        <td class="kernCell">${kern}</td>
+        <td class="source"><a href="${link}" target="_blank" rel="noopener">${label}</a></td>
+      </tr>`;
+    }
+    function rowNew(e){
+      const link = e.de || e.us || '#';
+      const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
+      const title = e.name || 'Unbekannt';
+      const img1  = e.img || e.img2 || '';   // og:image bevorzugt
+      const img2  = e.img2 || e.img  || '';  // hero fallback
+      const price = (typeof e.price_eur === 'number') ? new Intl.NumberFormat('de-DE', {style:'currency', currency:'EUR'}).format(e.price_eur) : '—';
+      return `<tr data-name="${title.toLowerCase()}">
+        <td><a href="${link}" target="_blank" rel="noopener"><img class="thumb" alt="Thumbnail ${title}"
+             data-src1="${img1}" data-src2="${img2}" data-src3="${prox(img1)}" data-src4="${prox(img2)}"></a></td>
+        <td class="game"><a href="${link}" target="_blank" rel="noopener">${title}</a></td>
+        <td class="price">${price}</td>
+        <td class="source"><a href="${link}" target="_blank" rel="noopener">${label}</a></td>
+      </tr>`;
+    }
+
+    async function loadJSON(url, labelEl){
+      try{
+        const r = await fetch(url, {cache:'no-cache'});
+        if(!r.ok) throw new Error('HTTP '+r.status);
+        const data = await r.json();
+        labelEl.textContent = 'ok'; labelEl.className = 'dbg-ok';
+        return Array.isArray(data) ? data : [];
+      }catch(e){
+        dbg.log(`Fetch ${url} failed: ${e.message}`, 'dbg-err');
+        labelEl.textContent = 'Fehler'; labelEl.className = 'dbg-err';
+        return [];
+      }
+    }
+
+    function ts(item){
+      // release_date erwartet ISO (YYYY-MM-DD)
+      const t = Date.parse(item.release_date || '');
+      return isNaN(t) ? 0 : t;
+    }
+
+    let perfAll = [];
+    let newAll  = [];
+
+    // Load Performance (sort nach Datum, neueste zuerst)
+    (async function(){
+      const body = document.querySelector('#games-perf tbody');
+      perfAll = await loadJSON('./performance_patches.json', dbg.perfEl);
+      perfAll.sort((a,b)=> ts(b)-ts(a));
+      renderPerf(perfAll);
+      setTabCount(tabPerf, perfAll.length);
+    })();
+
+    // Load Neue Spiele (sort nach Datum, neueste zuerst)
+    (async function(){
+      const body = document.querySelector('#games-new tbody');
+      newAll = await loadJSON('./new_switch2_games.json', dbg.newEl);
+      newAll.sort((a,b)=> ts(b)-ts(a));
+      renderNew(newAll);
+      setTabCount(tabNew, newAll.length);
+      document.getElementById('newCount').textContent = 'Anzahl: ' + newAll.length;
+    })();
+
+    function renderPerf(list){
+      const body = document.querySelector('#games-perf tbody');
+      body.innerHTML = list.map(rowPerf).join('');
+      body.querySelectorAll('img.thumb').forEach(initThumb);
+      dbg.perfItemsEl.textContent = String(list.length);
+    }
+    function renderNew(list){
+      const body = document.querySelector('#games-new tbody');
+      body.innerHTML = list.map(rowNew).join('');
+      body.querySelectorAll('img.thumb').forEach(initThumb);
+      dbg.newItemsEl.textContent = String(list.length);
+    }
+
+    // Suche (übergreifend beide Tabellen)
+    const q = document.getElementById('q');
+    const clearQ = document.getElementById('clearQ');
+    function applySearch(){
+      const s = (q.value || '').trim().toLowerCase();
+      const perf = s ? perfAll.filter(e => (e.name||'').toLowerCase().includes(s) || (e.kern||'').toLowerCase().includes(s)) : perfAll;
+      const neu  = s ? newAll .filter(e => (e.name||'').toLowerCase().includes(s)) : newAll;
+      renderPerf(perf);
+      renderNew(neu);
+      setTabCount(tabPerf, perf.length);
+      setTabCount(tabNew, neu.length);
+      document.getElementById('newCount').textContent = 'Anzahl: ' + neu.length + (s ? ` (gefiltert)` : '');
+    }
+    q.addEventListener('input', applySearch);
+    clearQ.addEventListener('click', ()=>{ q.value=''; applySearch(); });
+
+  </script>
+</body>
+</html>
