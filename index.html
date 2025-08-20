@@ -11,26 +11,33 @@
 
     /* Hero-Banner */
     .hero-wrap{ position:relative; }
-    .hero{ width:100%; height:240px; object-fit:cover; display:block; border-bottom:1px solid var(--table); background:#0b0e11; }
+    .hero{ width:100%; height:220px; object-fit:cover; display:block; border-bottom:1px solid var(--table); background:#0b0e11; }
     .hero-tag{ position:absolute; right:16px; bottom:12px; background:rgba(0,0,0,.5); border:1px solid var(--table); color:var(--muted);
                padding:6px 10px; border-radius:10px; font-size:.9rem; backdrop-filter: blur(2px); }
     @media (min-width: 900px){ .hero{ height:320px; } }
 
+    /* Toolbar & Tabs */
     .toolbar{ display:flex; gap:8px; padding:12px 20px 6px; align-items:center; flex-wrap:wrap; }
-    .search{ flex:1 1 280px; max-width:720px; }
+    .search{ flex:1 1 240px; max-width:900px; }
     .search input{ width:100%; padding:10px 12px; border-radius:10px; border:1px solid var(--table); background:var(--card); color:var(--text); }
     .btn-clear{ padding:10px 12px; border-radius:10px; border:1px solid var(--table); background:var(--card); color:var(--muted); cursor:pointer; }
     .tabs{ display:flex; gap:8px; padding:8px 20px 12px; flex-wrap:wrap; }
     .tab-btn{ background:var(--card); border:1px solid var(--table); color:var(--text); padding:8px 12px; border-radius:999px; cursor:pointer; font-weight:600; }
     .tab-btn[aria-selected="true"]{ outline:2px solid var(--accent); }
+    .tabs::-webkit-scrollbar{ height:8px; }
 
     .wrap{ padding:0 20px 28px; }
     .table-card{ background:var(--card); border:1px solid var(--table); border-radius:14px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.35); }
-    table{ width:100%; border-collapse:collapse; }
-    thead th{ text-align:left; padding:14px 12px; font-size:.92rem; color:var(--muted); border-bottom:1px solid var(--table); font-weight:600; }
+    /* Mobile: Table in Scroller-Hülle, um Spalten/Größen zu bewahren */
+    .table-scroller{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    table{ width:100%; border-collapse:collapse; table-layout:auto; min-width: 920px; } /* min-width hält Spalten stabil */
+    thead th{ text-align:left; padding:14px 12px; font-size:.92rem; color:var(--muted); border-bottom:1px solid var(--table); font-weight:600; white-space:nowrap; }
     tbody td{ padding:10px 12px; border-bottom:1px solid var(--table); vertical-align:middle; }
     tbody tr:hover{ background:rgba(255,255,255,.02); }
+
+    /* Thumbnails: Desktop-Größe bleibt; auf Mobil wird gescrollt statt skaliert */
     .thumb{ width:270px; height:153px; border-radius:8px; object-fit:cover; display:block; border:1px solid #222b36; }
+
     .game a{ color:var(--text); text-decoration:none; font-weight:600; } .game a:hover{ text-decoration:underline; }
     .kernCell{ color:var(--text); }
     .source a{ color:var(--muted); text-decoration:none; } .source a:hover{ text-decoration:underline; }
@@ -45,6 +52,14 @@
     #dbg-log{ max-height:260px; overflow:auto; background:#0b0e11; margin:0 12px 12px; padding:10px; border:1px dashed #26303b; border-radius:8px;
               font:12px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; color:#e6edf3 }
     .dbg-ok{ color:#26c281 } .dbg-warn{ color:#ffcc66 } .dbg-err{ color:#ff6b6b }
+
+    /* Kleine Bildschirme: engeres Padding, Buttons nebeneinander scrollbar */
+    @media (max-width:600px){
+      .toolbar{ padding:10px 10px 4px; }
+      .tabs{ padding:8px 10px 10px; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+      .wrap{ padding:0 10px 24px; }
+      thead th, tbody td{ padding:10px 10px; }
+    }
   </style>
 </head>
 <body>
@@ -60,7 +75,7 @@
 
   <!-- Globale Suche -->
   <div class="toolbar">
-    <div class="search"><input id="q" type="search" placeholder="Suche nach Spielen – filtert beide Tabellen …"></div>
+    <div class="search"><input id="q" type="search" placeholder="Suche nach Spielen – filtert beide Tabellen …" autocomplete="off"></div>
     <button id="clearQ" class="btn-clear" type="button">Zurücksetzen</button>
   </div>
 
@@ -73,22 +88,26 @@
   <div class="wrap">
     <!-- Panel 1: Performance (JSON-basiert) -->
     <section id="panel-perf" class="table-card" role="tabpanel" aria-labelledby="tab-perf">
-      <table id="games-perf">
-        <thead>
-          <tr><th>Thumbnail</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Kern-Patch-Inhalte</th><th>Quelle</th></tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <div class="table-scroller">
+        <table id="games-perf">
+          <thead>
+            <tr><th>Thumbnail</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Kern-Patch-Inhalte</th><th>Quelle</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </section>
 
     <!-- Panel 2: Neue Spiele (JSON + Preis in €) -->
     <section id="panel-new" class="table-card hidden" role="tabpanel" aria-labelledby="tab-new">
-      <table id="games-new">
-        <thead>
-          <tr><th>Thumbnail</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Preis (€)</th><th>Quelle</th></tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <div class="table-scroller">
+        <table id="games-new">
+          <thead>
+            <tr><th>Thumbnail</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Preis (€)</th><th>Quelle</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
       <p class="foot" id="newCount"></p>
     </section>
   </div>
@@ -166,7 +185,7 @@
       const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
       const title = e.name || 'Unbekannt';
       const kern  = e.kern || '—';
-      const img1  = e.img || e.img2 || e.eu || '';  // og:image bevorzugt
+      const img1  = e.img || e.img2 || e.eu || '';  // bevorzugt og:image
       const img2  = e.img2 || e.us_hero || '';      // hero fallback
       return `<tr data-name="${title.toLowerCase()}">
         <td><a href="${link}" target="_blank" rel="noopener"><img class="thumb" alt="Thumbnail ${title}"
@@ -207,7 +226,6 @@
     }
 
     function ts(item){
-      // release_date erwartet ISO (YYYY-MM-DD)
       const t = Date.parse(item.release_date || '');
       return isNaN(t) ? 0 : t;
     }
@@ -215,18 +233,16 @@
     let perfAll = [];
     let newAll  = [];
 
-    // Load Performance (sort nach Datum, neueste zuerst)
+    // Load Performance (sort: neueste zuerst)
     (async function(){
-      const body = document.querySelector('#games-perf tbody');
       perfAll = await loadJSON('./performance_patches.json', dbg.perfEl);
       perfAll.sort((a,b)=> ts(b)-ts(a));
       renderPerf(perfAll);
       setTabCount(tabPerf, perfAll.length);
     })();
 
-    // Load Neue Spiele (sort nach Datum, neueste zuerst)
+    // Load Neue Spiele (sort: neueste zuerst)
     (async function(){
-      const body = document.querySelector('#games-new tbody');
       newAll = await loadJSON('./new_switch2_games.json', dbg.newEl);
       newAll.sort((a,b)=> ts(b)-ts(a));
       renderNew(newAll);
@@ -262,7 +278,6 @@
     }
     q.addEventListener('input', applySearch);
     clearQ.addEventListener('click', ()=>{ q.value=''; applySearch(); });
-
   </script>
 </body>
 </html>
