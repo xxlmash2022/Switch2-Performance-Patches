@@ -1,0 +1,3 @@
+npm init -y
+npm i playwright
+npx playwright install chromium
