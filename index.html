@@ -18,70 +18,45 @@
 
     /* Toolbar & Tabs */
     .toolbar{ display:flex; gap:8px; padding:12px 20px 6px; align-items:center; flex-wrap:wrap; }
-    .search{ flex:1 1 240px; max-width:780px; }
+    .search{ flex:1 1 240px; max-width:880px; }
     .search input{ width:100%; padding:10px 12px; border-radius:10px; border:1px solid var(--table); background:var(--card); color:var(--text); }
     .btn-clear{ padding:10px 12px; border-radius:10px; border:1px solid var(--table); background:var(--card); color:var(--muted); cursor:pointer; }
-
-    .toggle{ display:flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid var(--table); border-radius:12px; background:var(--card); color:var(--muted); }
-    .toggle input{ width:18px; height:18px; accent-color:#26c281; }
-
     .tabs{ display:flex; gap:8px; padding:8px 20px 12px; flex-wrap:wrap; }
     .tab-btn{ background:var(--card); border:1px solid var(--table); color:var(--text); padding:8px 12px; border-radius:999px; cursor:pointer; font-weight:600; }
     .tab-btn[aria-selected="true"]{ outline:2px solid var(--accent); }
 
     .wrap{ padding:0 20px 28px; }
 
-    /* TABLE (Desktop) */
-    .table-card{ background:var(--card); border:1px solid var(--table); border-radius:14px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.35); }
-    .table-scroller{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
-    table{ width:100%; border-collapse:collapse; table-layout:fixed; min-width: 980px; }
-    col.col-img{ width:290px; }  /* 270px Bild + Puffer */
-    col.col-title{ width:auto; }
-    col.col-mid{ width:360px; }
-    col.col-src{ width:180px; }
-    thead th{ text-align:left; padding:14px 12px; font-size:.92rem; color:var(--muted); border-bottom:1px solid var(--table); font-weight:600; white-space:nowrap; }
-    tbody td{ padding:10px 12px; border-bottom:1px solid var(--table); vertical-align:middle; }
-    tbody tr:hover{ background:rgba(255,255,255,.02); }
-    .thumb{ width:270px; height:153px; border-radius:8px; object-fit:cover; display:block; border:1px solid #222b36; box-shadow:0 4px 12px rgba(0,0,0,.25); }
-    .game a{ color:var(--text); text-decoration:none; font-weight:600; } .game a:hover{ text-decoration:underline; }
-    .kernCell{ color:var(--text); }
-    .source a{ color:var(--muted); text-decoration:none; } .source a:hover{ text-decoration:underline; }
-    .price{ white-space:nowrap; font-weight:600; }
+    /* Tabellen weiter rendern, aber visuell ausblenden */
+    .table-card{ display:none; }
 
-    /* CARDS */
-    .cards-wrap{ margin-top:14px; display:none; } /* Desktop standard: aus */
+    /* Kartenlayout */
+    .cards-wrap{ margin-top:14px; }
     .cards-grid{ display:grid; gap:14px; }
-    .card{ background:linear-gradient(180deg, var(--card), var(--card2)); border:1px solid var(--table); border-radius:14px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.35); }
-    .card-img{ width:100%; aspect-ratio:16/9; object-fit:cover; display:block; border-bottom:1px solid var(--table); }
-    .card-body{ padding:12px; display:grid; gap:8px; }
-    .card-title{ margin:0; font-size:1rem; line-height:1.25; }
-    .card-title a{ color:var(--text); text-decoration:none; font-weight:700; }
-    .card-title a:hover{ text-decoration:underline; }
-    .badge{ display:inline-block; font-size:.8rem; color:#e6edf3; background:rgba(38,194,129,.12); border:1px solid var(--ring); padding:2px 8px; border-radius:999px; }
-    .meta{ color:var(--muted); font-size:.85rem; }
-    .src a{ color:var(--muted); text-decoration:none; font-size:.85rem; }
-    .src a:hover{ text-decoration:underline; }
-    .price-badge{ justify-self:start; }
-
-    /* Sichtbarkeit:
-       <900px → NUR Karten
-       ≥900px → Tabelle; Karten optional via .desktop-enhanced NUR im aktiven Panel */
-    .desktop-only{ display:none; }
+    /* Desktop IMMER 3 Spalten */
     @media (min-width: 900px){
-      .desktop-only{ display:block; }
-      /* .cards-wrap bleibt standardmäßig aus; .desktop-enhanced schaltet sie im aktiven Panel ein */
-      .cards-wrap.desktop-enhanced{ display:block; }
-      .cards-wrap.desktop-enhanced .cards-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .cards-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
     @media (max-width: 899px){
-      .cards-wrap{ display:block; }
       .cards-grid{ grid-template-columns: 1fr; }
     }
     @media (min-width: 600px) and (max-width: 899px){
       .cards-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
     }
 
-    .hidden{ display:none; }
+    .card{ background:linear-gradient(180deg, var(--card), var(--card2)); border:1px solid var(--table);
+           border-radius:14px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.35); }
+    .card-img{ width:100%; aspect-ratio:16/9; object-fit:cover; display:block; border-bottom:1px solid var(--table); }
+    .card-body{ padding:10px 12px; display:grid; gap:8px; }
+    .card-title{ margin:0; font-size:1rem; line-height:1.25; }
+    .card-title a{ color:var(--text); text-decoration:none; font-weight:700; }
+    .card-title a:hover{ text-decoration:underline; }
+    .meta{ color:var(--muted); font-size:.85rem; }
+    .src a{ color:var(--muted); text-decoration:none; font-size:.85rem; }
+    .src a:hover{ text-decoration:underline; }
+    .badge{ display:inline-block; font-size:.78rem; color:#e6edf3; background:rgba(38,194,129,.12); border:1px solid var(--ring); padding:2px 8px; border-radius:999px; }
+    .price-badge{ justify-self:start; }
+    .clamp-2{ display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
 
     /* Debug */
     #debug-panel{ margin:16px 20px; background:#0f1318; border:1px solid var(--table); border-radius:10px; }
@@ -96,7 +71,6 @@
       .toolbar{ padding:10px 10px 4px; }
       .tabs{ padding:8px 10px 10px; overflow-x:auto; -webkit-overflow-scrolling:touch; }
       .wrap{ padding:0 10px 24px; }
-      thead th, tbody td{ padding:10px 10px; }
     }
   </style>
 </head>
@@ -113,11 +87,8 @@
 
   <!-- Toolbar -->
   <div class="toolbar">
-    <div class="search"><input id="q" type="search" placeholder="Suche nach Spielen – filtert beide Tabs …" autocomplete="off"></div>
+    <div class="search"><input id="q" type="search" placeholder="Suche nach Spielen – filtert beide Listen …" autocomplete="off"></div>
     <button id="clearQ" class="btn-clear" type="button">Zurücksetzen</button>
-    <label class="toggle" title="Zusätzlich Karten-Grid im aktiven Desktop-Tab anzeigen">
-      <input type="checkbox" id="desktopGrid"> Kartenansicht am Desktop
-    </label>
   </div>
 
   <!-- Tabs (mit dynamischer Anzahl in Klammern) -->
@@ -129,13 +100,10 @@
   <div class="wrap">
     <!-- Panel 1: Performance -->
     <section id="panel-perf" role="tabpanel" aria-labelledby="tab-perf">
-      <!-- Desktop-Tabelle -->
-      <div class="table-card desktop-only">
+      <!-- Unsichtbare Tabelle (SEO/Struktur), sichtbar sind Karten -->
+      <div class="table-card">
         <div class="table-scroller">
-          <table id="games-perf">
-            <colgroup>
-              <col class="col-img"><col class="col-title"><col class="col-mid"><col class="col-src">
-            </colgroup>
+          <table id="games-perf" aria-hidden="true">
             <thead>
               <tr><th>Spiele</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Kern-Patch-Inhalte</th><th>Quelle</th></tr>
             </thead>
@@ -144,20 +112,16 @@
         </div>
       </div>
       <!-- Karten -->
-      <div class="cards-wrap" id="wrap-perf">
+      <div class="cards-wrap">
         <div id="cards-perf" class="cards-grid"></div>
       </div>
     </section>
 
     <!-- Panel 2: Neue Spiele -->
     <section id="panel-new" class="hidden" role="tabpanel" aria-labelledby="tab-new">
-      <!-- Desktop-Tabelle -->
-      <div class="table-card desktop-only">
+      <div class="table-card">
         <div class="table-scroller">
-          <table id="games-new">
-            <colgroup>
-              <col class="col-img"><col class="col-title"><col class="col-mid"><col class="col-src">
-            </colgroup>
+          <table id="games-new" aria-hidden="true">
             <thead>
               <tr><th>Spiele</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Preis (€)</th><th>Quelle</th></tr>
             </thead>
@@ -166,7 +130,7 @@
         </div>
       </div>
       <!-- Karten -->
-      <div class="cards-wrap" id="wrap-new">
+      <div class="cards-wrap">
         <div id="cards-new" class="cards-grid"></div>
       </div>
       <p class="foot" id="newCount"></p>
@@ -203,15 +167,12 @@
     const tabNew  = document.getElementById('tab-new');
     const panelPerf = document.getElementById('panel-perf');
     const panelNew  = document.getElementById('panel-new');
-    function isPerfActive(){ return !panelPerf.classList.contains('hidden'); }
     function select(tab){
       const showPerf = tab.id === 'tab-perf';
       tabPerf.setAttribute('aria-selected', showPerf);
       tabNew .setAttribute('aria-selected', !showPerf);
       panelPerf.classList.toggle('hidden', !showPerf);
       panelNew .classList.toggle('hidden', showPerf);
-      // Kartenansicht nur für das aktive Panel schalten
-      applyDesktopCards(document.getElementById('desktopGrid').checked);
     }
     tabPerf.addEventListener('click', () => select(tabPerf));
     tabNew .addEventListener('click', () => select(tabNew ));
@@ -254,21 +215,6 @@
     function ts(item){ const t = Date.parse(item.release_date || ''); return isNaN(t) ? 0 : t; }
 
     // Renderer
-    function rowPerf(e){
-      const link = e.de || e.us || '#';
-      const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
-      const title = e.name || 'Unbekannt';
-      const kern  = e.kern || '—';
-      const img1  = e.img || e.img2 || e.eu || '';
-      const img2  = e.img2 || e.us_hero || '';
-      return `<tr data-name="${title.toLowerCase()}">
-        <td><a href="${link}" target="_blank" rel="noopener"><img class="thumb" alt="Thumbnail ${title}"
-             data-src1="${img1}" data-src2="${img2}" data-src3="${prox(img1)}" data-src4="${prox(img2)}"></a></td>
-        <td class="game"><a href="${link}" target="_blank" rel="noopener">${title}</a><div class="meta">${e.release_date?`Release: ${fmtDate(e.release_date)}`:''}</div></td>
-        <td class="kernCell">${kern}</td>
-        <td class="source"><a href="${link}" target="_blank" rel="noopener">${label}</a></td>
-      </tr>`;
-    }
     function cardPerf(e){
       const link = e.de || e.us || '#';
       const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
@@ -284,26 +230,10 @@
         <div class="card-body">
           <h3 class="card-title"><a href="${link}" target="_blank" rel="noopener">${title}</a></h3>
           <div class="meta">${rel}</div>
-          <div><span class="badge">Patch</span> <span class="meta">${e.kern || '—'}</span></div>
+          <div class="meta clamp-2"><span class="badge">Patch</span> ${e.kern || '—'}</div>
           <div class="src"><a href="${link}" target="_blank" rel="noopener">${label}</a></div>
         </div>
       </article>`;
-    }
-
-    function rowNew(e){
-      const link = e.de || e.us || '#';
-      const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
-      const title = e.name || 'Unbekannt';
-      const img1  = e.img || e.img2 || '';
-      const img2  = e.img2 || e.img  || '';
-      const price = (typeof e.price_eur === 'number') ? new Intl.NumberFormat('de-DE', {style:'currency', currency:'EUR'}).format(e.price_eur) : '—';
-      return `<tr data-name="${title.toLowerCase()}">
-        <td><a href="${link}" target="_blank" rel="noopener"><img class="thumb" alt="Thumbnail ${title}"
-             data-src1="${img1}" data-src2="${img2}" data-src3="${prox(img1)}" data-src4="${prox(img2)}"></a></td>
-        <td class="game"><a href="${link}" target="_blank" rel="noopener">${title}</a><div class="meta">${e.release_date?`Release: ${fmtDate(e.release_date)}`:''}</div></td>
-        <td class="price">${price}</td>
-        <td class="source"><a href="${link}" target="_blank" rel="noopener">${label}</a></td>
-      </tr>`;
     }
     function cardNew(e){
       const link = e.de || e.us || '#';
@@ -327,6 +257,21 @@
       </article>`;
     }
 
+    function rowPerf(e){ /* unsichtbare Tabelle weiter befüllen (optional) */
+      const link = e.de || e.us || '#';
+      const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
+      const title = e.name || 'Unbekannt';
+      const kern  = e.kern || '—';
+      return `<tr><td>—</td><td>${title}</td><td>${kern}</td><td>${label}</td></tr>`;
+    }
+    function rowNew(e){
+      const link = e.de || e.us || '#';
+      const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
+      const title = e.name || 'Unbekannt';
+      const price = (typeof e.price_eur === 'number') ? new Intl.NumberFormat('de-DE', {style:'currency', currency:'EUR'}).format(e.price_eur) : '—';
+      return `<tr><td>—</td><td>${title}</td><td>${price}</td><td>${label}</td></tr>`;
+    }
+
     async function loadJSON(url, labelEl){
       try{
         const r = await fetch(url, {cache:'no-cache'});
@@ -343,7 +288,6 @@
 
     let perfAll = [];
     let newAll  = [];
-
     function sortNewest(list){ return list.slice().sort((a,b)=> {
       const ta = Date.parse(a.release_date||''); const tb = Date.parse(b.release_date||'');
       if(isNaN(ta) && isNaN(tb)) return a.name.localeCompare(b.name, "de");
@@ -352,26 +296,20 @@
 
     // Render functions
     function renderPerf(list){
-      // table
-      const tbody = document.querySelector('#games-perf tbody');
-      tbody.innerHTML = list.map(rowPerf).join('');
-      tbody.querySelectorAll('img').forEach(initThumb);
-      dbg.perfItemsEl.textContent = String(list.length);
-      // cards
+      // unsichtbare Tabelle (optional)
+      document.querySelector('#games-perf tbody').innerHTML = list.map(rowPerf).join('');
+      // Karten
       const grid = document.getElementById('cards-perf');
       grid.innerHTML = list.map(cardPerf).join('');
       grid.querySelectorAll('img').forEach(initThumb);
+      dbg.perfItemsEl.textContent = String(list.length);
     }
     function renderNew(list){
-      // table
-      const tbody = document.querySelector('#games-new tbody');
-      tbody.innerHTML = list.map(rowNew).join('');
-      tbody.querySelectorAll('img').forEach(initThumb);
-      dbg.newItemsEl.textContent = String(list.length);
-      // cards
+      document.querySelector('#games-new tbody').innerHTML = list.map(rowNew).join('');
       const grid = document.getElementById('cards-new');
       grid.innerHTML = list.map(cardNew).join('');
       grid.querySelectorAll('img').forEach(initThumb);
+      dbg.newItemsEl.textContent = String(list.length);
     }
 
     // Load JSONs
@@ -383,31 +321,7 @@
       setTabCount(tabPerf, perfAll.length);
       setTabCount(tabNew, newAll.length);
       document.getElementById('newCount').textContent = 'Anzahl: ' + newAll.length;
-
-      // Desktop-Kartenansicht initial (Default: an)
-      const toggle = document.getElementById('desktopGrid');
-      const saved = localStorage.getItem('desktopCards');
-      const initial = saved ? saved === '1' : true;
-      toggle.checked = initial;
-      applyDesktopCards(initial);
-      toggle.addEventListener('change', ()=> applyDesktopCards(toggle.checked));
     })();
-
-    // Kartenansicht nur für das aktive Panel an/aus
-    function applyDesktopCards(on){
-      if (!window.matchMedia('(min-width: 900px)').matches) return;
-      const wrapPerf = document.getElementById('wrap-perf');
-      const wrapNew  = document.getElementById('wrap-new');
-      // zuerst beide aus
-      wrapPerf.classList.remove('desktop-enhanced');
-      wrapNew .classList.remove('desktop-enhanced');
-      // dann nur das aktive ggf. an
-      if(on){
-        if(isPerfActive()) wrapPerf.classList.add('desktop-enhanced');
-        else               wrapNew .classList.add('desktop-enhanced');
-      }
-      localStorage.setItem('desktopCards', on ? '1' : '0');
-    }
 
     // Suche (übergreifend beide Listen)
     const q = document.getElementById('q');
@@ -421,8 +335,6 @@
       setTabCount(tabPerf, perf.length);
       setTabCount(tabNew, neu.length);
       document.getElementById('newCount').textContent = 'Anzahl: ' + neu.length + (s ? ` (gefiltert)` : '');
-      // Kartenansicht nach dem Re-Render erneut korrekt NUR fürs aktive Panel anwenden
-      applyDesktopCards(document.getElementById('desktopGrid').checked);
     }
     q.addEventListener('input', applySearch);
     clearQ.addEventListener('click', ()=>{ q.value=''; applySearch(); });
