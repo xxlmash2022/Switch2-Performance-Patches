@@ -8,17 +8,16 @@
   :root { --fg:#0b1220; --muted:#5b6473; --border:#e6e8ec; --bg:#ffffff; }
   html,body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Inter,Ubuntu,"Helvetica Neue",Arial,sans-serif}
   .wrap{max-width:1100px;margin:24px auto;padding:0 16px}
-  .count{font-size:42px;font-weight:800;letter-spacing:0.5px;margin:6px 0 18px}
+  .count{font-size:42px;font-weight:800;letter-spacing:0.5px;margin:6px 0 6px}
+  .date{color:var(--muted);font-size:12px;margin:0 0 18px}
   table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid var(--border);border-radius:14px}
-  thead th{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:#fafbfc}
+  thead th{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:#fafbfc}
   th,td{padding:12px 14px;border-bottom:1px solid var(--border);vertical-align:middle}
   tbody tr:last-child td{border-bottom:0}
-  .thumb{display:flex;align-items:center;gap:10px}
   .thumb img{width:48px;height:48px;object-fit:cover;border-radius:10px;border:1px solid var(--border);background:#f2f3f5}
-  .placeholder{width:48px;height:48px;border-radius:10px;border:1px dashed #c9ced6;display:flex;align-items:center;justify-content:center;font-size:10px;color:#9aa3af;background:repeating-linear-gradient(135deg,#f7f8fa,#f7f8fa 6px,#f1f3f5 6px,#f1f3f5 12px)}
-  .spiel{font-weight:600}
+  .spiel a{font-weight:600;color:inherit;text-decoration:underline}
+  .kern{color:#0c1220}
   .quelle{color:var(--muted)}
-  .date{color:var(--muted);font-size:12px;margin-bottom:12px}
 </style>
 </head>
 <body>
@@ -30,102 +29,117 @@
         <tr>
           <th>Thumbnail</th>
           <th>Spiel</th>
+          <th>Kern‑Patch‑Inhalte</th>
           <th>Patch‑Typ</th>
           <th>Quelle</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/Arms_%28video_game%29.jpg/250px-Arms_%28video_game%29.jpg" alt="ARMS Boxart"></td>
-          <td class="spiel">ARMS</td>
-          <td>Kostenloses Switch‑2‑Performance‑Update</td>
-          <td class="quelle">Offiziell (Nintendo)</td>
+          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/Arms_%28video_game%29.jpg/250px-Arms_%28video_game%29.jpg" alt="ARMS cover"></td>
+          <td class="spiel"><a href="https://www.nintendo.com/us/store/products/arms-switch/" target="_blank" rel="noopener">ARMS</a></td>
+          <td class="kern">Visuelle Optimierung, stabilere Framerate, HDR (TV)</td>
+          <td>Kostenloses Switch‑2‑Upgrade</td>
+          <td class="quelle">Nintendo</td>
         </tr>
         <tr>
-          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/8/89/Captain_Toad_Treasure_Tracker_box_art.jpg" alt="Captain Toad Treasure Tracker Boxart"></td>
-          <td class="spiel">Captain Toad: Treasure Tracker</td>
-          <td>Kostenloses Switch‑2‑Performance‑Update</td>
-          <td class="quelle">Offiziell (Nintendo)</td>
+          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/8/89/Captain_Toad_Treasure_Tracker_box_art.jpg" alt="Captain Toad: Treasure Tracker cover"></td>
+          <td class="spiel"><a href="https://www.nintendo.com/us/store/products/captain-toad-treasure-tracker-switch/" target="_blank" rel="noopener">Captain Toad: Treasure Tracker</a></td>
+          <td class="kern">Visuelle Optimierung, HDR (TV)</td>
+          <td>Kostenloses Switch‑2‑Upgrade</td>
+          <td class="quelle">Nintendo</td>
         </tr>
         <tr>
-          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Game_Builder_Garage.jpg/250px-Game_Builder_Garage.jpg" alt="Game Builder Garage Boxart"></td>
-          <td class="spiel">Game Builder Garage</td>
-          <td>Kostenloses Switch‑2‑Performance‑Update</td>
-          <td class="quelle">Offiziell (Nintendo)</td>
+          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Game_Builder_Garage.jpg/250px-Game_Builder_Garage.jpg" alt="Game Builder Garage cover"></td>
+          <td class="spiel"><a href="https://www.nintendo.com/us/store/products/game-builder-garage-switch/" target="_blank" rel="noopener">Game Builder Garage</a></td>
+          <td class="kern">Visuelle Optimierung (höhere Bildqualität)</td>
+          <td>Kostenloses Switch‑2‑Upgrade</td>
+          <td class="quelle">Nintendo</td>
         </tr>
         <tr>
-          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/New_Super_Mario_Bros._U_Deluxe.jpg/250px-New_Super_Mario_Bros._U_Deluxe.jpg" alt="New Super Mario Bros. U Deluxe Boxart"></td>
-          <td class="spiel">New Super Mario Bros. U Deluxe</td>
-          <td>Kostenloses Switch‑2‑Performance‑Update</td>
-          <td class="quelle">Offiziell (Nintendo)</td>
+          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/New_Super_Mario_Bros._U_Deluxe.jpg/250px-New_Super_Mario_Bros._U_Deluxe.jpg" alt="New Super Mario Bros. U Deluxe cover"></td>
+          <td class="spiel"><a href="https://www.nintendo.com/us/store/products/new-super-mario-bros-u-deluxe-switch/" target="_blank" rel="noopener">New Super Mario Bros. U Deluxe</a></td>
+          <td class="kern">Visuelle Optimierung (höhere Bildqualität)</td>
+          <td>Kostenloses Switch‑2‑Upgrade</td>
+          <td class="quelle">Nintendo</td>
         </tr>
         <tr>
-          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/00/Pok%C3%A9mon_Scarlet_and_Violet_banner.png/250px-Pok%C3%A9mon_Scarlet_and_Violet_banner.png" alt="Pokémon Karmesin & Purpur Banner"></td>
-          <td class="spiel">Pokémon Karmesin (Scarlet)</td>
-          <td>Kostenloses Switch‑2‑Performance‑Update</td>
-          <td class="quelle">Offiziell (Nintendo / The Pokémon Company)</td>
+          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/00/Pok%C3%A9mon_Scarlet_and_Violet_banner.png/250px-Pok%C3%A9mon_Scarlet_and_Violet_banner.png" alt="Pokémon Karmesin (Scarlet) cover"></td>
+          <td class="spiel"><a href="https://www.nintendo.com/us/store/products/pokemon-scarlet-switch/" target="_blank" rel="noopener">Pokémon Karmesin (Scarlet)</a></td>
+          <td class="kern">Visuelle Optimierung, höhere FPS</td>
+          <td>Kostenloses Switch‑2‑Upgrade</td>
+          <td class="quelle">Nintendo / TPC</td>
         </tr>
         <tr>
-          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/00/Pok%C3%A9mon_Scarlet_and_Violet_banner.png/250px-Pok%C3%A9mon_Scarlet_and_Violet_banner.png" alt="Pokémon Karmesin & Purpur Banner"></td>
-          <td class="spiel">Pokémon Purpur (Violet)</td>
-          <td>Kostenloses Switch‑2‑Performance‑Update</td>
-          <td class="quelle">Offiziell (Nintendo / The Pokémon Company)</td>
+          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/00/Pok%C3%A9mon_Scarlet_and_Violet_banner.png/250px-Pok%C3%A9mon_Scarlet_and_Violet_banner.png" alt="Pokémon Purpur (Violet) cover"></td>
+          <td class="spiel"><a href="https://www.nintendo.com/us/store/products/pokemon-violet-switch/" target="_blank" rel="noopener">Pokémon Purpur (Violet)</a></td>
+          <td class="kern">Visuelle Optimierung, höhere FPS</td>
+          <td>Kostenloses Switch‑2‑Upgrade</td>
+          <td class="quelle">Nintendo / TPC</td>
         </tr>
         <tr>
-          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4f/Splatoon.3.jpg/250px-Splatoon.3.jpg" alt="Splatoon 3 Boxart"></td>
-          <td class="spiel">Splatoon 3</td>
-          <td>Kostenloses Switch‑2‑Performance‑Update</td>
-          <td class="quelle">Offiziell (Nintendo)</td>
+          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4f/Splatoon.3.jpg/250px-Splatoon.3.jpg" alt="Splatoon 3 cover"></td>
+          <td class="spiel"><a href="https://www.nintendo.com/us/store/products/splatoon-3-switch/" target="_blank" rel="noopener">Splatoon 3</a></td>
+          <td class="kern">Visuelle Optimierung, flüssigeres Bewegen im Hub</td>
+          <td>Kostenloses Switch‑2‑Upgrade</td>
+          <td class="quelle">Nintendo</td>
         </tr>
         <tr>
-          <td class="thumb"><img src="https://mario.wiki.gallery/images/thumb/3/30/SM3DWBF_Box_NA_Final.png/200px-SM3DWBF_Box_NA_Final.png" alt="Super Mario 3D World + Bowser’s Fury Boxart"></td>
-          <td class="spiel">Super Mario 3D World + Bowser’s Fury</td>
-          <td>Kostenloses Switch‑2‑Performance‑Update</td>
-          <td class="quelle">Offiziell (Nintendo)</td>
+          <td class="thumb"><img src="https://mario.wiki.gallery/images/thumb/3/30/SM3DWBF_Box_NA_Final.png/200px-SM3DWBF_Box_NA_Final.png" alt="Super Mario 3D World + Bowser’s Fury cover"></td>
+          <td class="spiel"><a href="https://www.nintendo.com/us/store/products/super-mario-3d-world-plus-bowsers-fury-switch/" target="_blank" rel="noopener">Super Mario 3D World + Bowser’s Fury</a></td>
+          <td class="kern">Visuelle Optimierung, bessere FPS; HDR (nur Bowser’s Fury)</td>
+          <td>Kostenloses Switch‑2‑Upgrade</td>
+          <td class="quelle">Nintendo</td>
         </tr>
         <tr>
-          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8d/Super_Mario_Odyssey.jpg/250px-Super_Mario_Odyssey.jpg" alt="Super Mario Odyssey Boxart"></td>
-          <td class="spiel">Super Mario Odyssey</td>
-          <td>Kostenloses Switch‑2‑Performance‑Update</td>
-          <td class="quelle">Offiziell (Nintendo)</td>
+          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8d/Super_Mario_Odyssey.jpg/250px-Super_Mario_Odyssey.jpg" alt="Super Mario Odyssey cover"></td>
+          <td class="spiel"><a href="https://www.nintendo.com/us/store/products/super-mario-odyssey-switch/" target="_blank" rel="noopener">Super Mario Odyssey</a></td>
+          <td class="kern">Visuelle Optimierung, HDR (TV)</td>
+          <td>Kostenloses Switch‑2‑Upgrade</td>
+          <td class="quelle">Nintendo</td>
         </tr>
         <tr>
-          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1e/The_Legend_of_Zelda_%E2%80%93_Echoes_of_Wisdom.jpg/250px-The_Legend_of_Zelda_%E2%80%93_Echoes_of_Wisdom.jpg" alt="The Legend of Zelda: Echoes of Wisdom Boxart"></td>
-          <td class="spiel">The Legend of Zelda: Echoes of Wisdom</td>
-          <td>Kostenloses Switch‑2‑Performance‑Update</td>
-          <td class="quelle">Offiziell (Nintendo)</td>
+          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1e/The_Legend_of_Zelda_%E2%80%93_Echoes_of_Wisdom.jpg/250px-The_Legend_of_Zelda_%E2%80%93_Echoes_of_Wisdom.jpg" alt="The Legend of Zelda: Echoes of Wisdom cover"></td>
+          <td class="spiel"><a href="https://www.nintendo.com/us/store/products/the-legend-of-zelda-echoes-of-wisdom-switch/" target="_blank" rel="noopener">The Legend of Zelda: Echoes of Wisdom</a></td>
+          <td class="kern">Visuelle Optimierung, HDR (TV)</td>
+          <td>Kostenloses Switch‑2‑Upgrade</td>
+          <td class="quelle">Nintendo</td>
         </tr>
         <tr>
-          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/74/The_Legend_of_Zelda_Link%27s_Awakening_%282019_video_game%29.jpg/250px-The_Legend_of_Zelda_Link%27s_Awakening_%282019_video_game%29.jpg" alt="The Legend of Zelda: Link’s Awakening (2019) Boxart"></td>
-          <td class="spiel">The Legend of Zelda: Link’s Awakening (2019)</td>
-          <td>Kostenloses Switch‑2‑Performance‑Update</td>
-          <td class="quelle">Offiziell (Nintendo)</td>
+          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/74/The_Legend_of_Zelda_Link%27s_Awakening_%282019_video_game%29.jpg/250px-The_Legend_of_Zelda_Link%27s_Awakening_%282019_video_game%29.jpg" alt="The Legend of Zelda: Link’s Awakening (2019) cover"></td>
+          <td class="spiel"><a href="https://www.nintendo.com/us/store/products/the-legend-of-zelda-links-awakening-switch/" target="_blank" rel="noopener">The Legend of Zelda: Link’s Awakening (2019)</a></td>
+          <td class="kern">Visuelle Optimierung, HDR (TV)</td>
+          <td>Kostenloses Switch‑2‑Upgrade</td>
+          <td class="quelle">Nintendo</td>
         </tr>
         <tr>
-          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/FortniteLogo.svg/250px-FortniteLogo.svg.png" alt="Fortnite Logo"></td>
-          <td class="spiel">Fortnite</td>
-          <td>Kostenloses Switch‑2‑Performance‑Update</td>
-          <td class="quelle">Offiziell (Epic Games)</td>
+          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/FortniteLogo.svg/250px-FortniteLogo.svg.png" alt="Fortnite cover"></td>
+          <td class="spiel"><a href="https://www.nintendo.com/us/store/products/fortnite-switch/" target="_blank" rel="noopener">Fortnite</a></td>
+          <td class="kern">60 FPS, höhere Auflösung, zusätzliche Systeme‑Features</td>
+          <td>Kostenloses Switch‑2‑Upgrade</td>
+          <td class="quelle">Epic Games</td>
         </tr>
         <tr>
-          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/35/Apex_legends_cover.jpg/250px-Apex_legends_cover.jpg" alt="Apex Legends Boxart"></td>
-          <td class="spiel">Apex Legends</td>
-          <td>Kostenloses Switch‑2‑Performance‑Update</td>
-          <td class="quelle">Offiziell (Electronic Arts / Respawn)</td>
+          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/35/Apex_legends_cover.jpg/250px-Apex_legends_cover.jpg" alt="Apex Legends cover"></td>
+          <td class="spiel"><a href="https://www.nintendo.com/us/store/products/apex-legends-switch/" target="_blank" rel="noopener">Apex Legends</a></td>
+          <td class="kern">Bis 60 FPS; 1080p (Dock) / 1792×1008 (Handheld)</td>
+          <td>Kostenloses Switch‑2‑Upgrade</td>
+          <td class="quelle">EA / Respawn</td>
         </tr>
         <tr>
-          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/02/No_Man%27s_Sky.jpg/250px-No_Man%27s_Sky.jpg" alt="No Man’s Sky Boxart"></td>
-          <td class="spiel">No Man’s Sky</td>
-          <td>Kostenloses Switch‑2‑Performance‑Update</td>
-          <td class="quelle">Offiziell (Hello Games)</td>
+          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/02/No_Man%27s_Sky.jpg/250px-No_Man%27s_Sky.jpg" alt="No Man’s Sky cover"></td>
+          <td class="spiel"><a href="https://www.nintendo.com/us/store/products/no-mans-sky-switch/" target="_blank" rel="noopener">No Man’s Sky</a></td>
+          <td class="kern">Enhanced Visuals, Multiplayer u. Features (Switch‑2‑Upgrade‑Pack)</td>
+          <td>Kostenloses Switch‑2‑Upgrade</td>
+          <td class="quelle">Hello Games</td>
         </tr>
         <tr>
-          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/da/Dragon_Quest_III_HD-2D_Remake.jpg/250px-Dragon_Quest_III_HD-2D_Remake.jpg" alt="Dragon Quest III HD‑2D Remake Boxart"></td>
-          <td class="spiel">Dragon Quest III HD‑2D Remake</td>
-          <td>Kostenloses Switch‑2‑Performance‑Update</td>
-          <td class="quelle">Offiziell (Square Enix)</td>
-        </tr>
-      </tbody>
+          <td class="thumb"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/da/Dragon_Quest_III_HD-2D_Remake.jpg/250px-Dragon_Quest_III_HD-2D_Remake.jpg" alt="Dragon Quest III HD‑2D Remake cover"></td>
+          <td class="spiel"><a href="https://www.nintendo.com/us/store/products/dragon-quest-iii-hd-2d-remake-switch/" target="_blank" rel="noopener">Dragon Quest III HD‑2D Remake</a></td>
+          <td class="kern">Performance‑Update: schärfere Grafik + Anzeigemodi</td>
+          <td>Kostenloses Switch‑2‑Upgrade</td>
+          <td class="quelle">Square Enix</td>
+        </tr>      </tbody>
     </table>
   </div>
 </body>
