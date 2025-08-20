@@ -8,12 +8,18 @@
   <style>
     :root { --bg:#0b0e11; --card:#12161c; --text:#e6edf3; --muted:#9aa7b2; --accent:#26c281; --table:#1f2630; }
     html,body{ background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial; margin:0; }
-    header{ padding:24px 20px 10px; }
-    h1{ font-size:1.6rem; margin:0; display:flex; gap:.5rem; align-items:baseline; flex-wrap:wrap; }
-    .date{ color:var(--muted); font-size:.95rem; font-weight:500; }
-    .tabs{ display:flex; gap:8px; padding:0 20px 12px; flex-wrap:wrap; }
+
+    /* Hero-Banner */
+    .hero-wrap{ position:relative; }
+    .hero{ width:100%; height:240px; object-fit:cover; display:block; border-bottom:1px solid var(--table); }
+    .hero-tag{ position:absolute; right:16px; bottom:12px; background:rgba(0,0,0,.5); border:1px solid var(--table); color:var(--muted);
+               padding:6px 10px; border-radius:10px; font-size:.9rem; backdrop-filter: blur(2px); }
+    @media (min-width: 900px){ .hero{ height:320px; } }
+
+    .tabs{ display:flex; gap:8px; padding:12px 20px; flex-wrap:wrap; }
     .tab-btn{ background:var(--card); border:1px solid var(--table); color:var(--text); padding:8px 12px; border-radius:999px; cursor:pointer; font-weight:600; }
     .tab-btn[aria-selected="true"]{ outline:2px solid var(--accent); }
+
     .wrap{ padding:0 20px 28px; }
     .table-card{ background:var(--card); border:1px solid var(--table); border-radius:14px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.35); }
     table{ width:100%; border-collapse:collapse; }
@@ -21,27 +27,30 @@
     tbody td{ padding:10px 12px; border-bottom:1px solid var(--table); vertical-align:middle; }
     tbody tr:hover{ background:rgba(255,255,255,.02); }
     .thumb{ width:270px; height:153px; border-radius:8px; object-fit:cover; display:block; border:1px solid #222b36; }
-    .game a{ color:var(--text); text-decoration:none; font-weight:600; }
-    .game a:hover{ text-decoration:underline; }
+    .game a{ color:var(--text); text-decoration:none; font-weight:600; } .game a:hover{ text-decoration:underline; }
     .kernCell{ color:var(--text); }
-    .source a{ color:var(--muted); text-decoration:none; }
-    .source a:hover{ text-decoration:underline; }
+    .source a{ color:var(--muted); text-decoration:none; } .source a:hover{ text-decoration:underline; }
     .hidden{ display:none; }
     .foot{ color:var(--muted); font-size:.9rem; margin-top:14px; line-height:1.5; }
+    .price{ white-space:nowrap; font-weight:600; }
+
     /* Debug */
     #debug-panel{ margin:16px 20px; background:#0f1318; border:1px solid #1f2630; border-radius:10px; }
     #debug-panel>summary{ cursor:pointer; padding:10px 12px; font-weight:700 }
     #dbg-meta{ display:flex; gap:18px; flex-wrap:wrap; padding:0 12px 10px; color:#9aa7b2 }
-    #dbg-log{ max-height:260px; overflow:auto; background:#0b0e11; margin:0 12px 12px; padding:10px; border:1px dashed #26303b; border-radius:8px; font:12px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; color:#e6edf3 }
+    #dbg-log{ max-height:260px; overflow:auto; background:#0b0e11; margin:0 12px 12px; padding:10px; border:1px dashed #26303b; border-radius:8px;
+              font:12px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; color:#e6edf3 }
     .dbg-ok{ color:#26c281 } .dbg-warn{ color:#ffcc66 } .dbg-err{ color:#ff6b6b }
-    .price{ white-space:nowrap; font-weight:600; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Performance&nbsp;Patches: <span id="countPerf">0</span> <span class="date">• Stand: <time id="today"></time></span></h1>
-  </header>
+  <!-- Hero-Banner -->
+  <div class="hero-wrap">
+    <img class="hero" src="assets/switch2-banner.png" alt="Nintendo Switch 2 – Spiele & Performance-Patches">
+    <div class="hero-tag">Stand: <time id="today"></time></div>
+  </div>
 
+  <!-- Tabs (mit dynamischer Anzahl in Klammern) -->
   <nav class="tabs" role="tablist" aria-label="Listenwahl">
     <button class="tab-btn" role="tab" id="tab-perf" data-base="Performance-Patches" aria-selected="true" aria-controls="panel-perf">Performance-Patches (0)</button>
     <button class="tab-btn" role="tab" id="tab-new"  data-base="Neue Switch 2 Spiele" aria-selected="false" aria-controls="panel-new">Neue Switch 2 Spiele (0)</button>
@@ -88,7 +97,7 @@
   </details>
 
   <script>
-    // Datum
+    // Datum in Banner
     try { document.getElementById('today').textContent = new Intl.DateTimeFormat('de-DE').format(new Date()); } catch(_){}
 
     // Tabs
@@ -100,7 +109,7 @@
     tabPerf.addEventListener('click', () => select(tabPerf));
     tabNew .addEventListener('click', () => select(tabNew ));
 
-    // Button-Count setzen
+    // Button-Count dynamisch setzen
     function setTabCount(btn, count){
       const base = btn.getAttribute('data-base') || btn.textContent.replace(/\s*\(\d+\)\s*$/,'').trim();
       btn.textContent = `${base} (${count})`;
@@ -119,13 +128,12 @@
       log(msg, cls){ const span=document.createElement('span'); span.textContent = `[DBG] ${msg}\n`; if(cls) span.className=cls; dbg.logEl.appendChild(span); dbg.logEl.scrollTop=dbg.logEl.scrollHeight; }
     };
 
-    // SVG-Fallback
+    // SVG-Fallback + Loader
     function svgData(title, reason){
       const svg = encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='270' height='153'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop offset='0' stop-color='#1b2a33'/><stop offset='1' stop-color='#0f1720'/></linearGradient></defs><rect width='100%' height='100%' fill='url(#g)'/><text x='16' y='84' font-family='system-ui,Segoe UI,Arial' font-size='20' fill='#e6edf3'>${title}</text><text x='16' y='120' font-family='system-ui,Segoe UI,Arial' font-size='12' fill='#9aa7b2'>${reason}</text></svg>`);
       return `data:image/svg+xml;charset=utf-8,${svg}`;
     }
     function prox(u){ return u ? ('https://images.weserv.nl/?url=' + encodeURIComponent(u.replace(/^https?:\/\//,''))) : ''; }
-
     function initThumb(img){
       const tryList = [img.dataset.src1, img.dataset.src2, img.dataset.src3, img.dataset.src4].filter(Boolean);
       let i = 0;
@@ -134,13 +142,13 @@
       next();
     }
 
-    // RENDERER
+    // Renderer
     function rowPerf(e){
       const link = e.de || e.us || '#';
       const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
       const title = e.name || 'Unbekannt';
       const kern  = e.kern || '—';
-      const img1  = e.img || e.img2 || e.eu || '';  // bevorzugt og:image
+      const img1  = e.img || e.img2 || e.eu || '';  // og:image bevorzugt
       const img2  = e.img2 || e.us_hero || '';      // hero fallback
       return `<tr>
         <td><a href="${link}" target="_blank" rel="noopener"><img class="thumb" alt="Thumbnail ${title}"
@@ -186,7 +194,6 @@
       const list = await loadJSON('./performance_patches.json', dbg.perfEl);
       body.innerHTML = list.map(rowPerf).join('');
       body.querySelectorAll('img.thumb').forEach(initThumb);
-      document.getElementById('countPerf').textContent = String(list.length);
       dbg.perfItemsEl.textContent = String(list.length);
       setTabCount(tabPerf, list.length);
     })();
