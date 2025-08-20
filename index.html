@@ -11,7 +11,7 @@
 
     /* Hero-Banner */
     .hero-wrap{ position:relative; }
-    .hero{ width:100%; height:240px; object-fit:cover; display:block; border-bottom:1px solid var(--table); }
+    .hero{ width:100%; height:240px; object-fit:cover; display:block; border-bottom:1px solid var(--table); background:#0b0e11; }
     .hero-tag{ position:absolute; right:16px; bottom:12px; background:rgba(0,0,0,.5); border:1px solid var(--table); color:var(--muted);
                padding:6px 10px; border-radius:10px; font-size:.9rem; backdrop-filter: blur(2px); }
     @media (min-width: 900px){ .hero{ height:320px; } }
@@ -46,7 +46,11 @@
 <body>
   <!-- Hero-Banner -->
   <div class="hero-wrap">
-    <img class="hero" src="assets/switch2-banner.png" alt="Nintendo Switch 2 – Spiele & Performance-Patches">
+    <img id="hero" class="hero"
+         alt="Nintendo Switch 2 – Spiele & Performance-Patches"
+         data-src1="assets/switch2-banner.png"
+         data-src2="assets/switch2-banner.jpg"
+         data-src3="assets/banner-fallback.svg">
     <div class="hero-tag">Stand: <time id="today"></time></div>
   </div>
 
@@ -69,7 +73,6 @@
 
     <!-- Panel 2: Neue Spiele (JSON + Preis in €) -->
     <section id="panel-new" class="table-card hidden" role="tabpanel" aria-labelledby="tab-new">
-      <div class="foot">Die Liste lädt automatisch aus <code>new_switch2_games.json</code> (Repo-Root). Keine externen Abrufe nötig.</div>
       <table id="games-new">
         <thead>
           <tr><th>Thumbnail</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Preis (€)</th><th>Quelle</th></tr>
@@ -97,8 +100,17 @@
   </details>
 
   <script>
-    // Datum in Banner
+    // Datum & Hero laden
     try { document.getElementById('today').textContent = new Intl.DateTimeFormat('de-DE').format(new Date()); } catch(_){}
+    (function initHero(){
+      const img = document.getElementById('hero');
+      const tries = [img.dataset.src1, img.dataset.src2, img.dataset.src3].filter(Boolean);
+      let i = 0;
+      function next(){ if(i>=tries.length){ return; } img.src = tries[i++]; }
+      img.onerror = next;
+      img.onload  = ()=>{ if(!img.naturalWidth) next(); };
+      next();
+    })();
 
     // Tabs
     const tabPerf = document.getElementById('tab-perf');
@@ -148,8 +160,8 @@
       const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
       const title = e.name || 'Unbekannt';
       const kern  = e.kern || '—';
-      const img1  = e.img || e.img2 || e.eu || '';  // og:image bevorzugt
-      const img2  = e.img2 || e.us_hero || '';      // hero fallback
+      const img1  = e.img || e.img2 || e.eu || '';
+      const img2  = e.img2 || e.us_hero || '';
       return `<tr>
         <td><a href="${link}" target="_blank" rel="noopener"><img class="thumb" alt="Thumbnail ${title}"
              data-src1="${img1}" data-src2="${img2}" data-src3="${prox(img1)}" data-src4="${prox(img2)}"></a></td>
@@ -162,8 +174,8 @@
       const link = e.de || e.us || '#';
       const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
       const title = e.name || 'Unbekannt';
-      const img1  = e.img || e.img2 || '';   // og:image bevorzugt
-      const img2  = e.img2 || e.img  || '';  // hero fallback
+      const img1  = e.img || e.img2 || '';
+      const img2  = e.img2 || e.img  || '';
       const price = (typeof e.price_eur === 'number') ? new Intl.NumberFormat('de-DE', {style:'currency', currency:'EUR'}).format(e.price_eur) : '—';
       return `<tr>
         <td><a href="${link}" target="_blank" rel="noopener"><img class="thumb" alt="Thumbnail ${title}"
