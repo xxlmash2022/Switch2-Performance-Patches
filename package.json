@@ -1,7 +1,12 @@
 {
-  "name": "switch2-patches",
+  "name": "switch2-performance-patches",
   "version": "1.0.0",
+  "description": "Scraper für Switch 2 Spiele und Performance Patches",
   "type": "module",
+  "scripts": {
+    "fetch:new": "node scripts/fetch-switch2.js",
+    "fetch:patches": "node scripts/fetch-performance-patches.js"
+  },
   "dependencies": {
     "playwright": "^1.48.0"
   }
