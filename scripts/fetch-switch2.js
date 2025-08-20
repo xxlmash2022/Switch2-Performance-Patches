@@ -2,44 +2,45 @@
 import { chromium } from "playwright";
 import fs from "fs";
 
-const URL = "https://www.nintendo.com/us/store/games/nintendo-switch-2-games/#sort=df&p=0";
-
-(async () => {
+async function scrape() {
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
 
-  // Gehe auf die Seite
-  await page.goto(URL, { waitUntil: "networkidle" });
+  console.log("Gehe auf Nintendo US Store Seite...");
+  await page.goto("https://www.nintendo.com/us/store/games/nintendo-switch-2-games/#sort=df&p=0", {
+    waitUntil: "networkidle"
+  });
 
-  // Warte explizit auf mindestens ein <game-card>
+  // Versuchen, alle game-card Elemente zu greifen
+  console.log("Warte auf game-card Elemente...");
   await page.waitForSelector("game-card", { timeout: 60000 });
 
-  // Scrollt, um lazy-loaded Spiele zu triggern
-  let prevHeight = 0;
-  while (true) {
-    const currentHeight = await page.evaluate("document.body.scrollHeight");
-    if (currentHeight === prevHeight) break;
-    prevHeight = currentHeight;
-    await page.evaluate("window.scrollTo(0, document.body.scrollHeight)");
-    await page.waitForTimeout(2000);
-  }
-
-  // Extrahiere Spiele
   const games = await page.$$eval("game-card", cards =>
     cards.map(card => {
-      const root = card.shadowRoot;
-      const title = root?.querySelector(".title")?.textContent ?? null;
-      const link = root?.querySelector("a")?.href ?? null;
-      const img = root?.querySelector("img")?.src ?? null;
-      const price = root?.querySelector(".price")?.textContent ?? null;
-      const release = root?.innerText.match(/\d{1,2}\/\d{1,2}\/\d{4}/)?.[0] || null;
+      try {
+        const title = card.innerText?.split("\n")[0] ?? null;
+        const link = card.querySelector("a")?.href ?? null;
+        const img = card.querySelector("img")?.src ?? null;
+        const price = card.innerText.match(/\$\d+(\.\d{2})?/)?.[0] ?? null;
+        const release = card.innerText.match(/\d{1,2}\/\d{1,2}\/\d{4}/)?.[0] ?? null;
 
-      return { title, link, thumbnail: img, price, release };
+        return { title, link, thumbnail: img, price, release };
+      } catch (e) {
+        return { title: null, link: null, thumbnail: null, price: null, release: null };
+      }
     })
   );
 
+  console.log("DEBUG: Erste 3 Spiele:");
+  console.log(games.slice(0, 3));
+
   fs.writeFileSync("new_switch2_games.json", JSON.stringify(games, null, 2));
-  console.log(`✅ ${games.length} Spiele gespeichert nach new_switch2_games.json`);
+  console.log("✅ JSON gespeichert mit " + games.length + " Spielen");
 
   await browser.close();
-})();
+}
+
+scrape().catch(err => {
+  console.error("Scraper Fehler:", err);
+  process.exit(1);
+});
