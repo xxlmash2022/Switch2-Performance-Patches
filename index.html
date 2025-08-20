@@ -1,84 +1,63 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Switch 2 – Performance Patches & Neue Spiele</title>
-  <meta name="color-scheme" content="dark light">
-  <style>
-    :root { --bg:#0b0e11; --card:#12161c; --card2:#0f1318; --text:#e6edf3; --muted:#9aa7b2; --accent:#26c281; --table:#1f2630; --ring: rgba(38,194,129,.5); }
-    html,body{ background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial; margin:0; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Switch 2 – Performance-Patches & Neue Spiele</title>
+<meta name="color-scheme" content="dark light">
+<style>
+  :root{--bg:#0b0e11;--card:#12161c;--card2:#0f1318;--text:#e6edf3;--muted:#9aa7b2;--accent:#26c281;--table:#1f2630;--ring:rgba(38,194,129,.5)}
+  html,body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial;margin:0}
 
-    /* Hero-Banner */
-    .hero-wrap{ position:relative; }
-    .hero{ width:100%; height:220px; object-fit:cover; display:block; border-bottom:1px solid var(--table); background:#0b0e11; }
-    .hero-tag{ position:absolute; right:16px; bottom:12px; background:rgba(0,0,0,.5); border:1px solid var(--table); color:var(--muted);
-               padding:6px 10px; border-radius:10px; font-size:.9rem; backdrop-filter: blur(2px); }
-    @media (min-width: 900px){ .hero{ height:320px; } }
+  /* Hero */
+  .hero-wrap{position:relative}
+  .hero{width:100%;height:220px;object-fit:cover;display:block;border-bottom:1px solid var(--table);background:#0b0e11}
+  .hero-tag{position:absolute;right:16px;bottom:12px;background:rgba(0,0,0,.5);border:1px solid var(--table);color:var(--muted);padding:6px 10px;border-radius:10px;font-size:.9rem;backdrop-filter:blur(2px)}
+  @media(min-width:900px){.hero{height:320px}}
 
-    /* Toolbar & Tabs */
-    .toolbar{ display:flex; gap:8px; padding:12px 20px 6px; align-items:center; flex-wrap:wrap; }
-    .search{ flex:1 1 240px; max-width:880px; }
-    .search input{ width:100%; padding:10px 12px; border-radius:10px; border:1px solid var(--table); background:var(--card); color:var(--text); }
-    .btn-clear{ padding:10px 12px; border-radius:10px; border:1px solid var(--table); background:var(--card); color:var(--muted); cursor:pointer; }
-    .tabs{ display:flex; gap:8px; padding:8px 20px 12px; flex-wrap:wrap; }
-    .tab-btn{ background:var(--card); border:1px solid var(--table); color:var(--text); padding:8px 12px; border-radius:999px; cursor:pointer; font-weight:600; }
-    .tab-btn[aria-selected="true"]{ outline:2px solid var(--accent); }
+  /* Toolbar & Tabs */
+  .toolbar{display:flex;gap:8px;padding:12px 20px 6px;align-items:center;flex-wrap:wrap}
+  .search{flex:1 1 240px;max-width:880px}
+  .search input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--table);background:var(--card);color:var(--text)}
+  .btn-clear{padding:10px 12px;border-radius:10px;border:1px solid var(--table);background:var(--card);color:var(--muted);cursor:pointer}
+  .tabs{display:flex;gap:8px;padding:8px 20px 12px;flex-wrap:wrap}
+  .tab-btn{background:var(--card);border:1px solid var(--table);color:var(--text);padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:600}
+  .tab-btn[aria-selected="true"]{outline:2px solid var(--accent)}
+  .wrap{padding:0 20px 28px}
 
-    .wrap{ padding:0 20px 28px; }
+  /* Cards */
+  .cards-grid{display:grid;gap:14px}
+  @media(min-width:900px){.cards-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media(max-width:899px){.cards-grid{grid-template-columns:1fr}}
+  @media(min-width:600px) and (max-width:899px){.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
-    /* Tabellen weiter rendern, aber visuell ausblenden */
-    .table-card{ display:none; }
+  .card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--table);border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  .card-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-bottom:1px solid var(--table)}
+  .card-body{padding:10px 12px;display:grid;gap:8px}
+  .card-title{margin:0;font-size:1rem;line-height:1.25}
+  .card-title a{color:var(--text);text-decoration:none;font-weight:700}
+  .card-title a:hover{text-decoration:underline}
+  .meta{color:var(--muted);font-size:.85rem}
+  .src a{color:var(--muted);text-decoration:none;font-size:.85rem}
+  .src a:hover{text-decoration:underline}
+  .badge{display:inline-block;font-size:.78rem;color:#e6edf3;background:rgba(38,194,129,.12);border:1px solid var(--ring);padding:2px 8px;border-radius:999px}
+  .price-badge{justify-self:start}
+  .clamp-2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
-    /* Kartenlayout */
-    .cards-wrap{ margin-top:14px; }
-    .cards-grid{ display:grid; gap:14px; }
-    /* Desktop IMMER 3 Spalten */
-    @media (min-width: 900px){
-      .cards-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    }
-    @media (max-width: 899px){
-      .cards-grid{ grid-template-columns: 1fr; }
-    }
-    @media (min-width: 600px) and (max-width: 899px){
-      .cards-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-    }
+  .hidden{display:none}
 
-    .card{ background:linear-gradient(180deg, var(--card), var(--card2)); border:1px solid var(--table);
-           border-radius:14px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.35); }
-    .card-img{ width:100%; aspect-ratio:16/9; object-fit:cover; display:block; border-bottom:1px solid var(--table); }
-    .card-body{ padding:10px 12px; display:grid; gap:8px; }
-    .card-title{ margin:0; font-size:1rem; line-height:1.25; }
-    .card-title a{ color:var(--text); text-decoration:none; font-weight:700; }
-    .card-title a:hover{ text-decoration:underline; }
-    .meta{ color:var(--muted); font-size:.85rem; }
-    .src a{ color:var(--muted); text-decoration:none; font-size:.85rem; }
-    .src a:hover{ text-decoration:underline; }
-    .badge{ display:inline-block; font-size:.78rem; color:#e6edf3; background:rgba(38,194,129,.12); border:1px solid var(--ring); padding:2px 8px; border-radius:999px; }
-    .price-badge{ justify-self:start; }
-    .clamp-2{ display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
-
-    /* Debug */
-    #debug-panel{ margin:16px 20px; background:#0f1318; border:1px solid var(--table); border-radius:10px; }
-    #debug-panel>summary{ cursor:pointer; padding:10px 12px; font-weight:700 }
-    #dbg-meta{ display:flex; gap:18px; flex-wrap:wrap; padding:0 12px 10px; color:#9aa7b2 }
-    #dbg-log{ max-height:260px; overflow:auto; background:#0b0e11; margin:0 12px 12px; padding:10px; border:1px dashed #26303b; border-radius:8px;
-              font:12px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; color:#e6edf3 }
-    .dbg-ok{ color:#26c281 } .dbg-warn{ color:#ffcc66 } .dbg-err{ color:#ff6b6b }
-
-    /* Kleinere Geräte: engeres Padding */
-    @media (max-width:600px){
-      .toolbar{ padding:10px 10px 4px; }
-      .tabs{ padding:8px 10px 10px; overflow-x:auto; -webkit-overflow-scrolling:touch; }
-      .wrap{ padding:0 10px 24px; }
-    }
-  </style>
+  /* Debug */
+  #debug-panel{margin:16px 20px;background:#0f1318;border:1px solid var(--table);border-radius:10px}
+  #debug-panel>summary{cursor:pointer;padding:10px 12px;font-weight:700}
+  #dbg-meta{display:flex;gap:18px;flex-wrap:wrap;padding:0 12px 10px;color:#9aa7b2}
+  #dbg-log{max-height:260px;overflow:auto;background:#0b0e11;margin:0 12px 12px;padding:10px;border:1px dashed #26303b;border-radius:8px;font:12px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#e6edf3}
+  .dbg-ok{color:#26c281}.dbg-err{color:#ff6b6b}
+</style>
 </head>
 <body>
-  <!-- Hero-Banner -->
+  <!-- Hero -->
   <div class="hero-wrap">
-    <img id="hero" class="hero"
-         alt="Nintendo Switch 2 – Spiele & Performance-Patches"
+    <img id="hero" class="hero" alt="Nintendo Switch 2 – Spiele & Performance-Patches"
          data-src1="assets/switch2-banner.png"
          data-src2="assets/switch2-banner.jpg"
          data-src3="assets/banner-fallback.svg">
@@ -87,57 +66,30 @@
 
   <!-- Toolbar -->
   <div class="toolbar">
-    <div class="search"><input id="q" type="search" placeholder="Suche nach Spielen – filtert beide Listen …" autocomplete="off"></div>
+    <div class="search"><input id="q" type="search" placeholder="Suche nach Spielen – filtert beide Kategorien getrennt …" autocomplete="off"></div>
     <button id="clearQ" class="btn-clear" type="button">Zurücksetzen</button>
   </div>
 
-  <!-- Tabs (mit dynamischer Anzahl in Klammern) -->
-  <nav class="tabs" role="tablist" aria-label="Listenwahl">
+  <!-- Tabs mit dynamischem Zähler -->
+  <nav class="tabs" role="tablist" aria-label="Kategorien">
     <button class="tab-btn" role="tab" id="tab-perf" data-base="Performance-Patches" aria-selected="true" aria-controls="panel-perf">Performance-Patches (0)</button>
     <button class="tab-btn" role="tab" id="tab-new"  data-base="Neue Switch 2 Spiele" aria-selected="false" aria-controls="panel-new">Neue Switch 2 Spiele (0)</button>
   </nav>
 
   <div class="wrap">
-    <!-- Panel 1: Performance -->
+    <!-- Panel: Performance-Patches (eigener Container, eigener Renderer) -->
     <section id="panel-perf" role="tabpanel" aria-labelledby="tab-perf">
-      <!-- Unsichtbare Tabelle (SEO/Struktur), sichtbar sind Karten -->
-      <div class="table-card">
-        <div class="table-scroller">
-          <table id="games-perf" aria-hidden="true">
-            <thead>
-              <tr><th>Spiele</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Kern-Patch-Inhalte</th><th>Quelle</th></tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </div>
-      <!-- Karten -->
-      <div class="cards-wrap">
-        <div id="cards-perf" class="cards-grid"></div>
-      </div>
+      <div id="cards-perf" class="cards-grid" aria-live="polite"></div>
     </section>
 
-    <!-- Panel 2: Neue Spiele -->
+    <!-- Panel: Neue Switch 2 Spiele (eigener Container, eigener Renderer) -->
     <section id="panel-new" class="hidden" role="tabpanel" aria-labelledby="tab-new">
-      <div class="table-card">
-        <div class="table-scroller">
-          <table id="games-new" aria-hidden="true">
-            <thead>
-              <tr><th>Spiele</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Preis (€)</th><th>Quelle</th></tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </div>
-      <!-- Karten -->
-      <div class="cards-wrap">
-        <div id="cards-new" class="cards-grid"></div>
-      </div>
-      <p class="foot" id="newCount"></p>
+      <div id="cards-new" class="cards-grid" aria-live="polite"></div>
+      <p class="meta" id="newCount"></p>
     </section>
   </div>
 
-  <!-- Debug-Panel -->
+  <!-- Debug -->
   <details id="debug-panel"><summary>🔧 Debug</summary>
     <div id="dbg-meta">
       <div>Perf-JSON: <b id="dbg-perf">init</b></div>
@@ -149,195 +101,171 @@
     <pre id="dbg-log"></pre>
   </details>
 
-  <script>
-    // Datum im Banner
-    try { document.getElementById('today').textContent = new Intl.DateTimeFormat('de-DE').format(new Date()); } catch(_){}
+<script>
+  // Datum im Banner
+  try{ document.getElementById('today').textContent = new Intl.DateTimeFormat('de-DE').format(new Date()); }catch(_){}
 
-    // Hero-Loader
-    (function(){
-      const img = document.getElementById('hero');
-      const tries = [img.dataset.src1, img.dataset.src2, img.dataset.src3].filter(Boolean);
-      let i=0; function next(){ if(i>=tries.length) return; img.src = tries[i++]; }
-      img.onerror = next; img.onload = ()=>{ if(!img.naturalWidth) next(); };
-      next();
-    })();
+  // Hero-Loader (Fallback-Kaskade)
+  (function(){
+    const img = document.getElementById('hero');
+    const tries = [img.dataset.src1, img.dataset.src2, img.dataset.src3].filter(Boolean);
+    let i = 0; function next(){ if(i>=tries.length) return; img.src = tries[i++]; }
+    img.onerror = next; img.onload = ()=>{ if(!img.naturalWidth) next(); };
+    next();
+  })();
 
-    // Tabs
-    const tabPerf = document.getElementById('tab-perf');
-    const tabNew  = document.getElementById('tab-new');
-    const panelPerf = document.getElementById('panel-perf');
-    const panelNew  = document.getElementById('panel-new');
-    function select(tab){
-      const showPerf = tab.id === 'tab-perf';
-      tabPerf.setAttribute('aria-selected', showPerf);
-      tabNew .setAttribute('aria-selected', !showPerf);
-      panelPerf.classList.toggle('hidden', !showPerf);
-      panelNew .classList.toggle('hidden', showPerf);
+  // Tabs (strikte Trennung der Panels)
+  const tabPerf = document.getElementById('tab-perf');
+  const tabNew  = document.getElementById('tab-new');
+  const panelPerf = document.getElementById('panel-perf');
+  const panelNew  = document.getElementById('panel-new');
+  function selectTab(showPerf){
+    tabPerf.setAttribute('aria-selected', showPerf);
+    tabNew .setAttribute('aria-selected', !showPerf);
+    panelPerf.classList.toggle('hidden', !showPerf);
+    panelNew .classList.toggle('hidden', showPerf);
+  }
+  tabPerf.addEventListener('click', ()=>selectTab(true));
+  tabNew .addEventListener('click', ()=>selectTab(false));
+
+  // Debug helpers
+  const dbg = {
+    logEl: document.getElementById('dbg-log'),
+    perfEl: document.getElementById('dbg-perf'),
+    newEl:  document.getElementById('dbg-new'),
+    perfItemsEl: document.getElementById('dbg-perf-items'),
+    newItemsEl:  document.getElementById('dbg-new-items'),
+    imgErrEl: document.getElementById('dbg-img-errors'),
+    imgErrors: 0,
+    log(msg, cls){ const s=document.createElement('span'); s.textContent=`[DBG] ${msg}\n`; if(cls) s.className=cls; dbg.logEl.appendChild(s); dbg.logEl.scrollTop=dbg.logEl.scrollHeight; }
+  };
+
+  // Bild-Fallback
+  function svgData(title, reason){
+    const svg = encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='800' height='450'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop offset='0' stop-color='#1b2a33'/><stop offset='1' stop-color='#0f1720'/></linearGradient></defs><rect width='100%' height='100%' fill='url(#g)'/><text x='20' y='240' font-family='system-ui,Segoe UI,Arial' font-size='28' fill='#e6edf3'>${title}</text><text x='20' y='280' font-family='system-ui,Segoe UI,Arial' font-size='14' fill='#9aa7b2'>${reason}</text></svg>`);
+    return `data:image/svg+xml;charset=utf-8,${svg}`;
+  }
+  function prox(u){ return u ? ('https://images.weserv.nl/?url='+encodeURIComponent(u.replace(/^https?:\/\//,''))) : ''; }
+  function initThumb(img){
+    const tryList=[img.dataset.src1,img.dataset.src2,img.dataset.src3,img.dataset.src4].filter(Boolean);
+    let i=0; function next(){ if(i>=tryList.length){ dbg.imgErrors++; dbg.imgErrEl.textContent=String(dbg.imgErrors); img.src=svgData(img.alt.replace('Thumbnail ','')||'Spiel','Kein Bild verfügbar'); return; } img.src=tryList[i++]; }
+    img.onerror=next; img.onload=()=>{ if(!img.naturalWidth) next(); }; next();
+  }
+
+  // Helpers
+  function fmtDate(iso){ if(!iso) return ''; try{ const p=iso.split('-'); return `${p[2]}.${p[1]}.${p[0]}`; }catch{ return ''; } }
+  function ts(item){ const t=Date.parse(item.release_date||''); return isNaN(t)?0:t; }
+  function setTabCount(btn, n){ const base=btn.getAttribute('data-base'); btn.textContent=`${base} (${n})`; btn.setAttribute('aria-label',`${base} (${n})`); }
+
+  // Renderer NUR für Perf
+  function cardPerf(e){
+    const link = e.de || e.us || '#';
+    const label= e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
+    const title= e.name || 'Unbekannt';
+    const img1 = e.img || e.img2 || e.eu || '';
+    const img2 = e.img2 || e.us_hero || '';
+    const rel  = e.release_date?`Release: ${fmtDate(e.release_date)}`:'';
+    return `<article class="card" data-kind="perf" data-name="${title.toLowerCase()}">
+      <a href="${link}" target="_blank" rel="noopener">
+        <img class="card-img" alt="Thumbnail ${title}"
+             data-src1="${img1}" data-src2="${img2}" data-src3="${prox(img1)}" data-src4="${prox(img2)}">
+      </a>
+      <div class="card-body">
+        <h3 class="card-title"><a href="${link}" target="_blank" rel="noopener">${title}</a></h3>
+        <div class="meta">${rel}</div>
+        <div class="meta clamp-2"><span class="badge">Patch</span> ${e.kern || '—'}</div>
+        <div class="src"><a href="${link}" target="_blank" rel="noopener">${label}</a></div>
+      </div>
+    </article>`;
+  }
+
+  // Renderer NUR für Neue Spiele
+  function cardNew(e){
+    const link = e.de || e.us || '#';
+    const label= e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
+    const title= e.name || 'Unbekannt';
+    const img1 = e.img || e.img2 || '';
+    const img2 = e.img2 || e.img  || '';
+    const rel  = e.release_date?`Release: ${fmtDate(e.release_date)}`:'';
+    const price= (typeof e.price_eur === 'number') ? new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'}).format(e.price_eur) : '—';
+    return `<article class="card" data-kind="new" data-name="${title.toLowerCase()}">
+      <a href="${link}" target="_blank" rel="noopener">
+        <img class="card-img" alt="Thumbnail ${title}"
+             data-src1="${img1}" data-src2="${img2}" data-src3="${prox(img1)}" data-src4="${prox(img2)}">
+      </a>
+      <div class="card-body">
+        <h3 class="card-title"><a href="${link}" target="_blank" rel="noopener">${title}</a></h3>
+        <div class="meta">${rel}</div>
+        <span class="badge price-badge">${price}</span>
+        <div class="src"><a href="${link}" target="_blank" rel="noopener">${label}</a></div>
+      </div>
+    </article>`;
+  }
+
+  // State (getrennt!)
+  let perfAll = [];
+  let newAll  = [];
+
+  // Sort
+  const sortNewest = list => list.slice().sort((a,b)=>{
+    const ta=Date.parse(a.release_date||''); const tb=Date.parse(b.release_date||'');
+    if(isNaN(ta)&&isNaN(tb)) return a.name.localeCompare(b.name,'de');
+    if(isNaN(ta)) return 1; if(isNaN(tb)) return -1; return tb-ta;
+  });
+
+  // Fetch helpers
+  async function loadJSON(url, labelEl){
+    try{
+      const r = await fetch(url,{cache:'no-cache'});
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      const data = await r.json();
+      labelEl.textContent = 'ok'; labelEl.className = 'dbg-ok';
+      return Array.isArray(data)?data:[];
+    }catch(e){
+      dbg.log(`Fetch ${url} failed: ${e.message}`,'dbg-err');
+      labelEl.textContent='Fehler'; labelEl.className='dbg-err';
+      return [];
     }
-    tabPerf.addEventListener('click', () => select(tabPerf));
-    tabNew .addEventListener('click', () => select(tabNew ));
+  }
 
-    // Button-Count dynamisch
-    function setTabCount(btn, count){
-      const base = btn.getAttribute('data-base');
-      btn.textContent = `${base} (${count})`;
-      btn.setAttribute('aria-label', `${base} (${count})`);
-    }
+  // Initial load (jede Kategorie für sich)
+  (async function(){
+    perfAll = sortNewest(await loadJSON('./performance_patches.json', dbg.perfEl));
+    newAll  = sortNewest(await loadJSON('./new_switch2_games.json',      dbg.newEl ));
+    renderPerf(perfAll);
+    renderNew(newAll);
+    setTabCount(tabPerf, perfAll.length);
+    setTabCount(tabNew , newAll.length );
+    document.getElementById('newCount').textContent = 'Anzahl: ' + newAll.length;
+  })();
 
-    // Debug
-    const dbg = {
-      logEl: document.getElementById('dbg-log'),
-      perfEl: document.getElementById('dbg-perf'),
-      newEl:  document.getElementById('dbg-new'),
-      perfItemsEl: document.getElementById('dbg-perf-items'),
-      newItemsEl:  document.getElementById('dbg-new-items'),
-      imgErrEl: document.getElementById('dbg-img-errors'),
-      imgErrors: 0,
-      log(msg, cls){ const s=document.createElement('span'); s.textContent = `[DBG] ${msg}\n`; if(cls) s.className=cls; dbg.logEl.appendChild(s); dbg.logEl.scrollTop=dbg.logEl.scrollHeight; }
-    };
+  // Rendering (getrennt)
+  function renderPerf(list){
+    const grid = document.getElementById('cards-perf');
+    grid.innerHTML = list.map(cardPerf).join('');
+    grid.querySelectorAll('img').forEach(initThumb);
+    dbg.perfItemsEl.textContent = String(list.length);
+  }
+  function renderNew(list){
+    const grid = document.getElementById('cards-new');
+    grid.innerHTML = list.map(cardNew).join('');
+    grid.querySelectorAll('img').forEach(initThumb);
+    dbg.newItemsEl.textContent = String(list.length);
+  }
 
-    // Bild-Fallback
-    function svgData(title, reason){
-      const svg = encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='270' height='153'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop offset='0' stop-color='#1b2a33'/><stop offset='1' stop-color='#0f1720'/></linearGradient></defs><rect width='100%' height='100%' fill='url(#g)'/><text x='16' y='84' font-family='system-ui,Segoe UI,Arial' font-size='20' fill='#e6edf3'>${title}</text><text x='16' y='120' font-family='system-ui,Segoe UI,Arial' font-size='12' fill='#9aa7b2'>${reason}</text></svg>`);
-      return `data:image/svg+xml;charset=utf-8,${svg}`;
-    }
-    function prox(u){ return u ? ('https://images.weserv.nl/?url=' + encodeURIComponent(u.replace(/^https?:\/\//,''))) : ''; }
-    function initThumb(img){
-      const tryList = [img.dataset.src1, img.dataset.src2, img.dataset.src3, img.dataset.src4].filter(Boolean);
-      let i = 0;
-      function next(){ if(i>=tryList.length){ dbg.imgErrors++; dbg.imgErrEl.textContent = String(dbg.imgErrors); img.src = svgData(img.alt.replace('Thumbnail ','')||'Spiel','Kein Bild verfügbar'); return; } img.src = tryList[i++]; }
-      img.onerror = next; img.onload = ()=>{ if(!img.naturalWidth) next(); };
-      next();
-    }
-
-    // Helpers
-    function fmtDate(iso){ if(!iso) return ''; try{ const p = iso.split('-'); return `${p[2]}.${p[1]}.${p[0]}`; }catch{ return ''; } }
-    function ts(item){ const t = Date.parse(item.release_date || ''); return isNaN(t) ? 0 : t; }
-
-    // Renderer
-    function cardPerf(e){
-      const link = e.de || e.us || '#';
-      const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
-      const title = e.name || 'Unbekannt';
-      const img1  = e.img || e.img2 || e.eu || '';
-      const img2  = e.img2 || e.us_hero || '';
-      const rel   = e.release_date?`Release: ${fmtDate(e.release_date)}`:'';
-      return `<article class="card" data-name="${title.toLowerCase()}">
-        <a href="${link}" target="_blank" rel="noopener">
-          <img class="card-img" alt="Thumbnail ${title}"
-               data-src1="${img1}" data-src2="${img2}" data-src3="${prox(img1)}" data-src4="${prox(img2)}">
-        </a>
-        <div class="card-body">
-          <h3 class="card-title"><a href="${link}" target="_blank" rel="noopener">${title}</a></h3>
-          <div class="meta">${rel}</div>
-          <div class="meta clamp-2"><span class="badge">Patch</span> ${e.kern || '—'}</div>
-          <div class="src"><a href="${link}" target="_blank" rel="noopener">${label}</a></div>
-        </div>
-      </article>`;
-    }
-    function cardNew(e){
-      const link = e.de || e.us || '#';
-      const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
-      const title = e.name || 'Unbekannt';
-      const img1  = e.img || e.img2 || '';
-      const img2  = e.img2 || e.img  || '';
-      const rel   = e.release_date?`Release: ${fmtDate(e.release_date)}`:'';
-      const price = (typeof e.price_eur === 'number') ? new Intl.NumberFormat('de-DE', {style:'currency', currency:'EUR'}).format(e.price_eur) : '—';
-      return `<article class="card" data-name="${title.toLowerCase()}">
-        <a href="${link}" target="_blank" rel="noopener">
-          <img class="card-img" alt="Thumbnail ${title}"
-               data-src1="${img1}" data-src2="${img2}" data-src3="${prox(img1)}" data-src4="${prox(img2)}">
-        </a>
-        <div class="card-body">
-          <h3 class="card-title"><a href="${link}" target="_blank" rel="noopener">${title}</a></h3>
-          <div class="meta">${rel}</div>
-          <span class="badge price-badge">${price}</span>
-          <div class="src"><a href="${link}" target="_blank" rel="noopener">${label}</a></div>
-        </div>
-      </article>`;
-    }
-
-    function rowPerf(e){ /* unsichtbare Tabelle weiter befüllen (optional) */
-      const link = e.de || e.us || '#';
-      const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
-      const title = e.name || 'Unbekannt';
-      const kern  = e.kern || '—';
-      return `<tr><td>—</td><td>${title}</td><td>${kern}</td><td>${label}</td></tr>`;
-    }
-    function rowNew(e){
-      const link = e.de || e.us || '#';
-      const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
-      const title = e.name || 'Unbekannt';
-      const price = (typeof e.price_eur === 'number') ? new Intl.NumberFormat('de-DE', {style:'currency', currency:'EUR'}).format(e.price_eur) : '—';
-      return `<tr><td>—</td><td>${title}</td><td>${price}</td><td>${label}</td></tr>`;
-    }
-
-    async function loadJSON(url, labelEl){
-      try{
-        const r = await fetch(url, {cache:'no-cache'});
-        if(!r.ok) throw new Error('HTTP '+r.status);
-        const data = await r.json();
-        labelEl.textContent = 'ok'; labelEl.className = 'dbg-ok';
-        return Array.isArray(data) ? data : [];
-      }catch(e){
-        dbg.log(`Fetch ${url} failed: ${e.message}`, 'dbg-err');
-        labelEl.textContent = 'Fehler'; labelEl.className = 'dbg-err';
-        return [];
-      }
-    }
-
-    let perfAll = [];
-    let newAll  = [];
-    function sortNewest(list){ return list.slice().sort((a,b)=> {
-      const ta = Date.parse(a.release_date||''); const tb = Date.parse(b.release_date||'');
-      if(isNaN(ta) && isNaN(tb)) return a.name.localeCompare(b.name, "de");
-      if(isNaN(ta)) return 1; if(isNaN(tb)) return -1; return tb - ta;
-    }); }
-
-    // Render functions
-    function renderPerf(list){
-      // unsichtbare Tabelle (optional)
-      document.querySelector('#games-perf tbody').innerHTML = list.map(rowPerf).join('');
-      // Karten
-      const grid = document.getElementById('cards-perf');
-      grid.innerHTML = list.map(cardPerf).join('');
-      grid.querySelectorAll('img').forEach(initThumb);
-      dbg.perfItemsEl.textContent = String(list.length);
-    }
-    function renderNew(list){
-      document.querySelector('#games-new tbody').innerHTML = list.map(rowNew).join('');
-      const grid = document.getElementById('cards-new');
-      grid.innerHTML = list.map(cardNew).join('');
-      grid.querySelectorAll('img').forEach(initThumb);
-      dbg.newItemsEl.textContent = String(list.length);
-    }
-
-    // Load JSONs
-    (async function(){
-      perfAll = sortNewest(await loadJSON('./performance_patches.json', dbg.perfEl));
-      newAll  = sortNewest(await loadJSON('./new_switch2_games.json', dbg.newEl));
-      renderPerf(perfAll);
-      renderNew(newAll);
-      setTabCount(tabPerf, perfAll.length);
-      setTabCount(tabNew, newAll.length);
-      document.getElementById('newCount').textContent = 'Anzahl: ' + newAll.length;
-    })();
-
-    // Suche (übergreifend beide Listen)
-    const q = document.getElementById('q');
-    const clearQ = document.getElementById('clearQ');
-    function applySearch(){
-      const s = (q.value || '').trim().toLowerCase();
-      const perf = s ? perfAll.filter(e => (e.name||'').toLowerCase().includes(s) || (e.kern||'').toLowerCase().includes(s)) : perfAll;
-      const neu  = s ? newAll .filter(e => (e.name||'').toLowerCase().includes(s)) : newAll;
-      renderPerf(perf);
-      renderNew(neu);
-      setTabCount(tabPerf, perf.length);
-      setTabCount(tabNew, neu.length);
-      document.getElementById('newCount').textContent = 'Anzahl: ' + neu.length + (s ? ` (gefiltert)` : '');
-    }
-    q.addEventListener('input', applySearch);
-    clearQ.addEventListener('click', ()=>{ q.value=''; applySearch(); });
-  </script>
+  // Suche (trennt strikt per Kategorie)
+  const q = document.getElementById('q');
+  const clearQ = document.getElementById('clearQ');
+  function applySearch(){
+    const s = (q.value||'').trim().toLowerCase();
+    const perf = s ? perfAll.filter(e => (e.name||'').toLowerCase().includes(s) || (e.kern||'').toLowerCase().includes(s)) : perfAll;
+    const neu  = s ? newAll .filter(e => (e.name||'').toLowerCase().includes(s)) : newAll;
+    renderPerf(perf);  setTabCount(tabPerf, perf.length);
+    renderNew(neu );  setTabCount(tabNew , neu.length );
+    document.getElementById('newCount').textContent = 'Anzahl: ' + neu.length + (s ? ' (gefiltert)' : '');
+  }
+  q.addEventListener('input', applySearch);
+  clearQ.addEventListener('click', ()=>{ q.value=''; applySearch(); });
+</script>
 </body>
 </html>
