@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Mario Kart World",
+    "us": "https://www.nintendo.com/us/store/products/mario-kart-world-switch-2/",
+    "img_primary": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/mario-kart-world-switch-2/hero"
+  },
+  {
+    "name": "Donkey Kong Bananza",
+    "us": "https://www.nintendo.com/us/store/products/donkey-kong-bananza-switch-2/",
+    "img_primary": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/donkey-kong-bananza-switch-2/hero"
+  },
+  {
+    "name": "Cyberpunk 2077: Ultimate Edition",
+    "us": "https://www.nintendo.com/us/store/products/cyberpunk-2077-ultimate-edition-switch-2/",
+    "img_primary": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/cyberpunk-2077-ultimate-edition-switch-2/hero"
+  },
+  {
+    "name": "Street Fighter 6",
+    "us": "https://www.nintendo.com/us/store/products/street-fighter-6-switch-2/",
+    "img_primary": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/street-fighter-6-switch-2/hero"
+  },
+  {
+    "name": "Pokémon Legends: Z-A – Nintendo Switch 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/pokemon-legends-z-a-nintendo-switch-2-edition-switch-2/",
+    "img_primary": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pokemon-legends-z-a-nintendo-switch-2-edition-switch-2/hero"
+  },
+  {
+    "name": "Sonic X Shadow Generations",
+    "us": "https://www.nintendo.com/us/store/products/sonic-x-shadow-generations-switch-2/",
+    "img_primary": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/sonic-x-shadow-generations-switch-2/hero"
+  },
+  {
+    "name": "EA Sports FC 26",
+    "us": "https://www.nintendo.com/us/store/products/ea-sports-fc-26-switch-2/",
+    "img_primary": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/e/ea-sports-fc-26-switch-2/hero"
+  },
+  {
+    "name": "Madden NFL 26",
+    "us": "https://www.nintendo.com/us/store/products/madden-nfl-26-switch-2/",
+    "img_primary": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/madden-nfl-26-switch-2/hero"
+  },
+  {
+    "name": "Plants vs. Zombies: Replanted",
+    "us": "https://www.nintendo.com/us/store/products/plants-vs-zombies-replanted-switch-2/",
+    "img_primary": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/plants-vs-zombies-replanted-switch-2/hero"
+  },
+  {
+    "name": "The Legend of Heroes: Trails Beyond the Horizon",
+    "us": "https://www.nintendo.com/us/store/products/the-legend-of-heroes-trails-beyond-the-horizon-switch-2/",
+    "img_primary": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-heroes-trails-beyond-the-horizon-switch-2/hero"
+  }
+]
