@@ -6,7 +6,7 @@
   <title>Switch 2 – Performance Patches & Neue Spiele</title>
   <meta name="color-scheme" content="dark light">
   <style>
-    :root { --bg:#0b0e11; --card:#12161c; --text:#e6edf3; --muted:#9aa7b2; --accent:#26c281; --table:#1f2630; }
+    :root { --bg:#0b0e11; --card:#12161c; --card2:#0f1318; --text:#e6edf3; --muted:#9aa7b2; --accent:#26c281; --table:#1f2630; --ring: rgba(38,194,129,.5); }
     html,body{ background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial; margin:0; }
 
     /* Hero-Banner */
@@ -24,26 +24,54 @@
     .tabs{ display:flex; gap:8px; padding:8px 20px 12px; flex-wrap:wrap; }
     .tab-btn{ background:var(--card); border:1px solid var(--table); color:var(--text); padding:8px 12px; border-radius:999px; cursor:pointer; font-weight:600; }
     .tab-btn[aria-selected="true"]{ outline:2px solid var(--accent); }
-    .tabs::-webkit-scrollbar{ height:8px; }
 
     .wrap{ padding:0 20px 28px; }
+
+    /* TABLE (Desktop) */
     .table-card{ background:var(--card); border:1px solid var(--table); border-radius:14px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.35); }
-    /* Mobile: Table in Scroller-Hülle, um Spalten/Größen zu bewahren */
     .table-scroller{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
-    table{ width:100%; border-collapse:collapse; table-layout:auto; min-width: 920px; } /* min-width hält Spalten stabil */
+    table{ width:100%; border-collapse:collapse; table-layout:auto; min-width: 920px; }
     thead th{ text-align:left; padding:14px 12px; font-size:.92rem; color:var(--muted); border-bottom:1px solid var(--table); font-weight:600; white-space:nowrap; }
     tbody td{ padding:10px 12px; border-bottom:1px solid var(--table); vertical-align:middle; }
     tbody tr:hover{ background:rgba(255,255,255,.02); }
-
-    /* Thumbnails: Desktop-Größe bleibt; auf Mobil wird gescrollt statt skaliert */
-    .thumb{ width:270px; height:153px; border-radius:8px; object-fit:cover; display:block; border:1px solid #222b36; }
-
+    .thumb{ width:270px; height:153px; border-radius:8px; object-fit:cover; display:block; border:1px solid #222b36; box-shadow:0 4px 12px rgba(0,0,0,.25); }
     .game a{ color:var(--text); text-decoration:none; font-weight:600; } .game a:hover{ text-decoration:underline; }
     .kernCell{ color:var(--text); }
     .source a{ color:var(--muted); text-decoration:none; } .source a:hover{ text-decoration:underline; }
-    .hidden{ display:none; }
-    .foot{ color:var(--muted); font-size:.9rem; margin-top:14px; line-height:1.5; }
     .price{ white-space:nowrap; font-weight:600; }
+
+    /* CARDS (Mobil + hübscher Desktop-Grid) */
+    .cards-wrap{ margin-top:14px; }
+    .cards-grid{ display:grid; gap:14px; }
+    .card{ background:linear-gradient(180deg, var(--card), var(--card2)); border:1px solid var(--table); border-radius:14px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.35); }
+    .card-img{ width:100%; aspect-ratio:16/9; object-fit:cover; display:block; border-bottom:1px solid var(--table); }
+    .card-body{ padding:12px; display:grid; gap:8px; }
+    .card-title{ margin:0; font-size:1rem; line-height:1.25; }
+    .card-title a{ color:var(--text); text-decoration:none; font-weight:700; }
+    .card-title a:hover{ text-decoration:underline; }
+    .badge{ display:inline-block; font-size:.8rem; color:#e6edf3; background:rgba(38,194,129,.12); border:1px solid var(--ring); padding:2px 8px; border-radius:999px; }
+    .meta{ color:var(--muted); font-size:.85rem; }
+    .meta b{ color:var(--text); }
+    .src a{ color:var(--muted); text-decoration:none; font-size:.85rem; }
+    .src a:hover{ text-decoration:underline; }
+    .price-badge{ justify-self:start; }
+
+    /* Responsive Umschaltung: < 900px → nur Karten, ≥ 900px → nur Tabelle */
+    .desktop-only{ display:none; }
+    .mobile-only{ display:block; }
+    @media (min-width: 900px){
+      .desktop-only{ display:block; }
+      .mobile-only{ display:none; }
+      /* Hübscheres Desktop: zusätzlich auch Grid-Ansicht optional */
+      .cards-wrap.desktop-enhanced{ display:block; }
+      .cards-grid.desktop-enhanced{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+    }
+    @media (max-width: 899px){
+      .cards-grid{ grid-template-columns: 1fr; }
+    }
+    @media (min-width: 600px) and (max-width: 899px){
+      .cards-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
 
     /* Debug */
     #debug-panel{ margin:16px 20px; background:#0f1318; border:1px solid var(--table); border-radius:10px; }
@@ -53,7 +81,7 @@
               font:12px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; color:#e6edf3 }
     .dbg-ok{ color:#26c281 } .dbg-warn{ color:#ffcc66 } .dbg-err{ color:#ff6b6b }
 
-    /* Kleine Bildschirme: engeres Padding, Buttons nebeneinander scrollbar */
+    /* Kleinere Geräte: engeres Padding */
     @media (max-width:600px){
       .toolbar{ padding:10px 10px 4px; }
       .tabs{ padding:8px 10px 10px; overflow-x:auto; -webkit-overflow-scrolling:touch; }
@@ -75,7 +103,7 @@
 
   <!-- Globale Suche -->
   <div class="toolbar">
-    <div class="search"><input id="q" type="search" placeholder="Suche nach Spielen – filtert beide Tabellen …" autocomplete="off"></div>
+    <div class="search"><input id="q" type="search" placeholder="Suche nach Spielen – filtert beide Tabellen & Karten …" autocomplete="off"></div>
     <button id="clearQ" class="btn-clear" type="button">Zurücksetzen</button>
   </div>
 
@@ -86,27 +114,41 @@
   </nav>
 
   <div class="wrap">
-    <!-- Panel 1: Performance (JSON-basiert) -->
-    <section id="panel-perf" class="table-card" role="tabpanel" aria-labelledby="tab-perf">
-      <div class="table-scroller">
-        <table id="games-perf">
-          <thead>
-            <tr><th>Thumbnail</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Kern-Patch-Inhalte</th><th>Quelle</th></tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+    <!-- Panel 1: Performance -->
+    <section id="panel-perf" role="tabpanel" aria-labelledby="tab-perf">
+      <!-- Desktop-Tabelle -->
+      <div class="table-card desktop-only">
+        <div class="table-scroller">
+          <table id="games-perf">
+            <thead>
+              <tr><th>Spiele</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Kern-Patch-Inhalte</th><th>Quelle</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Karten (Mobil + optionale hübschere Desktop-Ansicht) -->
+      <div class="cards-wrap">
+        <div id="cards-perf" class="cards-grid"></div>
       </div>
     </section>
 
-    <!-- Panel 2: Neue Spiele (JSON + Preis in €) -->
-    <section id="panel-new" class="table-card hidden" role="tabpanel" aria-labelledby="tab-new">
-      <div class="table-scroller">
-        <table id="games-new">
-          <thead>
-            <tr><th>Thumbnail</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Preis (€)</th><th>Quelle</th></tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+    <!-- Panel 2: Neue Spiele -->
+    <section id="panel-new" class="hidden" role="tabpanel" aria-labelledby="tab-new">
+      <!-- Desktop-Tabelle -->
+      <div class="table-card desktop-only">
+        <div class="table-scroller">
+          <table id="games-new">
+            <thead>
+              <tr><th>Spiele</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Preis (€)</th><th>Quelle</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Karten -->
+      <div class="cards-wrap">
+        <div id="cards-new" class="cards-grid"></div>
       </div>
       <p class="foot" id="newCount"></p>
     </section>
@@ -179,36 +221,82 @@
       next();
     }
 
-    // Renderer
+    // Helpers
+    function fmtDate(iso){ if(!iso) return ''; try{ const p = iso.split('-'); return `${p[2]}.${p[1]}.${p[0]}`; }catch{ return ''; } }
+    function ts(item){ const t = Date.parse(item.release_date || ''); return isNaN(t) ? 0 : t; }
+
+    // Row/Card Renderer
     function rowPerf(e){
       const link = e.de || e.us || '#';
       const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
       const title = e.name || 'Unbekannt';
       const kern  = e.kern || '—';
-      const img1  = e.img || e.img2 || e.eu || '';  // bevorzugt og:image
-      const img2  = e.img2 || e.us_hero || '';      // hero fallback
+      const img1  = e.img || e.img2 || e.eu || '';
+      const img2  = e.img2 || e.us_hero || '';
       return `<tr data-name="${title.toLowerCase()}">
         <td><a href="${link}" target="_blank" rel="noopener"><img class="thumb" alt="Thumbnail ${title}"
              data-src1="${img1}" data-src2="${img2}" data-src3="${prox(img1)}" data-src4="${prox(img2)}"></a></td>
-        <td class="game"><a href="${link}" target="_blank" rel="noopener">${title}</a></td>
+        <td class="game"><a href="${link}" target="_blank" rel="noopener">${title}</a><div class="meta">${e.release_date?`Release: ${fmtDate(e.release_date)}`:''}</div></td>
         <td class="kernCell">${kern}</td>
         <td class="source"><a href="${link}" target="_blank" rel="noopener">${label}</a></td>
       </tr>`;
     }
+    function cardPerf(e){
+      const link = e.de || e.us || '#';
+      const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
+      const title = e.name || 'Unbekannt';
+      const img1  = e.img || e.img2 || e.eu || '';
+      const img2  = e.img2 || e.us_hero || '';
+      const rel   = e.release_date?`Release: ${fmtDate(e.release_date)}`:'';
+      return `<article class="card" data-name="${title.toLowerCase()}">
+        <a href="${link}" target="_blank" rel="noopener">
+          <img class="card-img" alt="Thumbnail ${title}"
+               data-src1="${img1}" data-src2="${img2}" data-src3="${prox(img1)}" data-src4="${prox(img2)}">
+        </a>
+        <div class="card-body">
+          <h3 class="card-title"><a href="${link}" target="_blank" rel="noopener">${title}</a></h3>
+          <div class="meta">${rel}</div>
+          <div><span class="badge">Patch</span> <span class="meta">${e.kern || '—'}</span></div>
+          <div class="src"><a href="${link}" target="_blank" rel="noopener">${label}</a></div>
+        </div>
+      </article>`;
+    }
+
     function rowNew(e){
       const link = e.de || e.us || '#';
       const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
       const title = e.name || 'Unbekannt';
-      const img1  = e.img || e.img2 || '';   // og:image bevorzugt
-      const img2  = e.img2 || e.img  || '';  // hero fallback
+      const img1  = e.img || e.img2 || '';
+      const img2  = e.img2 || e.img  || '';
       const price = (typeof e.price_eur === 'number') ? new Intl.NumberFormat('de-DE', {style:'currency', currency:'EUR'}).format(e.price_eur) : '—';
       return `<tr data-name="${title.toLowerCase()}">
         <td><a href="${link}" target="_blank" rel="noopener"><img class="thumb" alt="Thumbnail ${title}"
              data-src1="${img1}" data-src2="${img2}" data-src3="${prox(img1)}" data-src4="${prox(img2)}"></a></td>
-        <td class="game"><a href="${link}" target="_blank" rel="noopener">${title}</a></td>
+        <td class="game"><a href="${link}" target="_blank" rel="noopener">${title}</a><div class="meta">${e.release_date?`Release: ${fmtDate(e.release_date)}`:''}</div></td>
         <td class="price">${price}</td>
         <td class="source"><a href="${link}" target="_blank" rel="noopener">${label}</a></td>
       </tr>`;
+    }
+    function cardNew(e){
+      const link = e.de || e.us || '#';
+      const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
+      const title = e.name || 'Unbekannt';
+      const img1  = e.img || e.img2 || '';
+      const img2  = e.img2 || e.img  || '';
+      const rel   = e.release_date?`Release: ${fmtDate(e.release_date)}`:'';
+      const price = (typeof e.price_eur === 'number') ? new Intl.NumberFormat('de-DE', {style:'currency', currency:'EUR'}).format(e.price_eur) : '—';
+      return `<article class="card" data-name="${title.toLowerCase()}">
+        <a href="${link}" target="_blank" rel="noopener">
+          <img class="card-img" alt="Thumbnail ${title}"
+               data-src1="${img1}" data-src2="${img2}" data-src3="${prox(img1)}" data-src4="${prox(img2)}">
+        </a>
+        <div class="card-body">
+          <h3 class="card-title"><a href="${link}" target="_blank" rel="noopener">${title}</a></h3>
+          <div class="meta">${rel}</div>
+          <span class="badge price-badge">${price}</span>
+          <div class="src"><a href="${link}" target="_blank" rel="noopener">${label}</a></div>
+        </div>
+      </article>`;
     }
 
     async function loadJSON(url, labelEl){
@@ -225,45 +313,51 @@
       }
     }
 
-    function ts(item){
-      const t = Date.parse(item.release_date || '');
-      return isNaN(t) ? 0 : t;
-    }
-
     let perfAll = [];
     let newAll  = [];
 
-    // Load Performance (sort: neueste zuerst)
-    (async function(){
-      perfAll = await loadJSON('./performance_patches.json', dbg.perfEl);
-      perfAll.sort((a,b)=> ts(b)-ts(a));
-      renderPerf(perfAll);
-      setTabCount(tabPerf, perfAll.length);
-    })();
+    function sortNewest(list){ return list.slice().sort((a,b)=> {
+      const ta = Date.parse(a.release_date||''); const tb = Date.parse(b.release_date||'');
+      if(isNaN(ta) && isNaN(tb)) return a.name.localeCompare(b.name, "de");
+      if(isNaN(ta)) return 1; if(isNaN(tb)) return -1; return tb - ta;
+    }); }
 
-    // Load Neue Spiele (sort: neueste zuerst)
+    // Render functions
+    function renderPerf(list){
+      // table
+      const tbody = document.querySelector('#games-perf tbody');
+      tbody.innerHTML = list.map(rowPerf).join('');
+      tbody.querySelectorAll('img').forEach(initThumb);
+      dbg.perfItemsEl.textContent = String(list.length);
+      // cards
+      const grid = document.getElementById('cards-perf');
+      grid.innerHTML = list.map(cardPerf).join('');
+      grid.querySelectorAll('img').forEach(initThumb);
+    }
+    function renderNew(list){
+      // table
+      const tbody = document.querySelector('#games-new tbody');
+      tbody.innerHTML = list.map(rowNew).join('');
+      tbody.querySelectorAll('img').forEach(initThumb);
+      dbg.newItemsEl.textContent = String(list.length);
+      // cards
+      const grid = document.getElementById('cards-new');
+      grid.innerHTML = list.map(cardNew).join('');
+      grid.querySelectorAll('img').forEach(initThumb);
+    }
+
+    // Load JSONs
     (async function(){
-      newAll = await loadJSON('./new_switch2_games.json', dbg.newEl);
-      newAll.sort((a,b)=> ts(b)-ts(a));
+      perfAll = sortNewest(await loadJSON('./performance_patches.json', dbg.perfEl));
+      newAll  = sortNewest(await loadJSON('./new_switch2_games.json', dbg.newEl));
+      renderPerf(perfAll);
       renderNew(newAll);
+      setTabCount(tabPerf, perfAll.length);
       setTabCount(tabNew, newAll.length);
       document.getElementById('newCount').textContent = 'Anzahl: ' + newAll.length;
     })();
 
-    function renderPerf(list){
-      const body = document.querySelector('#games-perf tbody');
-      body.innerHTML = list.map(rowPerf).join('');
-      body.querySelectorAll('img.thumb').forEach(initThumb);
-      dbg.perfItemsEl.textContent = String(list.length);
-    }
-    function renderNew(list){
-      const body = document.querySelector('#games-new tbody');
-      body.innerHTML = list.map(rowNew).join('');
-      body.querySelectorAll('img.thumb').forEach(initThumb);
-      dbg.newItemsEl.textContent = String(list.length);
-    }
-
-    // Suche (übergreifend beide Tabellen)
+    // Suche (übergreifend beide Listen)
     const q = document.getElementById('q');
     const clearQ = document.getElementById('clearQ');
     function applySearch(){
