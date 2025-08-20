@@ -41,7 +41,7 @@
   </nav>
 
   <div class="wrap">
-    <!-- Panel 1 -->
+    <!-- Panel 1: Performance -->
     <section id="panel-perf" class="table-card" role="tabpanel" aria-labelledby="tab-perf">
       <table id="games1">
         <thead><tr><th>Thumbnail</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Kern-Patch-Inhalte</th><th>Quelle</th></tr></thead>
@@ -49,9 +49,9 @@
       </table>
     </section>
 
-    <!-- Panel 2 -->
+    <!-- Panel 2: Neue Spiele -->
     <section id="panel-new" class="table-card hidden" role="tabpanel" aria-labelledby="tab-new">
-      <div class="foot">Die Liste wird beim Laden automatisch aus <code>new_switch2_games.json</code> eingelesen (DE bevorzugt, US-Fallback in den Daten). Pflege/Abgleich erfolgt serverseitig per GitHub Action.</div>
+      <div class="foot">Die Liste lädt automatisch. Primär aus dem Nintendo-US-Listing über einen CORS-Reader; fällt das aus, verwenden wir <code>new_switch2_games.json</code>.</div>
       <table id="games2">
         <thead><tr><th>Thumbnail</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Kern-Patch-Inhalte</th><th>Quelle</th></tr></thead>
         <tbody></tbody>
@@ -60,12 +60,12 @@
     </section>
 
     <p class="foot">
-      Regeln: DE-Shoplinks bevorzugt; wenn ein DE-Link 404 liefert, verwenden wir automatisch die US-Seite. Thumbnails: **EU-H2x1 → US-Hero → Inline-SVG** (immer sichtbar).
+      Regeln: DE-Shoplinks bevorzugt; bei 404 → US. Thumbnail-Kette: <b>EU-H2x1 → US-Hero → Proxy</b> (images.weserv.nl) → Inline-SVG.
     </p>
   </div>
 
   <script>
-    // Datum (de-DE)
+    // Datum
     (function(){ try { document.getElementById('today').textContent = new Intl.DateTimeFormat('de-DE').format(new Date()); } catch(_){} })();
 
     // Tabs
@@ -73,23 +73,15 @@
     const tabNew  = document.getElementById('tab-new');
     const panelPerf = document.getElementById('panel-perf');
     const panelNew  = document.getElementById('panel-new');
-    function select(tab){
-      const isPerf = tab.id === 'tab-perf';
-      tabPerf.setAttribute('aria-selected', isPerf);
-      tabNew.setAttribute('aria-selected', !isPerf);
-      panelPerf.classList.toggle('hidden', !isPerf);
-      panelNew.classList.toggle('hidden', isPerf);
-    }
+    function select(tab){ const isPerf = tab.id === 'tab-perf'; tabPerf.setAttribute('aria-selected', isPerf); tabNew.setAttribute('aria-selected', !isPerf); panelPerf.classList.toggle('hidden', !isPerf); panelNew.classList.toggle('hidden', isPerf); }
     tabPerf.addEventListener('click', () => select(tabPerf));
     tabNew .addEventListener('click', () => select(tabNew ));
 
-    // SVG-Notfallbild (garantiert sichtbares Thumbnail)
+    // Inline-SVG als letzter Fallback
     function setSvg(img, title, reason){
       const svg = encodeURIComponent(
         `<svg xmlns='http://www.w3.org/2000/svg' width='270' height='153'>
-           <defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'>
-             <stop offset='0' stop-color='#1b2a33'/><stop offset='1' stop-color='#0f1720'/>
-           </linearGradient></defs>
+           <defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop offset='0' stop-color='#1b2a33'/><stop offset='1' stop-color='#0f1720'/></linearGradient></defs>
            <rect width='100%' height='100%' fill='url(#g)'/>
            <text x='16' y='84' font-family='system-ui,Segoe UI,Arial' font-size='20' fill='#e6edf3'>${(title||'Spiel').replace(/&/g,'&amp;')}</text>
            <text x='16' y='120' font-family='system-ui,Segoe UI,Arial' font-size='12' fill='#9aa7b2'>${reason}</text>
@@ -98,108 +90,107 @@
       img.src = `data:image/svg+xml;charset=utf-8,${svg}`;
     }
 
-    // Robuste Bildprüfung: decode() + naturalWidth + onerror
+    // Robuste Thumbnail-Kette: EU -> US -> Proxy(EU) -> Proxy(US) -> SVG
     function ensureThumb(img, title){
-      const alt1 = img.getAttribute('data-alt1');
-      const tryAlt = () => { if (alt1 && img.src !== alt1) { img.src = alt1; } else { setSvg(img, title, 'Kein Bild verfügbar'); } };
-      img.addEventListener('load', () => { if (!img.naturalWidth) tryAlt(); });
-      img.addEventListener('error', tryAlt);
-      if (img.decode) { img.decode().catch(tryAlt); }
+      const eu = img.dataset.eu, us = img.dataset.us;
+      const prox = u => 'https://images.weserv.nl/?url=' + encodeURIComponent(u.replace(/^https?:\\/\\//,''));
+      const steps = [eu, us, prox(eu), prox(us)].filter(Boolean);
+      let i = 0;
+      function next(){ if (i >= steps.length) { setSvg(img, title, 'Kein Bild verfügbar'); return; } img.src = steps[i++]; }
+      img.addEventListener('error', next);
+      img.addEventListener('load', () => { if (!img.naturalWidth) next(); });
+      next();
     }
 
-    // PERFORMANCE-PATCHES (inkl. gefixter Problem-Thumbs + bezahlter Upgrades)
-    const perf = [
-      // --- Auszug (deine bisherigen + fix für die 3 Problemfälle) ---
-      {
-        name: "Super Mario 3D World + Bowser’s Fury",
-        de:   "https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Super-Mario-3D-World-Bowser-s-Fury-1832228.html",
-        us:   "https://www.nintendo.com/us/store/products/super-mario-3d-world-bowsers-fury-switch/",
-        img:  "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperMario3DWorldBowsersFury_image1600w.jpg",
-        img2: "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/super-mario-3d-world-bowsers-fury-switch/hero",
-        kern: "Visuelle Optimierung, bessere FPS; HDR (nur Bowser’s Fury)"
-      },
-      {
-        name: "DRAGON QUEST III HD-2D Remake",
-        de:   "https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/DRAGON-QUEST-III-HD-2D-Remake-2639673.html",
-        us:   "https://www.nintendo.com/us/store/products/dragon-quest-iii-hd-2d-remake-switch/",
-        img:  "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_DragonQuestIIIHD2DRemake_image1600w.jpg",
-        img2: "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/dragon-quest-iii-hd-2d-remake-switch/hero",
-        kern: "Performance-Update: schärfere Grafik + Anzeigemodi"
-      },
-      {
-        name: "The Legend of Zelda: Echoes of Wisdom",
-        de:   "https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/The-Legend-of-Zelda-Echoes-of-Wisdom-2590490.html",
-        us:   "https://www.nintendo.com/us/store/products/the-legend-of-zelda-echoes-of-wisdom-switch/",
-        img:  "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaEchoesOfWisdom_image1600w.jpg",
-        img2: "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-echoes-of-wisdom-switch/hero",
-        kern: "Visuelle Optimierung, HDR (TV)"
-      },
-
-      // ... hier alle deine restlichen Einträge wie gehabt ...
-
-      // --- Bezahlte Upgrades (offiziell gelistet) ---
-      {
-        name: "The Legend of Zelda: Breath of the Wild – Nintendo Switch 2 Edition",
-        de:   "https://www.nintendo.com/us/store/products/the-legend-of-zelda-breath-of-the-wild-nintendo-switch-2-edition-switch-2/",
-        us:   "https://www.nintendo.com/us/store/products/the-legend-of-zelda-breath-of-the-wild-nintendo-switch-2-edition-upgrade-pack-switch-2/",
-        img:  "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaBreathOfTheWild_image1600w.jpg",
-        img2: "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-breath-of-the-wild-switch/hero",
-        kern: "Upgrade-Pack verfügbar (Leistungs-Boost: Auflösung/FPS, schnellere Ladezeiten; inkl. „Zelda Notes“)."
-      },
-      {
-        name: "The Legend of Zelda: Tears of the Kingdom – Nintendo Switch 2 Edition",
-        de:   "https://www.nintendo.com/us/store/products/the-legend-of-zelda-tears-of-the-kingdom-nintendo-switch-2-edition-switch-2/",
-        us:   "https://www.nintendo.com/us/store/products/the-legend-of-zelda-tears-of-the-kingdom-nintendo-switch-2-edition-upgrade-pack-switch-2/",
-        img:  "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaTearsOfTheKingdom_image1600w.jpg",
-        img2: "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-tears-of-the-kingdom-switch/hero",
-        kern: "Upgrade-Pack verfügbar; Leistungs-Optimierungen + „Zelda Notes“."
-      },
-      {
-        name: "Kirby und das vergessene Land – Nintendo Switch 2 Edition + Sternensplitter-Welt",
-        de:   "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/Kirby-and-the-Forgotten-Land-Nintendo-Switch-2-Edition-Star-Crossed-World-2787773.html",
-        us:   "https://www.nintendo.com/us/store/products/kirby-and-the-forgotten-land-nintendo-switch-2-edition-plus-star-crossed-world-upgrade-pack-switch-2/",
-        img:  "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_KirbyAndTheForgottenLand_image1600w.jpg",
-        img2: "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/k/kirby-and-the-forgotten-land-switch/hero",
-        kern: "Upgrade-Pack mit neuer Story („Sternensplitter-Welt“) + Performance-Verbesserungen."
-      }
+    // Performance-Liste (18 Einträge inkl. der 3 Upgrades)
+    const PERF = [
+      {"name":"ARMS","de":"https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/ARMS-1173200.html","us":"https://www.nintendo.com/us/store/products/arms-switch/","eu":"https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Arms_image1600w.jpg","us_hero":"https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/arms-switch/hero","kern":"Visuelle Optimierung, stabilere Framerate, HDR (TV)"},
+      {"name":"Captain Toad: Treasure Tracker","de":"https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Captain-Toad-Treasure-Tracker-1348071.html","us":"https://www.nintendo.com/us/store/products/captain-toad-treasure-tracker-switch/","eu":"https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_CaptainToadTreasureTracker_image1600w.png","us_hero":"https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/captain-toad-treasure-tracker-switch/hero","kern":"Visuelle Optimierung, HDR (TV)"},
+      {"name":"Spielestudio (Game Builder Garage)","de":"https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Download-Software/Spielestudio-1964648.html","us":"https://www.nintendo.com/us/store/products/game-builder-garage-switch/","eu":"https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_GameBuilderGarage_deDE_image1600w.jpg","us_hero":"https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/g/game-builder-garage-switch/hero","kern":"Visuelle Optimierung (höhere Bildqualität)"},
+      {"name":"New Super Mario Bros. U Deluxe","de":"https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/New-Super-Mario-Bros-U-Deluxe-1438640.html","us":"https://www.nintendo.com/us/store/products/new-super-mario-bros-u-deluxe-switch/","eu":"https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_NewSuperMarioBrosUDeluxe_image1600w.jpg","us_hero":"https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/n/new-super-mario-bros-u-deluxe-switch/hero","kern":"Visuelle Optimierung (höhere Bildqualität)"},
+      {"name":"Pokémon Karmesin","de":"https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Pokemon-Karmesin-2179556.html","us":"https://www.nintendo.com/us/store/products/pokemon-scarlet-switch/","eu":"https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_PokemonScarletViolet_Scarlet_deDE_image1600w.jpg","us_hero":"https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pokemon-scarlet-switch/hero","kern":"Visuelle Optimierung, höhere FPS"},
+      {"name":"Pokémon Purpur","de":"https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Pokemon-Purpur-2179557.html","us":"https://www.nintendo.com/us/store/products/pokemon-violet-switch/","eu":"https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_PokemonScarletViolet_Violet_deDE_image1600w.jpg","us_hero":"https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pokemon-violet-switch/hero","kern":"Visuelle Optimierung, höhere FPS"},
+      {"name":"Splatoon 3","de":"https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Splatoon-3-2008811.html","us":"https://www.nintendo.com/us/store/products/splatoon-3-switch/","eu":"https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Splatoon3_image1600w.jpg","us_hero":"https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/splatoon-3-switch/hero","kern":"Visuelle Optimierung, flüssigeres Bewegen im Hub"},
+      {"name":"Super Mario 3D World + Bowser’s Fury","de":"https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Super-Mario-3D-World-Bowser-s-Fury-1832228.html","us":"https://www.nintendo.com/us/store/products/super-mario-3d-world-bowsers-fury-switch/","eu":"https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperMario3DWorldBowsersFury_image1600w.jpg","us_hero":"https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/super-mario-3d-world-bowsers-fury-switch/hero","kern":"Visuelle Optimierung, bessere FPS; HDR (nur Bowser’s Fury)"},
+      {"name":"Super Mario Odyssey","de":"https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Super-Mario-Odyssey-1173332.html","us":"https://www.nintendo.com/us/store/products/super-mario-odyssey-switch/","eu":"https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperMarioOdyssey_image1600w.jpg","us_hero":"https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/super-mario-odyssey-switch/hero","kern":"Visuelle Optimierung, HDR (TV)"},
+      {"name":"The Legend of Zelda: Echoes of Wisdom","de":"https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/The-Legend-of-Zelda-Echoes-of-Wisdom-2590490.html","us":"https://www.nintendo.com/us/store/products/the-legend-of-zelda-echoes-of-wisdom-switch/","eu":"https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaEchoesOfWisdom_image1600w.jpg","us_hero":"https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-echoes-of-wisdom-switch/hero","kern":"Visuelle Optimierung, HDR (TV)"},
+      {"name":"The Legend of Zelda: Link’s Awakening","de":"https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/The-Legend-of-Zelda-Link-s-Awakening-1514327.html","us":"https://www.nintendo.com/us/store/products/the-legend-of-zelda-links-awakening-switch/","eu":"https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaLinksAwakening_image1600w.jpg","us_hero":"https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-links-awakening-switch/hero","kern":"Visuelle Optimierung, HDR (TV)"},
+      {"name":"Fortnite","de":"https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Fortnite-1510812.html","us":"https://www.nintendo.com/us/store/products/fortnite-switch/","eu":"https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Fortnite_image1600w.jpg","us_hero":"https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/f/fortnite-switch/hero","kern":"60 FPS, höhere Auflösung, zusätzliche Systeme-Features"},
+      {"name":"Apex Legends","de":"https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Apex-Legends--1910595.html","us":"https://www.nintendo.com/us/store/products/apex-legends-switch/","eu":"https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_ApexLegends_image1600w.jpg","us_hero":"https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/apex-legends-switch/hero","kern":"Bis 60 FPS; 1080p (Dock) / 1792×1008 (Handheld)"},
+      {"name":"No Man’s Sky","de":"https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/No-Man-s-Sky-2197037.html","us":"https://www.nintendo.com/us/store/products/no-mans-sky-switch/","eu":"https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_NoMansSky_image1600w.jpg","us_hero":"https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/n/no-mans-sky-switch/hero","kern":"Enhanced Visuals, Multiplayer u. Features (Switch-2-Upgrade-Pack)"},
+      {"name":"DRAGON QUEST III HD-2D Remake","de":"https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/DRAGON-QUEST-III-HD-2D-Remake-2639673.html","us":"https://www.nintendo.com/us/store/products/dragon-quest-iii-hd-2d-remake-switch/","eu":"https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_DragonQuestIIIHD2DRemake_image1600w.jpg","us_hero":"https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/dragon-quest-iii-hd-2d-remake-switch/hero","kern":"Performance-Update: schärfere Grafik + Anzeigemodi"},
+      {"name":"The Legend of Zelda: Breath of the Wild – Nintendo Switch 2 Edition","de":"https://www.nintendo.com/us/store/products/the-legend-of-zelda-breath-of-the-wild-nintendo-switch-2-edition-switch-2/","us":"https://www.nintendo.com/us/store/products/the-legend-of-zelda-breath-of-the-wild-nintendo-switch-2-edition-upgrade-pack-switch-2/","eu":"https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaBreathOfTheWild_image1600w.jpg","us_hero":"https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-breath-of-the-wild-switch/hero","kern":"Upgrade-Pack (Leistungs-Boost: Auflösung/FPS, schnellere Ladezeiten; „Zelda Notes“)."},
+      {"name":"The Legend of Zelda: Tears of the Kingdom – Nintendo Switch 2 Edition","de":"https://www.nintendo.com/us/store/products/the-legend-of-zelda-tears-of-the-kingdom-nintendo-switch-2-edition-switch-2/","us":"https://www.nintendo.com/us/store/products/the-legend-of-zelda-tears-of-the-kingdom-nintendo-switch-2-edition-upgrade-pack-switch-2/","eu":"https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaTearsOfTheKingdom_image1600w.jpg","us_hero":"https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-tears-of-the-kingdom-switch/hero","kern":"Upgrade-Pack mit Leistungs-Optimierungen + „Zelda Notes“."},
+      {"name":"Kirby und das vergessene Land – Nintendo Switch 2 Edition + Sternensplitter-Welt","de":"https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/Kirby-and-the-Forgotten-Land-Nintendo-Switch-2-Edition-Star-Crossed-World-2787773.html","us":"https://www.nintendo.com/us/store/products/kirby-and-the-forgotten-land-nintendo-switch-2-edition-plus-star-crossed-world-upgrade-pack-switch-2/","eu":"https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_KirbyAndTheForgottenLand_image1600w.jpg","us_hero":"https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/k/kirby-and-the-forgotten-land-switch/hero","kern":"Upgrade-Pack: neue Story + Performance-Verbesserungen."}
     ];
-
-    function rowHtml(e){
+    function row(e){
       const link = e.de || e.us || '#';
       const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
       const title = e.name || 'Unbekannt';
       const kern  = e.kern || '—';
-      const src   = e.img  || '';
-      const alt   = e.img2 || '';
+      const eu    = e.eu || '';
+      const us    = e.us_hero || '';
       return `<tr>
-        <td><a href="${link}" target="_blank" rel="noopener">
-          <img class="thumb" crossorigin="anonymous" referrerpolicy="no-referrer"
-               src="${src}" data-alt1="${alt}" alt="Thumbnail ${title}">
-        </a></td>
+        <td><a href="${link}" target="_blank" rel="noopener"><img class="thumb" data-eu="${eu}" data-us="${us}" alt="Thumbnail ${title}"></a></td>
         <td class="game"><a href="${link}" target="_blank" rel="noopener">${title}</a></td>
         <td class="kernCell">${kern}</td>
         <td class="source"><a href="${link}" target="_blank" rel="noopener">${label}</a></td>
       </tr>`;
     }
-
-    // Render Performance-Liste
     const tbody1 = document.querySelector('#games1 tbody');
-    tbody1.innerHTML = perf.map(rowHtml).join('');
+    tbody1.innerHTML = PERF.map(row).join('');
     tbody1.querySelectorAll('img.thumb').forEach(img => ensureThumb(img, img.alt.replace('Thumbnail ','') ));
     document.getElementById('count1').textContent = document.querySelectorAll('#games1 tbody tr').length;
 
-    // NEUE SWITCH-2-SPIELE — automatisch aus JSON (ohne Button)
+    // Neue Switch-2-Spiele – auto
     const newBody = document.querySelector('#games2 tbody');
     const newCount = document.getElementById('newCount');
+    function rowNew(e){
+      const link = e.de || e.us || '#';
+      const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
+      const title = e.name || 'Unbekannt';
+      const kern  = e.kern || '—';
+      const eu    = e.img2 || '';
+      const us    = e.img  || '';
+      return `<tr>
+        <td><a href="${link}" target="_blank" rel="noopener"><img class="thumb" data-eu="${eu}" data-us="${us}" alt="Thumbnail ${title}"></a></td>
+        <td class="game"><a href="${link}" target="_blank" rel="noopener">${title}</a></td>
+        <td class="kernCell">${kern}</td>
+        <td class="source"><a href="${link}" target="_blank" rel="noopener">${label}</a></td>
+      </tr>`;
+    }
+    function attachThumbHandlers(scope){ scope.querySelectorAll('img.thumb').forEach(img => ensureThumb(img, img.alt.replace('Thumbnail ','') )); }
+
     async function loadNew(){
       try{
-        const r = await fetch('./new_switch2_games.json', {cache:'no-cache'});
-        const list = await r.json();
-        newBody.innerHTML = list.map(rowHtml).join('');
-        newBody.querySelectorAll('img.thumb').forEach(img => ensureThumb(img, img.alt.replace('Thumbnail ','') ));
-        newCount.textContent = 'Anzahl: ' + list.length + ' (aus JSON)';
+        // CORS-freundliche, read-only Spiegelung des Listings
+        const url = 'https://r.jina.ai/http://www.nintendo.com/us/store/games/nintendo-switch-2-games/';
+        const txt = await fetch(url, {cache:'no-cache'}).then(r => r.text());
+        const re = /"title":"([^"]+?)","url":"(\\/us\\/store\\/products\\/[^"]+?)"/g;
+        const out = []; const seen = new Set(); let m;
+        while ((m = re.exec(txt))) {
+          const title = m[1]; const path = m[2];
+          const slug = path.split('/').filter(Boolean).pop();
+          const hero = `https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/${slug[0]}/${slug}/hero`;
+          const usUrl = 'https://www.nintendo.com' + path;
+          if (seen.has(usUrl)) continue; seen.add(usUrl);
+          out.push({ name: title, us: usUrl, img: hero });
+        }
+        if (out.length) {
+          newBody.innerHTML = out.map(rowNew).join('');
+          attachThumbHandlers(newBody);
+          newCount.textContent = 'Anzahl (Nintendo US Listing): ' + out.length;
+          return;
+        }
+      }catch(e){}
+      // Fallback: lokale JSON
+      try{
+        const list = await fetch('./new_switch2_games.json', {cache:'no-cache'}).then(r => r.json());
+        newBody.innerHTML = list.map(rowNew).join('');
+        attachThumbHandlers(newBody);
+        newCount.textContent = 'Anzahl (lokale JSON): ' + list.length;
       }catch(e){
-        newCount.textContent = 'Konnte new_switch2_games.json nicht laden.';
+        newCount.textContent = 'Konnte neue Spiele nicht laden.';
       }
     }
     loadNew();
