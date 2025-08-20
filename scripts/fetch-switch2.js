@@ -1,52 +1,53 @@
 // scripts/fetch-switch2.js
-import { chromium } from "playwright";
-import fs from "fs";
+const fs = require("fs");
+const path = require("path");
+const { chromium } = require("playwright");
 
 (async () => {
   console.log("🚀 Starte Scraper...");
+
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
 
-  const url = "https://www.nintendo.com/us/store/games/nintendo-switch-2-games/#sort=df&p=0";
   console.log("🌍 Gehe auf Nintendo US Store Seite...");
-  await page.goto(url, { waitUntil: "networkidle" });
-  await page.waitForLoadState("domcontentloaded");
+  await page.goto("https://www.nintendo.com/us/store/games/nintendo-switch-2-games/#sort=df&p=0", {
+    waitUntil: "domcontentloaded",
+    timeout: 180000,
+  });
 
-  console.log("⏳ Warte auf data-grid-item Elemente...");
-  await page.waitForSelector("[data-grid-item]", { timeout: 120000 });
+  console.log("⏳ Warte auf mindestens 5 sichtbare Spiele...");
+  try {
+    await page.waitForFunction(
+      () => document.querySelectorAll("game-card").length > 5,
+      { timeout: 180000 }
+    );
+  } catch (err) {
+    console.error("❌ Timeout: Keine Spiele gefunden!");
+    await page.screenshot({ path: "scraper_debug.png", fullPage: true });
+    await browser.close();
+    process.exit(1);
+  }
 
-  const games = await page.$$eval("[data-grid-item]", items =>
-    items.map(item => {
-      const title = item.querySelector("h3")?.textContent?.trim() || "Unbekannt";
-      const link = item.querySelector("a")?.href || null;
+  console.log("✅ Spielelemente gefunden, sammle Daten...");
 
-      // Preis
-      const price =
-        item.querySelector(".msrp, .price, [data-test='price']")?.textContent?.trim() ||
-        null;
+  const games = await page.evaluate(() => {
+    const items = Array.from(document.querySelectorAll("game-card"));
+    return items.map((el) => {
+      const title = el.getAttribute("title") || el.querySelector("h3,h2")?.innerText || "Unbekannt";
+      const link = el.querySelector("a")?.href || null;
+      const img = el.querySelector("img")?.src || null;
+      return { title, link, img };
+    });
+  });
 
-      // Release
-      const release =
-        item.querySelector(".release-date")?.textContent?.trim() ||
-        item.getAttribute("data-release-date") ||
-        null;
+  if (!games.length) {
+    console.warn("⚠️ Keine Spiele extrahiert – Screenshot speichern...");
+    await page.screenshot({ path: "scraper_debug.png", fullPage: true });
+  }
 
-      // Thumbnail
-      let thumb = item.querySelector("img")?.src || null;
-
-      return {
-        title,
-        link,
-        price,
-        release,
-        thumb,
-      };
-    })
-  );
-
-  console.log(`✅ ${games.length} Spiele gefunden`);
-  fs.writeFileSync("new_switch2_games.json", JSON.stringify(games, null, 2));
-  console.log("💾 JSON gespeichert: new_switch2_games.json");
+  const filePath = path.join(__dirname, "..", "new_switch2_games.json");
+  fs.writeFileSync(filePath, JSON.stringify(games, null, 2));
+  console.log(`💾 Gespeichert: ${games.length} Spiele -> ${filePath}`);
 
   await browser.close();
 })();
