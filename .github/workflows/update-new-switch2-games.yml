@@ -21,6 +21,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
       - name: Run scraper
         run: node scripts/fetch-switch2.js
 
@@ -29,10 +32,8 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Nur die JSON-Datei adden
           git add new_switch2_games.json
 
-          # Nur committen, wenn wirklich Änderungen vorhanden sind
           if ! git diff --cached --quiet; then
             git commit -m "Update Switch 2 Games JSON"
             git push
