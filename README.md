@@ -1,22 +1,18 @@
-# Switch‑2 Performance‑Patches (mit Thumbnails)
+# Switch‑2 Performance‑Patches (Nintendo DE Links, Thumbnails)
 
-Statische Übersicht der bislang bekannten Spiele mit Performance‑/Grafik‑Updates für die Nintendo **Switch 2**.
+**Layout**: Dynamischer Header „Performance Patches: <Anzahl> — Stand: <Datum>“
+Tabelle: **[Thumbnail | Spiel (Link bevorzugt Nintendo DE) | Kern‑Patch‑Inhalte | Quelle]**
 
-- **Layout**: Zahl → Überschrift (mit Datum) → Tabelle **[Thumbnail | Spiel | Patch‑Typ | Quelle]**
-- **Inkrementaler Modus**: Bekannte Titel werden unverändert ausgegeben; nur **neue** Spiele werden mit Quellen verifiziert und ergänzt.
-- **Region**: Fokus auf EU‑Region, Full Releases.
-
-> Hinweis: Thumbnails verlinken auf öffentlich verfügbare Coverabbildungen (z. B. Wikipedia). Prüfe im Zweifel die jeweilige Lizenz, wenn du die Bilder anderweitig verwenden möchtest.
+**Regeln**:
+- Thumbnails sind immer Pflicht (bevorzugt Nintendo‑EU‑CDN).
+- Links gehen vorrangig an den deutschen Nintendo‑Shop (nintendo.de / nintendo.com/de‑de). Amazon.de nur als Fallback.
+- Inkrementales Pflegen: Bekannte Titel unverändert lassen, nur neue Spiele ergänzen.
 
 ## Lokal ansehen
+Öffne `index.html` im Browser. GitHub Pages wird automatisch aktualisiert, wenn du die Datei im Repo ersetzt.
 
-Einfach `index.html` im Browser öffnen.
-
-## Mitwirken / Aktualisieren
-
-- `index.html` bearbeiten und neue Zeilen im `<tbody>` ergänzen (Sortierung nach Belieben).
-- Optional: In Zukunft kann das Listing auch aus einer JSON‑Datei generiert werden (PR willkommen).
+## Mitwirken
+Füge neue Zeilen im `<tbody>` hinzu (alphabetisch oder nach Relevanz).
 
 ## Lizenz
-
-Siehe **MIT-Lizenz** in `LICENSE`.
+MIT
