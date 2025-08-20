@@ -16,6 +16,7 @@
                padding:6px 10px; border-radius:10px; font-size:.9rem; backdrop-filter: blur(2px); }
     @media (min-width: 900px){ .hero{ height:320px; } }
 
+    /* Tabs */
     .tabs{ display:flex; gap:8px; padding:12px 20px; flex-wrap:wrap; }
     .tab-btn{ background:var(--card); border:1px solid var(--table); color:var(--text); padding:8px 12px; border-radius:999px; cursor:pointer; font-weight:600; }
     .tab-btn[aria-selected="true"]{ outline:2px solid var(--accent); }
@@ -41,6 +42,42 @@
     #dbg-log{ max-height:260px; overflow:auto; background:#0b0e11; margin:0 12px 12px; padding:10px; border:1px dashed #26303b; border-radius:8px;
               font:12px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; color:#e6edf3 }
     .dbg-ok{ color:#26c281 } .dbg-warn{ color:#ffcc66 } .dbg-err{ color:#ff6b6b }
+
+    /* ===== Mobile-Optimierung (unter 768px) ===== */
+    @media (max-width: 768px){
+      .tabs{ position:sticky; top:0; z-index:20; background:linear-gradient(to bottom, rgba(11,14,17,.98), rgba(11,14,17,.92)); padding:10px 12px; }
+      .wrap{ padding:0 12px 24px; }
+
+      /* Tabellen → Kartenlayout */
+      table, thead, tbody, th, td, tr { display:block; }
+      thead{ position:absolute; left:-9999px; }
+      tbody tr{ margin:12px 0; padding:12px; border:1px solid var(--table); border-radius:14px; background:var(--card); }
+      tbody td{ border:none; padding:6px 0; }
+      tbody td::before{
+        content: attr(data-label);
+        display:block; color:var(--muted); font-size:.85rem; margin-bottom:2px;
+      }
+
+      /* Thumbnail vollbreit, 16:9 */
+      .thumb{ width:100%; height:auto; aspect-ratio:16/9; }
+
+      /* Spaltenabstände etwas enger */
+      .kernCell{ margin-top:6px; }
+      .price{ margin-top:6px; }
+    }
+
+    /* ===== Mobile: Zurück-nach-oben-Button ===== */
+    #toTop{
+      position: fixed; right:16px; bottom:16px;
+      background:var(--accent); color:#0a0f14; border:none;
+      padding:12px 14px; border-radius:999px; font-weight:800; cursor:pointer;
+      box-shadow:0 8px 24px rgba(0,0,0,.35);
+      opacity:0; pointer-events:none; transition:opacity .2s ease, transform .2s ease;
+      transform: translateY(8px); z-index:50;
+    }
+    #toTop.show{ opacity:1; pointer-events:auto; transform: translateY(0); }
+    /* Desktop: nie anzeigen */
+    @media (min-width: 769px){ #toTop{ display:none !important; } }
   </style>
 </head>
 <body>
@@ -99,6 +136,9 @@
     <pre id="dbg-log"></pre>
   </details>
 
+  <!-- Mobile „Zurück nach oben“ -->
+  <button id="toTop" aria-label="Zurück nach oben">↑</button>
+
   <script>
     // Datum & Hero laden
     try { document.getElementById('today').textContent = new Intl.DateTimeFormat('de-DE').format(new Date()); } catch(_){}
@@ -140,7 +180,7 @@
       log(msg, cls){ const span=document.createElement('span'); span.textContent = `[DBG] ${msg}\n`; if(cls) span.className=cls; dbg.logEl.appendChild(span); dbg.logEl.scrollTop=dbg.logEl.scrollHeight; }
     };
 
-    // SVG-Fallback + Loader
+    // SVG-Fallback + Loader für Thumbs
     function svgData(title, reason){
       const svg = encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='270' height='153'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop offset='0' stop-color='#1b2a33'/><stop offset='1' stop-color='#0f1720'/></linearGradient></defs><rect width='100%' height='100%' fill='url(#g)'/><text x='16' y='84' font-family='system-ui,Segoe UI,Arial' font-size='20' fill='#e6edf3'>${title}</text><text x='16' y='120' font-family='system-ui,Segoe UI,Arial' font-size='12' fill='#9aa7b2'>${reason}</text></svg>`);
       return `data:image/svg+xml;charset=utf-8,${svg}`;
@@ -154,7 +194,7 @@
       next();
     }
 
-    // Renderer
+    // Renderer (mit data-labels fürs Mobile-Kartenlayout)
     function rowPerf(e){
       const link = e.de || e.us || '#';
       const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
@@ -163,11 +203,11 @@
       const img1  = e.img || e.img2 || e.eu || '';
       const img2  = e.img2 || e.us_hero || '';
       return `<tr>
-        <td><a href="${link}" target="_blank" rel="noopener"><img class="thumb" alt="Thumbnail ${title}"
+        <td data-label="Thumbnail"><a href="${link}" target="_blank" rel="noopener"><img class="thumb" alt="Thumbnail ${title}"
              data-src1="${img1}" data-src2="${img2}" data-src3="${prox(img1)}" data-src4="${prox(img2)}"></a></td>
-        <td class="game"><a href="${link}" target="_blank" rel="noopener">${title}</a></td>
-        <td class="kernCell">${kern}</td>
-        <td class="source"><a href="${link}" target="_blank" rel="noopener">${label}</a></td>
+        <td class="game" data-label="Spiel"><a href="${link}" target="_blank" rel="noopener">${title}</a></td>
+        <td class="kernCell" data-label="Kern-Patch-Inhalte">${kern}</td>
+        <td class="source" data-label="Quelle"><a href="${link}" target="_blank" rel="noopener">${label}</a></td>
       </tr>`;
     }
     function rowNew(e){
@@ -178,11 +218,11 @@
       const img2  = e.img2 || e.img  || '';
       const price = (typeof e.price_eur === 'number') ? new Intl.NumberFormat('de-DE', {style:'currency', currency:'EUR'}).format(e.price_eur) : '—';
       return `<tr>
-        <td><a href="${link}" target="_blank" rel="noopener"><img class="thumb" alt="Thumbnail ${title}"
+        <td data-label="Thumbnail"><a href="${link}" target="_blank" rel="noopener"><img class="thumb" alt="Thumbnail ${title}"
              data-src1="${img1}" data-src2="${img2}" data-src3="${prox(img1)}" data-src4="${prox(img2)}"></a></td>
-        <td class="game"><a href="${link}" target="_blank" rel="noopener">${title}</a></td>
-        <td class="price">${price}</td>
-        <td class="source"><a href="${link}" target="_blank" rel="noopener">${label}</a></td>
+        <td class="game" data-label="Spiel"><a href="${link}" target="_blank" rel="noopener">${title}</a></td>
+        <td class="price" data-label="Preis (EUR)">${price}</td>
+        <td class="source" data-label="Quelle"><a href="${link}" target="_blank" rel="noopener">${label}</a></td>
       </tr>`;
     }
 
@@ -220,6 +260,26 @@
       dbg.newItemsEl.textContent = String(list.length);
       countEl.textContent = 'Anzahl: ' + list.length;
       setTabCount(tabNew, list.length);
+    })();
+
+    // Mobile: Zurück-nach-oben-Button Logik
+    (function(){
+      const btn = document.getElementById('toTop');
+      let last = 0;
+      function onScroll(){
+        const y = window.scrollY || document.documentElement.scrollTop || 0;
+        if (y > 180){ btn.classList.add('show'); } else { btn.classList.remove('show'); }
+        last = y;
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+      btn.addEventListener('click', () => {
+        try{
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }catch(_){
+          document.documentElement.scrollTop = 0; document.body.scrollTop = 0;
+        }
+      });
     })();
   </script>
 </body>
