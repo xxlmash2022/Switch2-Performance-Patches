@@ -38,6 +38,7 @@
   .card-title a{color:var(--text);text-decoration:none;font-weight:700}
   .card-title a:hover{text-decoration:underline}
   .meta{color:var(--muted);font-size:.85rem}
+  .meta b{color:var(--text)}
   .src a{color:var(--muted);text-decoration:none;font-size:.85rem}
   .src a:hover{text-decoration:underline}
   .badge{display:inline-block;font-size:.78rem;color:#e6edf3;background:rgba(38,194,129,.12);border:1px solid var(--ring);padding:2px 8px;border-radius:999px}
@@ -77,12 +78,12 @@
   </nav>
 
   <div class="wrap">
-    <!-- Panel: Performance-Patches (eigener Container, eigener Renderer) -->
+    <!-- Panel: Performance-Patches -->
     <section id="panel-perf" role="tabpanel" aria-labelledby="tab-perf">
       <div id="cards-perf" class="cards-grid" aria-live="polite"></div>
     </section>
 
-    <!-- Panel: Neue Switch 2 Spiele (eigener Container, eigener Renderer) -->
+    <!-- Panel: Neue Switch 2 Spiele -->
     <section id="panel-new" class="hidden" role="tabpanel" aria-labelledby="tab-new">
       <div id="cards-new" class="cards-grid" aria-live="polite"></div>
       <p class="meta" id="newCount"></p>
@@ -105,7 +106,7 @@
   // Datum im Banner
   try{ document.getElementById('today').textContent = new Intl.DateTimeFormat('de-DE').format(new Date()); }catch(_){}
 
-  // Hero-Loader (Fallback-Kaskade)
+  // Hero-Loader
   (function(){
     const img = document.getElementById('hero');
     const tries = [img.dataset.src1, img.dataset.src2, img.dataset.src3].filter(Boolean);
@@ -114,7 +115,7 @@
     next();
   })();
 
-  // Tabs (strikte Trennung der Panels)
+  // Tabs (strikte Trennung)
   const tabPerf = document.getElementById('tab-perf');
   const tabNew  = document.getElementById('tab-new');
   const panelPerf = document.getElementById('panel-perf');
@@ -153,18 +154,25 @@
   }
 
   // Helpers
-  function fmtDate(iso){ if(!iso) return ''; try{ const p=iso.split('-'); return `${p[2]}.${p[1]}.${p[0]}`; }catch{ return ''; } }
-  function ts(item){ const t=Date.parse(item.release_date||''); return isNaN(t)?0:t; }
+  function fmtDate(iso){
+    if(!iso) return '';
+    try{ const p=iso.split('-'); return `${p[2]}.${p[1]}.${p[0]}`; }catch{ return ''; }
+  }
+  function toEuroString(val){
+    const n = Number(val); // akzeptiert Zahl ODER numerischen String
+    if(!Number.isFinite(n)) return '—';
+    return new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'}).format(n);
+  }
   function setTabCount(btn, n){ const base=btn.getAttribute('data-base'); btn.textContent=`${base} (${n})`; btn.setAttribute('aria-label',`${base} (${n})`); }
 
-  // Renderer NUR für Perf
+  // Renderer getrennt
   function cardPerf(e){
     const link = e.de || e.us || '#';
     const label= e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
     const title= e.name || 'Unbekannt';
     const img1 = e.img || e.img2 || e.eu || '';
     const img2 = e.img2 || e.us_hero || '';
-    const rel  = e.release_date?`Release: ${fmtDate(e.release_date)}`:'';
+    const rel  = e.release_date?`Veröffentlichung: ${fmtDate(e.release_date)}`:'';
     return `<article class="card" data-kind="perf" data-name="${title.toLowerCase()}">
       <a href="${link}" target="_blank" rel="noopener">
         <img class="card-img" alt="Thumbnail ${title}"
@@ -179,15 +187,15 @@
     </article>`;
   }
 
-  // Renderer NUR für Neue Spiele
   function cardNew(e){
-    const link = e.de || e.us || '#';
-    const label= e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
-    const title= e.name || 'Unbekannt';
-    const img1 = e.img || e.img2 || '';
-    const img2 = e.img2 || e.img  || '';
-    const rel  = e.release_date?`Release: ${fmtDate(e.release_date)}`:'';
-    const price= (typeof e.price_eur === 'number') ? new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'}).format(e.price_eur) : '—';
+    const link  = e.de || e.us || '#';
+    const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
+    const title = e.name || 'Unbekannt';
+    const img1  = e.img || e.img2 || '';
+    const img2  = e.img2 || e.img  || '';
+    const rel   = e.release_date ? fmtDate(e.release_date) : '';
+    const price = toEuroString(e.price_eur ?? e.price); // robust gegen Strings/Numbers
+
     return `<article class="card" data-kind="new" data-name="${title.toLowerCase()}">
       <a href="${link}" target="_blank" rel="noopener">
         <img class="card-img" alt="Thumbnail ${title}"
@@ -195,7 +203,7 @@
       </a>
       <div class="card-body">
         <h3 class="card-title"><a href="${link}" target="_blank" rel="noopener">${title}</a></h3>
-        <div class="meta">${rel}</div>
+        <div class="meta">${rel ? `<b>Veröffentlichung:</b> ${rel}` : ''}</div>
         <span class="badge price-badge">${price}</span>
         <div class="src"><a href="${link}" target="_blank" rel="noopener">${label}</a></div>
       </div>
@@ -206,14 +214,12 @@
   let perfAll = [];
   let newAll  = [];
 
-  // Sort
   const sortNewest = list => list.slice().sort((a,b)=>{
     const ta=Date.parse(a.release_date||''); const tb=Date.parse(b.release_date||'');
     if(isNaN(ta)&&isNaN(tb)) return a.name.localeCompare(b.name,'de');
     if(isNaN(ta)) return 1; if(isNaN(tb)) return -1; return tb-ta;
   });
 
-  // Fetch helpers
   async function loadJSON(url, labelEl){
     try{
       const r = await fetch(url,{cache:'no-cache'});
@@ -228,18 +234,6 @@
     }
   }
 
-  // Initial load (jede Kategorie für sich)
-  (async function(){
-    perfAll = sortNewest(await loadJSON('./performance_patches.json', dbg.perfEl));
-    newAll  = sortNewest(await loadJSON('./new_switch2_games.json',      dbg.newEl ));
-    renderPerf(perfAll);
-    renderNew(newAll);
-    setTabCount(tabPerf, perfAll.length);
-    setTabCount(tabNew , newAll.length );
-    document.getElementById('newCount').textContent = 'Anzahl: ' + newAll.length;
-  })();
-
-  // Rendering (getrennt)
   function renderPerf(list){
     const grid = document.getElementById('cards-perf');
     grid.innerHTML = list.map(cardPerf).join('');
@@ -253,7 +247,17 @@
     dbg.newItemsEl.textContent = String(list.length);
   }
 
-  // Suche (trennt strikt per Kategorie)
+  (async function(){
+    perfAll = sortNewest(await loadJSON('./performance_patches.json', dbg.perfEl));
+    newAll  = sortNewest(await loadJSON('./new_switch2_games.json',      dbg.newEl ));
+    renderPerf(perfAll);
+    renderNew(newAll);
+    setTabCount(tabPerf, perfAll.length);
+    setTabCount(tabNew , newAll.length );
+    document.getElementById('newCount').textContent = 'Anzahl: ' + newAll.length;
+  })();
+
+  // Suche (getrennt je Kategorie)
   const q = document.getElementById('q');
   const clearQ = document.getElementById('clearQ');
   function applySearch(){
