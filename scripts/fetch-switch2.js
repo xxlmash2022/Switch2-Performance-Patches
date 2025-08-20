@@ -7,25 +7,34 @@ const URL = "https://www.nintendo.com/us/store/games/nintendo-switch-2-games/#so
 (async () => {
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
-  await page.goto(URL, { waitUntil: "domcontentloaded" });
 
-  // Warte bis Karten sichtbar sind
-  await page.waitForSelector("[data-grid-item]");
+  // Gehe auf die Seite
+  await page.goto(URL, { waitUntil: "networkidle" });
 
-  const games = await page.$$eval("[data-grid-item]", cards =>
+  // Warte explizit auf mindestens ein <game-card>
+  await page.waitForSelector("game-card", { timeout: 60000 });
+
+  // Scrollt, um lazy-loaded Spiele zu triggern
+  let prevHeight = 0;
+  while (true) {
+    const currentHeight = await page.evaluate("document.body.scrollHeight");
+    if (currentHeight === prevHeight) break;
+    prevHeight = currentHeight;
+    await page.evaluate("window.scrollTo(0, document.body.scrollHeight)");
+    await page.waitForTimeout(2000);
+  }
+
+  // Extrahiere Spiele
+  const games = await page.$$eval("game-card", cards =>
     cards.map(card => {
-      const linkEl = card.querySelector("a[href]");
-      const imgEl = card.querySelector("img");
-      const priceEl = card.querySelector("[data-price]");
-      const title = card.innerText.split("\n")[0];
+      const root = card.shadowRoot;
+      const title = root?.querySelector(".title")?.textContent ?? null;
+      const link = root?.querySelector("a")?.href ?? null;
+      const img = root?.querySelector("img")?.src ?? null;
+      const price = root?.querySelector(".price")?.textContent ?? null;
+      const release = root?.innerText.match(/\d{1,2}\/\d{1,2}\/\d{4}/)?.[0] || null;
 
-      return {
-        title: title.trim(),
-        link: linkEl ? linkEl.href : null,
-        thumbnail: imgEl ? imgEl.src : null,
-        price: priceEl ? priceEl.textContent.trim() : null,
-        release: card.innerText.match(/\d{1,2}\/\d{1,2}\/\d{4}/)?.[0] || null
-      };
+      return { title, link, thumbnail: img, price, release };
     })
   );
 
