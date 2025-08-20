@@ -1,0 +1,42 @@
+name: Build Performance Patches JSON
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 5 * * 1"   # montags 05:00 UTC (wöchentlich)
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright (Chromium)
+        run: |
+          npm i playwright@1.47.2
+          npx playwright install --with-deps chromium
+
+      - name: Build performance_patches.json
+        run: node scripts/build-performance-patches.js
+
+      - name: Commit JSON (if changed)
+        run: |
+          if [ -n "$(git status --porcelain performance_patches.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add performance_patches.json
+            git commit -m "chore: update performance_patches.json (auto)"
+            git push
+          else
+            echo "No changes."
+          fi
