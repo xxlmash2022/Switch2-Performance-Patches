@@ -32,13 +32,14 @@
     #debug-panel{ margin:16px 20px; background:#0f1318; border:1px solid #1f2630; border-radius:10px; }
     #debug-panel>summary{ cursor:pointer; padding:10px 12px; font-weight:700 }
     #dbg-meta{ display:flex; gap:18px; flex-wrap:wrap; padding:0 12px 10px; color:#9aa7b2 }
-    #dbg-log{ max-height:280px; overflow:auto; background:#0b0e11; margin:0 12px 12px; padding:10px; border:1px dashed #26303b; border-radius:8px; font:12px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; color:#e6edf3 }
+    #dbg-log{ max-height:260px; overflow:auto; background:#0b0e11; margin:0 12px 12px; padding:10px; border:1px dashed #26303b; border-radius:8px; font:12px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; color:#e6edf3 }
     .dbg-ok{ color:#26c281 } .dbg-warn{ color:#ffcc66 } .dbg-err{ color:#ff6b6b }
+    .price{ white-space:nowrap; font-weight:600; }
   </style>
 </head>
 <body>
   <header>
-    <h1>Performance&nbsp;Patches: <span id="count1">18</span> <span class="date">• Stand: <time id="today"></time></span></h1>
+    <h1>Performance&nbsp;Patches: <span id="countPerf">0</span> <span class="date">• Stand: <time id="today"></time></span></h1>
   </header>
 
   <nav class="tabs" role="tablist" aria-label="Listenwahl">
@@ -47,250 +48,47 @@
   </nav>
 
   <div class="wrap">
-    <!-- Panel 1: Performance (18 Einträge, statisch) -->
+    <!-- Panel 1: Performance (JSON-basiert) -->
     <section id="panel-perf" class="table-card" role="tabpanel" aria-labelledby="tab-perf">
-      <table id="games1">
-        <thead><tr><th>Thumbnail</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Kern-Patch-Inhalte</th><th>Quelle</th></tr></thead>
-        <tbody>
-<!-- === BEGIN: 18 statische Einträge === -->
-<tr>
-  <td><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/ARMS-1173200.html" target="_blank" rel="noopener">
-    <img class="thumb" alt="Thumbnail ARMS"
-         data-src1="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Arms_image1600w.jpg"
-         data-src2="https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/arms-switch/hero"
-         data-src3="https://images.weserv.nl/?url=www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Arms_image1600w.jpg"
-         data-src4="https://images.weserv.nl/?url=assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/arms-switch/hero">
-  </a></td>
-  <td class="game"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/ARMS-1173200.html" target="_blank" rel="noopener">ARMS</a></td>
-  <td class="kernCell">Visuelle Optimierung, stabilere Framerate, HDR (TV)</td>
-  <td class="source"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/ARMS-1173200.html" target="_blank" rel="noopener">Nintendo DE</a></td>
-</tr>
-<tr>
-  <td><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Captain-Toad-Treasure-Tracker-1348071.html" target="_blank" rel="noopener">
-    <img class="thumb" alt="Thumbnail Captain Toad: Treasure Tracker"
-         data-src1="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_CaptainToadTreasureTracker_image1600w.png"
-         data-src2="https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/captain-toad-treasure-tracker-switch/hero"
-         data-src3="https://images.weserv.nl/?url=www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_CaptainToadTreasureTracker_image1600w.png"
-         data-src4="https://images.weserv.nl/?url=assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/captain-toad-treasure-tracker-switch/hero">
-  </a></td>
-  <td class="game"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Captain-Toad-Treasure-Tracker-1348071.html" target="_blank" rel="noopener">Captain Toad: Treasure Tracker</a></td>
-  <td class="kernCell">Visuelle Optimierung, HDR (TV)</td>
-  <td class="source"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Captain-Toad-Treasure-Tracker-1348071.html" target="_blank" rel="noopener">Nintendo DE</a></td>
-</tr>
-<tr>
-  <td><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Download-Software/Spielestudio-1964648.html" target="_blank" rel="noopener">
-    <img class="thumb" alt="Thumbnail Spielestudio (Game Builder Garage)"
-         data-src1="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_GameBuilderGarage_deDE_image1600w.jpg"
-         data-src2="https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/g/game-builder-garage-switch/hero"
-         data-src3="https://images.weserv.nl/?url=www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_GameBuilderGarage_deDE_image1600w.jpg"
-         data-src4="https://images.weserv.nl/?url=assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/g/game-builder-garage-switch/hero">
-  </a></td>
-  <td class="game"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Download-Software/Spielestudio-1964648.html" target="_blank" rel="noopener">Spielestudio (Game Builder Garage)</a></td>
-  <td class="kernCell">Visuelle Optimierung (höhere Bildqualität)</td>
-  <td class="source"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Download-Software/Spielestudio-1964648.html" target="_blank" rel="noopener">Nintendo DE</a></td>
-</tr>
-<tr>
-  <td><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/New-Super-Mario-Bros-U-Deluxe-1438640.html" target="_blank" rel="noopener">
-    <img class="thumb" alt="Thumbnail New Super Mario Bros. U Deluxe"
-         data-src1="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_NewSuperMarioBrosUDeluxe_image1600w.jpg"
-         data-src2="https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/n/new-super-mario-bros-u-deluxe-switch/hero"
-         data-src3="https://images.weserv.nl/?url=www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_NewSuperMarioBrosUDeluxe_image1600w.jpg"
-         data-src4="https://images.weserv.nl/?url=assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/n/new-super-mario-bros-u-deluxe-switch/hero">
-  </a></td>
-  <td class="game"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/New-Super-Mario-Bros-U-Deluxe-1438640.html" target="_blank" rel="noopener">New Super Mario Bros. U Deluxe</a></td>
-  <td class="kernCell">Visuelle Optimierung (höhere Bildqualität)</td>
-  <td class="source"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/New-Super-Mario-Bros-U-Deluxe-1438640.html" target="_blank" rel="noopener">Nintendo DE</a></td>
-</tr>
-<tr>
-  <td><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Pokemon-Karmesin-2179556.html" target="_blank" rel="noopener">
-    <img class="thumb" alt="Thumbnail Pokémon Karmesin"
-         data-src1="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_PokemonScarletViolet_Scarlet_deDE_image1600w.jpg"
-         data-src2="https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pokemon-scarlet-switch/hero"
-         data-src3="https://images.weserv.nl/?url=www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_PokemonScarletViolet_Scarlet_deDE_image1600w.jpg"
-         data-src4="https://images.weserv.nl/?url=assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pokemon-scarlet-switch/hero">
-  </a></td>
-  <td class="game"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Pokemon-Karmesin-2179556.html" target="_blank" rel="noopener">Pokémon Karmesin</a></td>
-  <td class="kernCell">Visuelle Optimierung, höhere FPS</td>
-  <td class="source"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Pokemon-Karmesin-2179556.html" target="_blank" rel="noopener">Nintendo DE</a></td>
-</tr>
-<tr>
-  <td><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Pokemon-Purpur-2179557.html" target="_blank" rel="noopener">
-    <img class="thumb" alt="Thumbnail Pokémon Purpur"
-         data-src1="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_PokemonScarletViolet_Violet_deDE_image1600w.jpg"
-         data-src2="https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pokemon-violet-switch/hero"
-         data-src3="https://images.weserv.nl/?url=www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_PokemonScarletViolet_Violet_deDE_image1600w.jpg"
-         data-src4="https://images.weserv.nl/?url=assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pokemon-violet-switch/hero">
-  </a></td>
-  <td class="game"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Pokemon-Purpur-2179557.html" target="_blank" rel="noopener">Pokémon Purpur</a></td>
-  <td class="kernCell">Visuelle Optimierung, höhere FPS</td>
-  <td class="source"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Pokemon-Purpur-2179557.html" target="_blank" rel="noopener">Nintendo DE</a></td>
-</tr>
-<tr>
-  <td><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Splatoon-3-2008811.html" target="_blank" rel="noopener">
-    <img class="thumb" alt="Thumbnail Splatoon 3"
-         data-src1="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Splatoon3_image1600w.jpg"
-         data-src2="https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/splatoon-3-switch/hero"
-         data-src3="https://images.weserv.nl/?url=www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Splatoon3_image1600w.jpg"
-         data-src4="https://images.weserv.nl/?url=assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/splatoon-3-switch/hero">
-  </a></td>
-  <td class="game"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Splatoon-3-2008811.html" target="_blank" rel="noopener">Splatoon 3</a></td>
-  <td class="kernCell">Visuelle Optimierung, flüssigeres Bewegen im Hub</td>
-  <td class="source"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Splatoon-3-2008811.html" target="_blank" rel="noopener">Nintendo DE</a></td>
-</tr>
-<tr>
-  <td><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Super-Mario-3D-World-Bowser-s-Fury-1832228.html" target="_blank" rel="noopener">
-    <img class="thumb" alt="Thumbnail Super Mario 3D World + Bowser’s Fury"
-         data-src1="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperMario3DWorldBowsersFury_image1600w.jpg"
-         data-src2="https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/super-mario-3d-world-bowsers-fury-switch/hero"
-         data-src3="https://images.weserv.nl/?url=www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperMario3DWorldBowsersFury_image1600w.jpg"
-         data-src4="https://images.weserv.nl/?url=assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/super-mario-3d-world-bowsers-fury-switch/hero">
-  </a></td>
-  <td class="game"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Super-Mario-3D-World-Bowser-s-Fury-1832228.html" target="_blank" rel="noopener">Super Mario 3D World + Bowser’s Fury</a></td>
-  <td class="kernCell">Visuelle Optimierung, bessere FPS; HDR (nur Bowser’s Fury)</td>
-  <td class="source"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Super-Mario-3D-World-Bowser-s-Fury-1832228.html" target="_blank" rel="noopener">Nintendo DE</a></td>
-</tr>
-<tr>
-  <td><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Super-Mario-Odyssey-1173332.html" target="_blank" rel="noopener">
-    <img class="thumb" alt="Thumbnail Super Mario Odyssey"
-         data-src1="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperMarioOdyssey_image1600w.jpg"
-         data-src2="https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/super-mario-odyssey-switch/hero"
-         data-src3="https://images.weserv.nl/?url=www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperMarioOdyssey_image1600w.jpg"
-         data-src4="https://images.weserv.nl/?url=assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/super-mario-odyssey-switch/hero">
-  </a></td>
-  <td class="game"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Super-Mario-Odyssey-1173332.html" target="_blank" rel="noopener">Super Mario Odyssey</a></td>
-  <td class="kernCell">Visuelle Optimierung, HDR (TV)</td>
-  <td class="source"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Super-Mario-Odyssey-1173332.html" target="_blank" rel="noopener">Nintendo DE</a></td>
-</tr>
-<tr>
-  <td><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/The-Legend-of-Zelda-Echoes-of-Wisdom-2590490.html" target="_blank" rel="noopener">
-    <img class="thumb" alt="Thumbnail The Legend of Zelda: Echoes of Wisdom"
-         data-src1="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaEchoesOfWisdom_image1600w.jpg"
-         data-src2="https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-echoes-of-wisdom-switch/hero"
-         data-src3="https://images.weserv.nl/?url=www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaEchoesOfWisdom_image1600w.jpg"
-         data-src4="https://images.weserv.nl/?url=assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-echoes-of-wisdom-switch/hero">
-  </a></td>
-  <td class="game"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/The-Legend-of-Zelda-Echoes-of-Wisdom-2590490.html" target="_blank" rel="noopener">The Legend of Zelda: Echoes of Wisdom</a></td>
-  <td class="kernCell">Visuelle Optimierung, HDR (TV)</td>
-  <td class="source"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/The-Legend-of-Zelda-Echoes-of-Wisdom-2590490.html" target="_blank" rel="noopener">Nintendo DE</a></td>
-</tr>
-<tr>
-  <td><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/The-Legend-of-Zelda-Link-s-Awakening-1514327.html" target="_blank" rel="noopener">
-    <img class="thumb" alt="Thumbnail The Legend of Zelda: Link’s Awakening"
-         data-src1="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaLinksAwakening_image1600w.jpg"
-         data-src2="https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-links-awakening-switch/hero"
-         data-src3="https://images.weserv.nl/?url=www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaLinksAwakening_image1600w.jpg"
-         data-src4="https://images.weserv.nl/?url=assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-links-awakening-switch/hero">
-  </a></td>
-  <td class="game"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/The-Legend-of-Zelda-Link-s-Awakening-1514327.html" target="_blank" rel="noopener">The Legend of Zelda: Link’s Awakening</a></td>
-  <td class="kernCell">Visuelle Optimierung, HDR (TV)</td>
-  <td class="source"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/The-Legend-of-Zelda-Link-s-Awakening-1514327.html" target="_blank" rel="noopener">Nintendo DE</a></td>
-</tr>
-<tr>
-  <td><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Fortnite-1510812.html" target="_blank" rel="noopener">
-    <img class="thumb" alt="Thumbnail Fortnite"
-         data-src1="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Fortnite_image1600w.jpg"
-         data-src2="https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/f/fortnite-switch/hero"
-         data-src3="https://images.weserv.nl/?url=www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Fortnite_image1600w.jpg"
-         data-src4="https://images.weserv.nl/?url=assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/f/fortnite-switch/hero">
-  </a></td>
-  <td class="game"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Fortnite-1510812.html" target="_blank" rel="noopener">Fortnite</a></td>
-  <td class="kernCell">60 FPS, höhere Auflösung, zusätzliche Systeme-Features</td>
-  <td class="source"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Fortnite-1510812.html" target="_blank" rel="noopener">Nintendo DE</a></td>
-</tr>
-<tr>
-  <td><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Apex-Legends--1910595.html" target="_blank" rel="noopener">
-    <img class="thumb" alt="Thumbnail Apex Legends"
-         data-src1="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_ApexLegends_image1600w.jpg"
-         data-src2="https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/apex-legends-switch/hero"
-         data-src3="https://images.weserv.nl/?url=www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_ApexLegends_image1600w.jpg"
-         data-src4="https://images.weserv.nl/?url=assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/apex-legends-switch/hero">
-  </a></td>
-  <td class="game"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Apex-Legends--1910595.html" target="_blank" rel="noopener">Apex Legends</a></td>
-  <td class="kernCell">Bis 60 FPS; 1080p (Dock) / 1792×1008 (Handheld)</td>
-  <td class="source"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/Apex-Legends--1910595.html" target="_blank" rel="noopener">Nintendo DE</a></td>
-</tr>
-<tr>
-  <td><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/No-Man-s-Sky-2197037.html" target="_blank" rel="noopener">
-    <img class="thumb" alt="Thumbnail No Man’s Sky"
-         data-src1="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_NoMansSky_image1600w.jpg"
-         data-src2="https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/n/no-mans-sky-switch/hero"
-         data-src3="https://images.weserv.nl/?url=www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_NoMansSky_image1600w.jpg"
-         data-src4="https://images.weserv.nl/?url=assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/n/no-mans-sky-switch/hero">
-  </a></td>
-  <td class="game"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/No-Man-s-Sky-2197037.html" target="_blank" rel="noopener">No Man’s Sky</a></td>
-  <td class="kernCell">Enhanced Visuals, Multiplayer u. Features (Switch-2-Upgrade-Pack)</td>
-  <td class="source"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/No-Man-s-Sky-2197037.html" target="_blank" rel="noopener">Nintendo DE</a></td>
-</tr>
-<tr>
-  <td><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/DRAGON-QUEST-III-HD-2D-Remake-2639673.html" target="_blank" rel="noopener">
-    <img class="thumb" alt="Thumbnail DRAGON QUEST III HD-2D Remake"
-         data-src1="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_DragonQuestIIIHD2DRemake_image1600w.jpg"
-         data-src2="https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/dragon-quest-iii-hd-2d-remake-switch/hero"
-         data-src3="https://images.weserv.nl/?url=www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_DragonQuestIIIHD2DRemake_image1600w.jpg"
-         data-src4="https://images.weserv.nl/?url=assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/dragon-quest-iii-hd-2d-remake-switch/hero">
-  </a></td>
-  <td class="game"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/DRAGON-QUEST-III-HD-2D-Remake-2639673.html" target="_blank" rel="noopener">DRAGON QUEST III HD-2D Remake</a></td>
-  <td class="kernCell">Performance-Update: schärfere Grafik + Anzeigemodi</td>
-  <td class="source"><a href="https://www.nintendo.com/de-de/Spiele/Nintendo-Switch-Spiele/DRAGON-QUEST-III-HD-2D-Remake-2639673.html" target="_blank" rel="noopener">Nintendo DE</a></td>
-</tr>
-<tr>
-  <td><a href="https://www.nintendo.com/us/store/products/the-legend-of-zelda-breath-of-the-wild-nintendo-switch-2-edition-switch-2/" target="_blank" rel="noopener">
-    <img class="thumb" alt="Thumbnail The Legend of Zelda: Breath of the Wild – Nintendo Switch 2 Edition"
-         data-src1="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaBreathOfTheWild_image1600w.jpg"
-         data-src2="https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-breath-of-the-wild-switch/hero"
-         data-src3="https://images.weserv.nl/?url=www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaBreathOfTheWild_image1600w.jpg"
-         data-src4="https://images.weserv.nl/?url=assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-breath-of-the-wild-switch/hero">
-  </a></td>
-  <td class="game"><a href="https://www.nintendo.com/us/store/products/the-legend-of-zelda-breath-of-the-wild-nintendo-switch-2-edition-switch-2/" target="_blank" rel="noopener">The Legend of Zelda: Breath of the Wild – Nintendo Switch 2 Edition</a></td>
-  <td class="kernCell">Upgrade-Pack (Leistungs-Boost: Auflösung/FPS, schnellere Ladezeiten; „Zelda Notes“)</td>
-  <td class="source"><a href="https://www.nintendo.com/us/store/products/the-legend-of-zelda-breath-of-the-wild-nintendo-switch-2-edition-switch-2/" target="_blank" rel="noopener">Nintendo US</a></td>
-</tr>
-<tr>
-  <td><a href="https://www.nintendo.com/us/store/products/the-legend-of-zelda-tears-of-the-kingdom-nintendo-switch-2-edition-switch-2/" target="_blank" rel="noopener">
-    <img class="thumb" alt="Thumbnail The Legend of Zelda: Tears of the Kingdom – Nintendo Switch 2 Edition"
-         data-src1="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaTearsOfTheKingdom_image1600w.jpg"
-         data-src2="https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-tears-of-the-kingdom-switch/hero"
-         data-src3="https://images.weserv.nl/?url=www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaTearsOfTheKingdom_image1600w.jpg"
-         data-src4="https://images.weserv.nl/?url=assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-tears-of-the-kingdom-switch/hero">
-  </a></td>
-  <td class="game"><a href="https://www.nintendo.com/us/store/products/the-legend-of-zelda-tears-of-the-kingdom-nintendo-switch-2-edition-switch-2/" target="_blank" rel="noopener">The Legend of Zelda: Tears of the Kingdom – Nintendo Switch 2 Edition</a></td>
-  <td class="kernCell">Upgrade-Pack mit Leistungs-Optimierungen + „Zelda Notes“</td>
-  <td class="source"><a href="https://www.nintendo.com/us/store/products/the-legend-of-zelda-tears-of-the-kingdom-nintendo-switch-2-edition-switch-2/" target="_blank" rel="noopener">Nintendo US</a></td>
-</tr>
-<tr>
-  <td><a href="https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/Kirby-and-the-Forgotten-Land-Nintendo-Switch-2-Edition-Star-Crossed-World-2787773.html" target="_blank" rel="noopener">
-    <img class="thumb" alt="Thumbnail Kirby und das vergessene Land – Nintendo Switch 2 Edition + Sternensplitter-Welt"
-         data-src1="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_KirbyAndTheForgottenLand_image1600w.jpg"
-         data-src2="https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/k/kirby-and-the-forgotten-land-switch/hero"
-         data-src3="https://images.weserv.nl/?url=www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_KirbyAndTheForgottenLand_image1600w.jpg"
-         data-src4="https://images.weserv.nl/?url=assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/k/kirby-and-the-forgotten-land-switch/hero">
-  </a></td>
-  <td class="game"><a href="https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/Kirby-and-the-Forgotten-Land-Nintendo-Switch-2-Edition-Star-Crossed-World-2787773.html" target="_blank" rel="noopener">Kirby und das vergessene Land – Nintendo Switch 2 Edition + Sternensplitter-Welt</a></td>
-  <td class="kernCell">Upgrade-Pack: neue Story + Performance-Verbesserungen</td>
-  <td class="source"><a href="https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-Edition/Kirby-and-the-Forgotten-Land-Nintendo-Switch-2-Edition-Star-Crossed-World-2787773.html" target="_blank" rel="noopener">Nintendo (EN/GB)</a></td>
-</tr>
-<!-- === END: 18 statische Einträge === -->
-        </tbody>
+      <table id="games-perf">
+        <thead>
+          <tr><th>Thumbnail</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Kern-Patch-Inhalte</th><th>Quelle</th></tr>
+        </thead>
+        <tbody></tbody>
       </table>
     </section>
 
-    <!-- Panel 2: Neue Switch-2-Spiele (nur lokale JSON) -->
+    <!-- Panel 2: Neue Spiele (JSON + Preis in €) -->
     <section id="panel-new" class="table-card hidden" role="tabpanel" aria-labelledby="tab-new">
-      <div class="foot">Diese Liste lädt automatisch aus <code>new_switch2_games.json</code> (liegt im Repo). Kein externer Abruf nötig.</div>
-      <table id="games2">
-        <thead><tr><th>Thumbnail</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Kern-Patch-Inhalte</th><th>Quelle</th></tr></thead>
+      <div class="foot">Die Liste lädt automatisch aus <code>new_switch2_games.json</code> (Repo-Root). Keine externen Abrufe nötig.</div>
+      <table id="games-new">
+        <thead>
+          <tr><th>Thumbnail</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Preis (€)</th><th>Quelle</th></tr>
+        </thead>
         <tbody></tbody>
       </table>
       <p class="foot" id="newCount"></p>
     </section>
 
     <p class="foot">
-      Regeln: DE-Shoplinks bevorzugt; bei 404 → US. Thumbnails: EU-H2x1 → US-Hero → Proxy → Inline-SVG. Größe und Spalten exakt wie besprochen.
+      Regeln: DE-Shoplinks bevorzugt; bei 404 → US. Thumbnails: EU-H2x1 → US-Hero → Proxy → Inline-SVG. Größen/Spalten bleiben stabil.
     </p>
   </div>
 
+  <!-- Debug-Panel -->
+  <details id="debug-panel"><summary>🔧 Debug</summary>
+    <div id="dbg-meta">
+      <div>Perf-JSON: <b id="dbg-perf">init</b></div>
+      <div>New-JSON: <b id="dbg-new">init</b></div>
+      <div>Perf Items: <b id="dbg-perf-items">0</b></div>
+      <div>New Items: <b id="dbg-new-items">0</b></div>
+      <div>Bildfehler: <b id="dbg-img-errors">0</b></div>
+    </div>
+    <pre id="dbg-log"></pre>
+  </details>
+
   <script>
-    // Datum setzen
+    // Datum
     try { document.getElementById('today').textContent = new Intl.DateTimeFormat('de-DE').format(new Date()); } catch(_){}
 
     // Tabs
@@ -302,141 +100,99 @@
     tabPerf.addEventListener('click', () => select(tabPerf));
     tabNew .addEventListener('click', () => select(tabNew ));
 
-    // Thumb-Loader (für Performance-Liste)
+    // Debug helpers
+    const dbg = {
+      logEl: document.getElementById('dbg-log'),
+      perfEl: document.getElementById('dbg-perf'),
+      newEl:  document.getElementById('dbg-new'),
+      perfItemsEl: document.getElementById('dbg-perf-items'),
+      newItemsEl:  document.getElementById('dbg-new-items'),
+      imgErrEl: document.getElementById('dbg-img-errors'),
+      imgErrors: 0,
+      log(msg, cls){ const span=document.createElement('span'); span.textContent = `[DBG] ${msg}\n`; if(cls) span.className=cls; dbg.logEl.appendChild(span); dbg.logEl.scrollTop=dbg.logEl.scrollHeight; }
+    };
+
+    // SVG-Fallback
     function svgData(title, reason){
-      const svg = encodeURIComponent(
-        `<svg xmlns='http://www.w3.org/2000/svg' width='270' height='153'>
-           <defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop offset='0' stop-color='#1b2a33'/><stop offset='1' stop-color='#0f1720'/></linearGradient></defs>
-           <rect width='100%' height='100%' fill='url(#g)'/>
-           <text x='16' y='84' font-family='system-ui,Segoe UI,Arial' font-size='20' fill='#e6edf3'>${title}</text>
-           <text x='16' y='120' font-family='system-ui,Segoe UI,Arial' font-size='12' fill='#9aa7b2'>${reason}</text>
-         </svg>`
-      );
+      const svg = encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='270' height='153'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop offset='0' stop-color='#1b2a33'/><stop offset='1' stop-color='#0f1720'/></linearGradient></defs><rect width='100%' height='100%' fill='url(#g)'/><text x='16' y='84' font-family='system-ui,Segoe UI,Arial' font-size='20' fill='#e6edf3'>${title}</text><text x='16' y='120' font-family='system-ui,Segoe UI,Arial' font-size='12' fill='#9aa7b2'>${reason}</text></svg>`);
       return `data:image/svg+xml;charset=utf-8,${svg}`;
     }
+
     function initThumb(img){
       const tryList = [img.dataset.src1, img.dataset.src2, img.dataset.src3, img.dataset.src4].filter(Boolean);
       let i = 0;
-      function next(){ if(i>=tryList.length){ img.src = svgData(img.alt.replace('Thumbnail ','')||'Spiel','Kein Bild verfügbar'); return; } img.src = tryList[i++]; }
+      function next(){ if(i>=tryList.length){ dbg.imgErrors++; dbg.imgErrEl.textContent = String(dbg.imgErrors); img.src = svgData(img.alt.replace('Thumbnail ','')||'Spiel','Kein Bild verfügbar'); return; } img.src = tryList[i++]; }
       img.onerror = next; img.onload = ()=>{ if(!img.naturalWidth) next(); };
       next();
     }
-    document.querySelectorAll('#panel-perf img.thumb').forEach(initThumb);
-  </script>
+    function prox(u){ return u ? ('https://images.weserv.nl/?url=' + encodeURIComponent(u.replace(/^https?:\/\//,''))) : ''; }
 
-  <!-- === DEBUG PANEL + JSON-Loader für Neue Spiele === -->
-  <details id="debug-panel"><summary>🔧 Debug</summary>
-    <div id="dbg-meta">
-      <div>JSON-Status: <b id="dbg-json-status">init</b></div>
-      <div>Items gerendert: <b id="dbg-items">0</b></div>
-      <div>Bildfehler: <b id="dbg-img-errors">0</b></div>
-      <div>Ladezeit: <b id="dbg-load-ms">0 ms</b></div>
-    </div>
-    <pre id="dbg-log"></pre>
-  </details>
-
-  <script>
-  (function(){
-    const dbg = {
-      logEl: document.getElementById('dbg-log'),
-      jsonStatusEl: document.getElementById('dbg-json-status'),
-      itemsEl: document.getElementById('dbg-items'),
-      imgErrEl: document.getElementById('dbg-img-errors'),
-      msEl: document.getElementById('dbg-load-ms'),
-      imgErrors: 0,
-      log(msg, cls){ const ts = new Date().toISOString().split('T')[1].replace('Z',''); 
-        const line = `[${ts}] ${msg}\n`; const span=document.createElement('span');
-        span.textContent=line; if(cls) span.className=cls; dbg.logEl.appendChild(span); dbg.logEl.scrollTop=dbg.logEl.scrollHeight;
-        console.debug('[DBG]', msg);
-      },
-      setStatus(s, cls){ dbg.jsonStatusEl.textContent = s; dbg.jsonStatusEl.className = cls||''; }
-    };
-    // Thumb-Debug für „Neue Spiele“
-    function initDebugThumb(img){
-      if (img.dataset.__dbg) return; img.dataset.__dbg='1';
-      const title = img.alt.replace('Thumbnail ','') || 'Spiel';
-      const tryList = [img.dataset.src1, img.dataset.src2, img.dataset.src3, img.dataset.src4].filter(Boolean);
-      let idx = 0;
-      function next(){
-        if (idx >= tryList.length){
-          dbg.imgErrors++; dbg.imgErrEl.textContent = String(dbg.imgErrors);
-          img.src = `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="270" height="153"><rect width="100%" height="100%" fill="#0f1720"/><text x="12" y="84" fill="#e6edf3" font-family="system-ui,Segoe UI" font-size="18">'+title+'</text><text x="12" y="130" fill="#9aa7b2" font-size="12">Kein Bild</text></svg>')}`;
-          dbg.log(`IMG FAIL → SVG: ${title}`, 'dbg-err'); return;
-        }
-        const u = tryList[idx++]; if(!u){ next(); return; }
-        dbg.log(`IMG try[${idx}/${tryList.length}]: ${u} (${title})`, 'dbg-warn');
-        img.src = u;
-      }
-      img.addEventListener('error', next);
-      img.addEventListener('load', ()=>{ if(!img.naturalWidth){ dbg.log(`IMG zero naturalWidth → next (${title})`, 'dbg-warn'); next(); } else { dbg.log(`IMG ok: ${img.src} (${title})`, 'dbg-ok'); } });
-      next();
-    }
-
-    async function fetchWithTimeout(url, {timeout=20000}={}){
-      const ctrl = new AbortController(); const id = setTimeout(()=>ctrl.abort(new Error('timeout')), timeout);
-      try{
-        dbg.log(`fetch ${url} ...`);
-        const r = await fetch(url, {signal: ctrl.signal, cache:'no-cache'});
-        clearTimeout(id);
-        if(!r.ok) throw new Error('HTTP '+r.status);
-        dbg.log(`fetch ok (${r.status})`, 'dbg-ok');
-        return r;
-      }catch(e){ clearTimeout(id); dbg.log(`fetch failed: ${e.message||e}`, 'dbg-err'); throw e; }
-    }
-
-    const newBody = document.querySelector('#games2 tbody');
-    const newCount = document.getElementById('newCount');
-
-    function rowNew(e){
+    // RENDERER
+    function rowPerf(e){
       const link = e.de || e.us || '#';
       const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
       const title = e.name || 'Unbekannt';
       const kern  = e.kern || '—';
-      const img1  = e.img  || e.img2 || ''; // og:image bevorzugt
-      const img2  = e.img2 || e.img  || ''; // hero fallback
-      const prox  = u => u ? ('https://images.weserv.nl/?url=' + encodeURIComponent(u.replace(/^https?:\/\//,''))) : '';
+      const img1  = e.img || e.img2 || e.eu || '';  // bevorzugt og:image
+      const img2  = e.img2 || e.us_hero || '';      // hero fallback
       return `<tr>
-        <td><a href="${link}" target="_blank" rel="noopener">
-          <img class="thumb" alt="Thumbnail ${title}"
-               data-src1="${img1}"
-               data-src2="${img2}"
-               data-src3="${prox(img1)}"
-               data-src4="${prox(img2)}">
-        </a></td>
+        <td><a href="${link}" target="_blank" rel="noopener"><img class="thumb" alt="Thumbnail ${title}"
+             data-src1="${img1}" data-src2="${img2}" data-src3="${prox(img1)}" data-src4="${prox(img2)}"></a></td>
         <td class="game"><a href="${link}" target="_blank" rel="noopener">${title}</a></td>
         <td class="kernCell">${kern}</td>
         <td class="source"><a href="${link}" target="_blank" rel="noopener">${label}</a></td>
       </tr>`;
     }
+    function rowNew(e){
+      const link = e.de || e.us || '#';
+      const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
+      const title = e.name || 'Unbekannt';
+      const img1  = e.img || e.img2 || '';   // og:image bevorzugt
+      const img2  = e.img2 || e.img  || '';  // hero fallback
+      const price = (typeof e.price_eur === 'number') ? new Intl.NumberFormat('de-DE', {style:'currency', currency:'EUR'}).format(e.price_eur) : '—';
+      return `<tr>
+        <td><a href="${link}" target="_blank" rel="noopener"><img class="thumb" alt="Thumbnail ${title}"
+             data-src1="${img1}" data-src2="${img2}" data-src3="${prox(img1)}" data-src4="${prox(img2)}"></a></td>
+        <td class="game"><a href="${link}" target="_blank" rel="noopener">${title}</a></td>
+        <td class="price">${price}</td>
+        <td class="source"><a href="${link}" target="_blank" rel="noopener">${label}</a></td>
+      </tr>`;
+    }
 
-    async function loadNew(){
-      const t0 = performance.now();
-      dbg.setStatus('lädt …', 'dbg-warn');
+    async function loadJSON(url, labelEl){
       try{
-        const r = await fetchWithTimeout('./new_switch2_games.json', {timeout: 20000});
-        const txt = await r.text();
-        dbg.log(`json bytes: ${txt.length}`);
-        let list;
-        try { list = JSON.parse(txt); } catch(e){ dbg.log('JSON parse error: '+e.message, 'dbg-err'); list = []; }
-        if(!Array.isArray(list)){ dbg.log('JSON ist kein Array → leere Liste', 'dbg-err'); list = []; }
-        newBody.innerHTML = list.map(rowNew).join('');
-        newBody.querySelectorAll('img.thumb').forEach(initDebugThumb);
-        newCount.textContent = 'Anzahl: ' + list.length;
-        dbg.itemsEl.textContent = String(list.length);
-        dbg.setStatus('ok', 'dbg-ok');
+        const r = await fetch(url, {cache:'no-cache'});
+        if(!r.ok) throw new Error('HTTP '+r.status);
+        const data = await r.json();
+        labelEl.textContent = 'ok'; labelEl.className = 'dbg-ok';
+        return Array.isArray(data) ? data : [];
       }catch(e){
-        newCount.textContent = 'Fehler beim Laden der JSON';
-        dbg.setStatus('Fehler', 'dbg-err');
-      }finally{
-        const ms = Math.round(performance.now() - t0);
-        dbg.msEl.textContent = ms + ' ms';
-        dbg.log('loadNew() done in '+ms+' ms', 'dbg-ok');
+        dbg.log(`Fetch ${url} failed: ${e.message}`, 'dbg-err');
+        labelEl.textContent = 'Fehler'; labelEl.className = 'dbg-err';
+        return [];
       }
     }
-    // Auto-Load
-    loadNew();
-  })();
+
+    // Load Performance
+    (async function(){
+      const body = document.querySelector('#games-perf tbody');
+      const list = await loadJSON('./performance_patches.json', dbg.perfEl);
+      body.innerHTML = list.map(rowPerf).join('');
+      body.querySelectorAll('img.thumb').forEach(initThumb);
+      document.getElementById('countPerf').textContent = String(list.length);
+      dbg.perfItemsEl.textContent = String(list.length);
+    })();
+
+    // Load Neue Spiele
+    (async function(){
+      const body = document.querySelector('#games-new tbody');
+      const countEl = document.getElementById('newCount');
+      const list = await loadJSON('./new_switch2_games.json', dbg.newEl);
+      body.innerHTML = list.map(rowNew).join('');
+      body.querySelectorAll('img.thumb').forEach(initThumb);
+      dbg.newItemsEl.textContent = String(list.length);
+      countEl.textContent = 'Anzahl: ' + list.length;
+    })();
   </script>
-  <!-- === /DEBUG === -->
 </body>
 </html>
