@@ -3,37 +3,43 @@ name: Update New Switch 2 Games
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 6 * * *" # Läuft jeden Tag um 06:00 UTC (08:00 DE-Zeit)
+    - cron: "0 */6 * * *" # alle 6 Stunden
 
 jobs:
   update:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-        with:
-          persist-credentials: false
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: |
-          npm install playwright
-          npx playwright install --with-deps chromium
+      - name: 📦 Install Dependencies
+        run: npm ci
 
-      - name: Run fetch script
-        run: node scripts/fetch-switch2.js
-
-      - name: Commit and Push changes
+      - name: ▶️ Run fetch script
+        id: fetch
         run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "github-actions"
+          echo "🚀 Starte Scraper..."
+          set -e
+          node scripts/fetch-switch2.js || echo "SCRAPER_FAILED=true" >> $GITHUB_ENV
+
+      - name: 💾 Commit and Push changes
+        if: env.SCRAPER_FAILED != 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add new_switch2_games.json
-          git commit -m "Auto-update new Switch 2 games JSON" || echo "No changes to commit"
+          git commit -m "Update Switch 2 games JSON"
           git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 📸 Upload Debug Screenshot
+        if: env.SCRAPER_FAILED == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraper_debug
+          path: scraper_debug.png
