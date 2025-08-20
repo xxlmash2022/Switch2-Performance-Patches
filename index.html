@@ -18,9 +18,13 @@
 
     /* Toolbar & Tabs */
     .toolbar{ display:flex; gap:8px; padding:12px 20px 6px; align-items:center; flex-wrap:wrap; }
-    .search{ flex:1 1 240px; max-width:900px; }
+    .search{ flex:1 1 240px; max-width:780px; }
     .search input{ width:100%; padding:10px 12px; border-radius:10px; border:1px solid var(--table); background:var(--card); color:var(--text); }
     .btn-clear{ padding:10px 12px; border-radius:10px; border:1px solid var(--table); background:var(--card); color:var(--muted); cursor:pointer; }
+
+    .toggle{ display:flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid var(--table); border-radius:12px; background:var(--card); color:var(--muted); }
+    .toggle input{ width:18px; height:18px; accent-color:#26c281; }
+
     .tabs{ display:flex; gap:8px; padding:8px 20px 12px; flex-wrap:wrap; }
     .tab-btn{ background:var(--card); border:1px solid var(--table); color:var(--text); padding:8px 12px; border-radius:999px; cursor:pointer; font-weight:600; }
     .tab-btn[aria-selected="true"]{ outline:2px solid var(--accent); }
@@ -30,7 +34,11 @@
     /* TABLE (Desktop) */
     .table-card{ background:var(--card); border:1px solid var(--table); border-radius:14px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.35); }
     .table-scroller{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
-    table{ width:100%; border-collapse:collapse; table-layout:auto; min-width: 920px; }
+    table{ width:100%; border-collapse:collapse; table-layout:fixed; min-width: 980px; }
+    col.col-img{ width:290px; }  /* 270px Bild + Puffer */
+    col.col-title{ width:auto; }
+    col.col-mid{ width:360px; }
+    col.col-src{ width:180px; }
     thead th{ text-align:left; padding:14px 12px; font-size:.92rem; color:var(--muted); border-bottom:1px solid var(--table); font-weight:600; white-space:nowrap; }
     tbody td{ padding:10px 12px; border-bottom:1px solid var(--table); vertical-align:middle; }
     tbody tr:hover{ background:rgba(255,255,255,.02); }
@@ -40,8 +48,8 @@
     .source a{ color:var(--muted); text-decoration:none; } .source a:hover{ text-decoration:underline; }
     .price{ white-space:nowrap; font-weight:600; }
 
-    /* CARDS (Mobil + hübscher Desktop-Grid) */
-    .cards-wrap{ margin-top:14px; }
+    /* CARDS */
+    .cards-wrap{ margin-top:14px; display:none; } /* Desktop standard: aus */
     .cards-grid{ display:grid; gap:14px; }
     .card{ background:linear-gradient(180deg, var(--card), var(--card2)); border:1px solid var(--table); border-radius:14px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.35); }
     .card-img{ width:100%; aspect-ratio:16/9; object-fit:cover; display:block; border-bottom:1px solid var(--table); }
@@ -51,27 +59,29 @@
     .card-title a:hover{ text-decoration:underline; }
     .badge{ display:inline-block; font-size:.8rem; color:#e6edf3; background:rgba(38,194,129,.12); border:1px solid var(--ring); padding:2px 8px; border-radius:999px; }
     .meta{ color:var(--muted); font-size:.85rem; }
-    .meta b{ color:var(--text); }
     .src a{ color:var(--muted); text-decoration:none; font-size:.85rem; }
     .src a:hover{ text-decoration:underline; }
     .price-badge{ justify-self:start; }
 
-    /* Responsive Umschaltung: < 900px → nur Karten, ≥ 900px → nur Tabelle */
+    /* Sichtbarkeit:
+       <900px → NUR Karten
+       ≥900px → Tabelle; Karten optional via .desktop-enhanced NUR im aktiven Panel */
     .desktop-only{ display:none; }
-    .mobile-only{ display:block; }
     @media (min-width: 900px){
       .desktop-only{ display:block; }
-      .mobile-only{ display:none; }
-      /* Hübscheres Desktop: zusätzlich auch Grid-Ansicht optional */
+      /* .cards-wrap bleibt standardmäßig aus; .desktop-enhanced schaltet sie im aktiven Panel ein */
       .cards-wrap.desktop-enhanced{ display:block; }
-      .cards-grid.desktop-enhanced{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .cards-wrap.desktop-enhanced .cards-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
     }
     @media (max-width: 899px){
+      .cards-wrap{ display:block; }
       .cards-grid{ grid-template-columns: 1fr; }
     }
     @media (min-width: 600px) and (max-width: 899px){
       .cards-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
     }
+
+    .hidden{ display:none; }
 
     /* Debug */
     #debug-panel{ margin:16px 20px; background:#0f1318; border:1px solid var(--table); border-radius:10px; }
@@ -91,7 +101,7 @@
   </style>
 </head>
 <body>
-  <!-- Hero-Banner mit Fallback-Loader -->
+  <!-- Hero-Banner -->
   <div class="hero-wrap">
     <img id="hero" class="hero"
          alt="Nintendo Switch 2 – Spiele & Performance-Patches"
@@ -101,10 +111,13 @@
     <div class="hero-tag">Stand: <time id="today"></time></div>
   </div>
 
-  <!-- Globale Suche -->
+  <!-- Toolbar -->
   <div class="toolbar">
-    <div class="search"><input id="q" type="search" placeholder="Suche nach Spielen – filtert beide Tabellen & Karten …" autocomplete="off"></div>
+    <div class="search"><input id="q" type="search" placeholder="Suche nach Spielen – filtert beide Tabs …" autocomplete="off"></div>
     <button id="clearQ" class="btn-clear" type="button">Zurücksetzen</button>
+    <label class="toggle" title="Zusätzlich Karten-Grid im aktiven Desktop-Tab anzeigen">
+      <input type="checkbox" id="desktopGrid"> Kartenansicht am Desktop
+    </label>
   </div>
 
   <!-- Tabs (mit dynamischer Anzahl in Klammern) -->
@@ -120,6 +133,9 @@
       <div class="table-card desktop-only">
         <div class="table-scroller">
           <table id="games-perf">
+            <colgroup>
+              <col class="col-img"><col class="col-title"><col class="col-mid"><col class="col-src">
+            </colgroup>
             <thead>
               <tr><th>Spiele</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Kern-Patch-Inhalte</th><th>Quelle</th></tr>
             </thead>
@@ -127,8 +143,8 @@
           </table>
         </div>
       </div>
-      <!-- Karten (Mobil + optionale hübschere Desktop-Ansicht) -->
-      <div class="cards-wrap">
+      <!-- Karten -->
+      <div class="cards-wrap" id="wrap-perf">
         <div id="cards-perf" class="cards-grid"></div>
       </div>
     </section>
@@ -139,6 +155,9 @@
       <div class="table-card desktop-only">
         <div class="table-scroller">
           <table id="games-new">
+            <colgroup>
+              <col class="col-img"><col class="col-title"><col class="col-mid"><col class="col-src">
+            </colgroup>
             <thead>
               <tr><th>Spiele</th><th>Spiel (Nintendo DE bevorzugt)</th><th>Preis (€)</th><th>Quelle</th></tr>
             </thead>
@@ -147,7 +166,7 @@
         </div>
       </div>
       <!-- Karten -->
-      <div class="cards-wrap">
+      <div class="cards-wrap" id="wrap-new">
         <div id="cards-new" class="cards-grid"></div>
       </div>
       <p class="foot" id="newCount"></p>
@@ -184,7 +203,16 @@
     const tabNew  = document.getElementById('tab-new');
     const panelPerf = document.getElementById('panel-perf');
     const panelNew  = document.getElementById('panel-new');
-    function select(tab){ const isPerf = tab.id === 'tab-perf'; tabPerf.setAttribute('aria-selected', isPerf); tabNew.setAttribute('aria-selected', !isPerf); panelPerf.classList.toggle('hidden', !isPerf); panelNew.classList.toggle('hidden', isPerf); }
+    function isPerfActive(){ return !panelPerf.classList.contains('hidden'); }
+    function select(tab){
+      const showPerf = tab.id === 'tab-perf';
+      tabPerf.setAttribute('aria-selected', showPerf);
+      tabNew .setAttribute('aria-selected', !showPerf);
+      panelPerf.classList.toggle('hidden', !showPerf);
+      panelNew .classList.toggle('hidden', showPerf);
+      // Kartenansicht nur für das aktive Panel schalten
+      applyDesktopCards(document.getElementById('desktopGrid').checked);
+    }
     tabPerf.addEventListener('click', () => select(tabPerf));
     tabNew .addEventListener('click', () => select(tabNew ));
 
@@ -195,7 +223,7 @@
       btn.setAttribute('aria-label', `${base} (${count})`);
     }
 
-    // Debug helpers
+    // Debug
     const dbg = {
       logEl: document.getElementById('dbg-log'),
       perfEl: document.getElementById('dbg-perf'),
@@ -204,7 +232,7 @@
       newItemsEl:  document.getElementById('dbg-new-items'),
       imgErrEl: document.getElementById('dbg-img-errors'),
       imgErrors: 0,
-      log(msg, cls){ const span=document.createElement('span'); span.textContent = `[DBG] ${msg}\n`; if(cls) span.className=cls; dbg.logEl.appendChild(span); dbg.logEl.scrollTop=dbg.logEl.scrollHeight; }
+      log(msg, cls){ const s=document.createElement('span'); s.textContent = `[DBG] ${msg}\n`; if(cls) s.className=cls; dbg.logEl.appendChild(s); dbg.logEl.scrollTop=dbg.logEl.scrollHeight; }
     };
 
     // Bild-Fallback
@@ -225,7 +253,7 @@
     function fmtDate(iso){ if(!iso) return ''; try{ const p = iso.split('-'); return `${p[2]}.${p[1]}.${p[0]}`; }catch{ return ''; } }
     function ts(item){ const t = Date.parse(item.release_date || ''); return isNaN(t) ? 0 : t; }
 
-    // Row/Card Renderer
+    // Renderer
     function rowPerf(e){
       const link = e.de || e.us || '#';
       const label = e.de ? 'Nintendo DE' : (e.us ? 'Nintendo US' : 'Nintendo');
@@ -355,7 +383,31 @@
       setTabCount(tabPerf, perfAll.length);
       setTabCount(tabNew, newAll.length);
       document.getElementById('newCount').textContent = 'Anzahl: ' + newAll.length;
+
+      // Desktop-Kartenansicht initial (Default: an)
+      const toggle = document.getElementById('desktopGrid');
+      const saved = localStorage.getItem('desktopCards');
+      const initial = saved ? saved === '1' : true;
+      toggle.checked = initial;
+      applyDesktopCards(initial);
+      toggle.addEventListener('change', ()=> applyDesktopCards(toggle.checked));
     })();
+
+    // Kartenansicht nur für das aktive Panel an/aus
+    function applyDesktopCards(on){
+      if (!window.matchMedia('(min-width: 900px)').matches) return;
+      const wrapPerf = document.getElementById('wrap-perf');
+      const wrapNew  = document.getElementById('wrap-new');
+      // zuerst beide aus
+      wrapPerf.classList.remove('desktop-enhanced');
+      wrapNew .classList.remove('desktop-enhanced');
+      // dann nur das aktive ggf. an
+      if(on){
+        if(isPerfActive()) wrapPerf.classList.add('desktop-enhanced');
+        else               wrapNew .classList.add('desktop-enhanced');
+      }
+      localStorage.setItem('desktopCards', on ? '1' : '0');
+    }
 
     // Suche (übergreifend beide Listen)
     const q = document.getElementById('q');
@@ -369,6 +421,8 @@
       setTabCount(tabPerf, perf.length);
       setTabCount(tabNew, neu.length);
       document.getElementById('newCount').textContent = 'Anzahl: ' + neu.length + (s ? ` (gefiltert)` : '');
+      // Kartenansicht nach dem Re-Render erneut korrekt NUR fürs aktive Panel anwenden
+      applyDesktopCards(document.getElementById('desktopGrid').checked);
     }
     q.addEventListener('input', applySearch);
     clearQ.addEventListener('click', ()=>{ q.value=''; applySearch(); });
