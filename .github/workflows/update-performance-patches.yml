@@ -1,42 +1,36 @@
-name: Build Performance Patches JSON
-on:
-  workflow_dispatch: {}
-  schedule:
-    - cron: "0 5 * * 1"   # montags 05:00 UTC (wöchentlich)
+name: Update Switch 2 Performance Patches
 
-permissions:
-  contents: write
+on:
+  schedule:
+    - cron: "0 4 * * *"   # Läuft jeden Tag um 04:00 UTC
+  workflow_dispatch:      # Manuelles Starten möglich
 
 jobs:
-  build:
+  scrape:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          fetch-depth: 0
+          node-version: 18
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install Playwright (Chromium)
+      - name: Install dependencies
         run: |
-          npm i playwright@1.47.2
-          npx playwright install --with-deps chromium
+          npm init -y
+          npm install playwright
+          npx playwright install chromium
 
-      - name: Build performance_patches.json
-        run: node scripts/build-performance-patches.js
+      - name: Run scraper
+        run: node scripts/fetch-performance-patches.js
 
-      - name: Commit JSON (if changed)
+      - name: Commit updated JSON
         run: |
-          if [ -n "$(git status --porcelain performance_patches.json)" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add performance_patches.json
-            git commit -m "chore: update performance_patches.json (auto)"
-            git push
-          else
-            echo "No changes."
-          fi
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add performance_patches.json
+          git commit -m "Update Switch 2 Performance Patches JSON"
+          git push
