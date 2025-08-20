@@ -1,11 +1,11 @@
 // scripts/fetch-switch2.js
 // Baut new_switch2_games.json mit { name, us, img, img2, price_eur, release_date }
-// Robust: Age-Gate umgehen, NSUID extrahieren, Nintendo-Preis-API nutzen, USD→EUR-Fallback.
-// Voraussetzungen: Node 18+ (wegen fetch), Playwright installiert (npm i playwright)
+// Robust: Age-Gate, NSUID, Nintendo-Preis-API (DE bevorzugt → US Fallback), USD→EUR.
+// Läuft in GitHub Actions (Node 20), Playwright wird dort installiert.
 
-import fs from 'fs';
-import path from 'path';
-import { chromium } from 'playwright';
+const fs = require('fs');
+const path = require('path');
+const { chromium } = require('playwright');
 
 const OUT = path.resolve(process.cwd(), 'new_switch2_games.json');
 const LIST_BASE = 'https://www.nintendo.com/us/store/games/nintendo-switch-2-games/';
@@ -13,11 +13,9 @@ const PAGE_URL  = (p) => `${LIST_BASE}?sort=df&p=${p}`;
 const PRODUCT_PREFIX = '/us/store/products/';
 const MAX_PAGES = 60;
 
-// --- Helpers --------------------------------------------------------------
-
 function heroFromSlug(slug){
   if(!slug) return '';
-  const c = slug[0]?.toLowerCase?.() || 'x';
+  const c = (slug[0]||'x').toLowerCase();
   return `https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/${c}/${slug}/hero`;
 }
 function normDate(s){
@@ -37,50 +35,40 @@ async function usdToEur(amountUsd){
   }catch{ return null; }
 }
 
-// ruft Nintendo-Preis-API (2 Varianten) ab und liefert {amount:number,currency:string} oder null
+// Nintendo-Preis-API (zwei Endpunkte probieren)
 async function fetchNintendoPriceByNsuid(nsuid, country='DE', lang='de'){
   if(!nsuid) return null;
-
-  // 1) Regionale API, z.B. ec.nintendo.com/api/DE/de/price?ids=
   const tryUrls = [
     `https://ec.nintendo.com/api/${country}/${lang}/price?ids=${nsuid}`,
-    // 2) Alternative v1-Format
     `https://api.ec.nintendo.com/v1/price?country=${country}&lang=${lang}&ids=${nsuid}`
   ];
-
   for(const url of tryUrls){
     try{
       const r = await fetch(url, { headers: { 'accept': 'application/json' } });
       if(!r.ok) continue;
       const j = await r.json();
-
-      // Mögliche Formen vereinheitlichen
-      const pricesArr = j?.prices || j?.data || j?.items || [];
-      const entry = Array.isArray(pricesArr) ? pricesArr.find(p =>
+      const arr = j?.prices || j?.data || j?.items || [];
+      const entry = Array.isArray(arr) ? arr.find(p =>
         String(p?.title_id || p?.id || p?.nsuid) === String(nsuid)
       ) : null;
 
-      // Direktes Mapping (häufiges Schema)
-      const regular = entry?.regular_price || entry?.price || entry?.regularPrice;
-      const amountStr = (regular?.amount || regular?.raw_value || regular?.value || '').toString();
-      const currency  = (regular?.currency || regular?.currency_code || '').toString().toUpperCase();
-
+      const reg = entry?.regular_price || entry?.price || entry?.regularPrice;
+      const amountStr = (reg?.amount || reg?.raw_value || reg?.value || '').toString();
+      const currency  = (reg?.currency || reg?.currency_code || '').toString().toUpperCase();
       if(amountStr && !isNaN(parseFloat(amountStr))){
         return { amount: parseFloat(amountStr), currency: currency || (country==='DE'?'EUR':'USD') };
       }
 
-      // Alternatives Schema (manchmal anders benannt)
-      const maybeAmount = parseFloat(entry?.amount || entry?.final_price || entry?.base_price);
-      if(!isNaN(maybeAmount)){
+      const maybe = parseFloat(entry?.amount || entry?.final_price || entry?.base_price);
+      if(!isNaN(maybe)){
         const cur = (entry?.currency || entry?.currency_code || '').toString().toUpperCase() || (country==='DE'?'EUR':'USD');
-        return { amount: maybeAmount, currency: cur };
+        return { amount: maybe, currency: cur };
       }
-    }catch{ /* weiter versuchen */ }
+    }catch{/* next */}
   }
   return null;
 }
 
-// extrahiert Links aus der Kategorieseite
 async function extractListLinks(page){
   await page.waitForLoadState('domcontentloaded', { timeout: 45000 });
   await page.waitForTimeout(800);
@@ -101,34 +89,31 @@ async function extractListLinks(page){
   return items;
 }
 
-// Age-Gate automatisch passieren (best effort)
+// Age-Gate möglichst automatisch passieren
 async function passAgeGate(page){
   try{
-    // häufig: Overlay mit DOB-Feldern
     const selYear  = ['select[name="year"]','select#year','select[aria-label*="Year"]'].join(', ');
     const selMonth = ['select[name="month"]','select#month','select[aria-label*="Month"]'].join(', ');
     const selDay   = ['select[name="day"]','select#day','select[aria-label*="Day"]'].join(', ');
 
-    if(await page.locator(selYear).first().isVisible({ timeout: 800 }).catch(()=>false)){
-      await page.selectOption(selYear,  '1990');
-      await page.selectOption(selMonth, '1');
-      await page.selectOption(selDay,   '1');
+    const hasYear = await page.locator(selYear).first().isVisible({ timeout: 800 }).catch(()=>false);
+    if(hasYear){
+      await page.selectOption(selYear,  '1990').catch(()=>{});
+      await page.selectOption(selMonth, '1').catch(()=>{});
+      await page.selectOption(selDay,   '1').catch(()=>{});
       const btn = page.getByRole('button', { name: /submit|enter|continue|bestätigen|weiter/i }).first();
       await btn.click({ timeout: 1500 }).catch(()=>{});
       await page.waitForTimeout(800);
       return;
     }
-
-    // manchmal simple Modal-Schaltfläche
     const cont = await page.getByRole('button', { name: /continue|enter|proceed|weiter/i }).first();
     if(await cont.isVisible({ timeout: 500 }).catch(()=>false)){
       await cont.click().catch(()=>{});
       await page.waitForTimeout(600);
     }
-  }catch{/* not fatal */}
+  }catch{/* ignore */}
 }
 
-// Produktseite lesen (inkl. NSUID + Preis-Fallback)
 async function readProduct(context, url){
   const page = await context.newPage();
   try{
@@ -140,7 +125,6 @@ async function readProduct(context, url){
       const ogTitle = document.querySelector('meta[property="og:title"]')?.content || '';
       const ogImage = document.querySelector('meta[property="og:image"]')?.content || '';
 
-      // JSON-LD sammeln
       const jsons = Array.from(document.querySelectorAll('script[type="application/ld+json"]'))
         .map(s => { try{ return JSON.parse(s.textContent); }catch{ return null; } })
         .filter(Boolean);
@@ -148,27 +132,27 @@ async function readProduct(context, url){
       const flat = x => Array.isArray(x)? x.flatMap(flat) : (x && typeof x==='object' ? [x, ...Object.values(x).flatMap(flat)] : []);
       let release = null, price = null, currency = null, nsuid = null;
 
-      // Aus JSON-LD: releaseDate, offers.price, sku/mpn evtl. NSUID
       for(const obj of flat(jsons)){
         const cand = obj.releaseDate || obj.datePublished || obj.dateCreated;
         if(cand) release = cand;
 
-        const offers = obj.offers || obj;
-        const p = parseFloat(offers?.price || offers?.priceSpecification?.price);
-        const c = (offers?.priceCurrency || offers?.priceSpecification?.priceCurrency || '').toUpperCase();
+        const off = obj.offers || obj;
+        const p = parseFloat(off?.price || off?.priceSpecification?.price);
+        const c = (off?.priceCurrency || off?.priceSpecification?.priceCurrency || '').toUpperCase();
         if(!isNaN(p)){ price = p; currency = c || currency || null; }
 
         const sku = obj.sku || obj.mpn || obj.productID || obj.nsuid;
-        if(!nsuid && sku && /\b7\d{13}\b/.test(String(sku))) nsuid = String(sku).match(/\b7\d{13}\b/)[0];
+        if(!nsuid && sku){
+          const m = String(sku).match(/\b7\d{13}\b/);
+          if(m) nsuid = m[0];
+        }
       }
 
-      // Aus dem HTML Rohtext einen 14-stelligen 7…-Block ziehen (NSUID)
       if(!nsuid){
         const html = document.documentElement.outerHTML;
         const m = html.match(/\b7\d{13}\b/);
         if(m) nsuid = m[0];
       }
-
       return { ogTitle, ogImage, price, currency, release, nsuid };
     });
 
@@ -180,13 +164,11 @@ async function readProduct(context, url){
   }
 }
 
-// --- Main -----------------------------------------------------------------
-
 async function main(){
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({ viewport: { width: 1280, height: 1600 } });
 
-  // 1) Alle Produktlinks einsammeln (Pagination bis leer)
+  // 1) Produktlinks einsammeln (Pagination)
   const links = [];
   const seen = new Set();
   for(let p=0; p<MAX_PAGES; p++){
@@ -204,7 +186,7 @@ async function main(){
     if(added === 0) break;
   }
 
-  // 2) Pro Produkt: Meta + NSUID holen, Preis via Nintendo-API ermitteln
+  // 2) Pro Produkt: Meta+NSUID, Preis via API (DE→US), Fallback Seite
   const results = [];
   for(const { us, title } of links){
     const slug = us.split('/').filter(Boolean).pop();
@@ -214,11 +196,9 @@ async function main(){
     let name = title || meta.ogTitle || (slug||'').replace(/-/g,' ');
     let img  = meta.ogImage || '';
     let release_date = normDate(meta.release);
-
-    // Preis via Nintendo-Preis-API (DE→US Fallback)
     let price_eur = null;
+
     if(meta.nsuid){
-      // Prefer DE (direkt EUR)
       let pr = await fetchNintendoPriceByNsuid(meta.nsuid, 'DE', 'de');
       if(!pr) pr = await fetchNintendoPriceByNsuid(meta.nsuid, 'US', 'en');
 
@@ -231,7 +211,6 @@ async function main(){
       }
     }
 
-    // Letzter Fallback: Seite selbst (wenn API nix liefert)
     if(price_eur == null && meta.price != null){
       if((meta.currency||'').toUpperCase() === 'EUR') price_eur = Math.round(meta.price * 100) / 100;
       else if((meta.currency||'').toUpperCase() === 'USD'){
@@ -245,16 +224,15 @@ async function main(){
       us,
       img,
       img2: hero,
-      price_eur,               // Zahl oder null
+      price_eur,
       release_date: release_date || null
     });
 
-    await new Promise(r=>setTimeout(r, 80)); // etwas Nettikette
+    await new Promise(r=>setTimeout(r,80));
   }
 
   await browser.close();
 
-  // Sortierung: neueste zuerst
   results.sort((a,b)=>{
     const ta=Date.parse(a.release_date||''); const tb=Date.parse(b.release_date||'');
     if(isNaN(ta)&&isNaN(tb)) return a.name.localeCompare(b.name,'de');
