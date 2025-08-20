@@ -1,42 +1,39 @@
-name: Update Switch 2 Games
+name: Update New Switch 2 Games
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: "0 */6 * * *" # Alle 6 Stunden automatisch
-  workflow_dispatch:       # Manuell auslösbar
+    - cron: "0 6 * * *" # Läuft jeden Tag um 06:00 UTC (08:00 DE-Zeit)
 
 jobs:
-  scrape:
+  update:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install playwright
+          npx playwright install --with-deps chromium
 
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-
-      - name: Run scraper
+      - name: Run fetch script
         run: node scripts/fetch-switch2.js
 
-      - name: Commit updated JSON
+      - name: Commit and Push changes
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
+          git config --local user.email "actions@github.com"
+          git config --local user.name "github-actions"
           git add new_switch2_games.json
-
-          if ! git diff --cached --quiet; then
-            git commit -m "Update Switch 2 Games JSON"
-            git push
-          else
-            echo "Keine Änderungen an der JSON – kein Commit nötig."
-          fi
+          git commit -m "Auto-update new Switch 2 games JSON" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
