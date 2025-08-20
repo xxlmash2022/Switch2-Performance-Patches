@@ -3,318 +3,424 @@
     "name": "Apex Legends™",
     "us": "https://www.nintendo.com/us/store/products/apex-legends-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000100327/7dcb53d178e88a9f9ce8b4316188cc557a7e716e89e8223be2144c85c790fb15",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/apex-legends-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/apex-legends-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Arcade Archives 2 RIDGE RACER",
     "us": "https://www.nintendo.com/us/store/products/arcade-archives-2-ridge-racer-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000098801/7c2bf6ea2fd61e5028a537a5b432ec82ffbfda9f0eedc3a01afe446a78300eed",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/arcade-archives-2-ridge-racer-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/arcade-archives-2-ridge-racer-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Borderlands 4",
     "us": "https://www.nintendo.com/us/store/products/borderlands-4-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000102297/6d0e98e71912cdd0501e3f5c853329d238fcc94c8e7e9d687be102114d13a559",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/b/borderlands-4-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/b/borderlands-4-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "BRAVELY DEFAULT FLYING FAIRY HD Remaster",
     "us": "https://www.nintendo.com/us/store/products/bravely-default-flying-fairy-hd-remaster-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000095321/9d983eab161d222de28c91f2b66bcf3686f12281ffc0a9632ecd36984de09931",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/b/bravely-default-flying-fairy-hd-remaster-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/b/bravely-default-flying-fairy-hd-remaster-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Chillin' by the Fire",
     "us": "https://www.nintendo.com/us/store/products/chillin-by-the-fire-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000095293/90f8901a009fdb33784d2bdb47c9de758db41940f226bebf4a9c812dc7796d03",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/chillin-by-the-fire-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/chillin-by-the-fire-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Cronos: The New Dawn",
     "us": "https://www.nintendo.com/us/store/products/cronos-the-new-dawn-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000100072/45435d3b01ec02578669dcd1abc95a725f158c7009c5c61eb4d7850accf4cced",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/cronos-the-new-dawn-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/cronos-the-new-dawn-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Cyberpunk 2077: Ultimate Edition",
     "us": "https://www.nintendo.com/us/store/products/cyberpunk-2077-ultimate-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000095547/f172668ac499434b33917199f2021f753d42b73862d76d3c93d04a474dade847",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/cyberpunk-2077-ultimate-edition-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/cyberpunk-2077-ultimate-edition-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "DELTARUNE",
     "us": "https://www.nintendo.com/us/store/products/deltarune-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000096640/69a9b5c218fe9b06f7fca6c4a1a9f7344f40ac584997a0abe772bf80281ef999",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/deltarune-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/deltarune-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Demons of the Aril Rift",
     "us": "https://www.nintendo.com/us/store/products/demons-of-the-aril-rift-70050000056741-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70050000056741/d167aeb0e2d45d483a95da160beee9d82377e8cf5fe616246028d63a6ef16443",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/demons-of-the-aril-rift-70050000056741-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/demons-of-the-aril-rift-70050000056741-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Donkey Kong™ Bananza",
     "us": "https://www.nintendo.com/us/store/products/donkey-kong-bananza-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000096809/7d96d2b6161401c27be0df3fe57ca2e06db1263c4323c566c9269eb270c75dc1",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/donkey-kong-bananza-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/donkey-kong-bananza-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Drag x Drive™",
     "us": "https://www.nintendo.com/us/store/products/drag-x-drive-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000099951/36f6df7988d8e7332bf85dfa11e74b44e98b0eefcb4b30b419e81a865c36ec26",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/drag-x-drive-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/drag-x-drive-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "DRAGON BALL: Sparking! ZERO",
     "us": "https://www.nintendo.com/us/store/products/dragon-ball-sparking-zero-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000102645/855a52ffb75ec2452707373d784f045dac6d86ad831e1686018e6f95e3154cbc",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/dragon-ball-sparking-zero-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/dragon-ball-sparking-zero-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "EA SPORTS FC™ 26",
     "us": "https://www.nintendo.com/us/store/products/ea-sports-fc-26-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000098845/85e0247987f1d6e0f791d425ea3472e23034c5d1cef147f0e40424a2c035abfc",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/e/ea-sports-fc-26-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/e/ea-sports-fc-26-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "EA SPORTS™ Madden NFL 26",
     "us": "https://www.nintendo.com/us/store/products/ea-sports-madden-nfl-26-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000096859/85eeab6149adedf9b090b40b984768d6c1ae8b5048b764276f5d02b05d83ace9",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/e/ea-sports-madden-nfl-26-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/e/ea-sports-madden-nfl-26-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "FANTASY LIFE i: The Girl Who Steals Time Nintendo Switch™ 2 Edition",
     "us": "https://www.nintendo.com/us/store/products/fantasy-life-i-the-girl-who-steals-time-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000098624/4f8dd05a9e8d3c390b3a1f683f15fbdcea55de7aec9537266957820f5581a30c",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/f/fantasy-life-i-the-girl-who-steals-time-nintendo-switch-2-edition-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/f/fantasy-life-i-the-girl-who-steals-time-nintendo-switch-2-edition-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Fast Fusion",
     "us": "https://www.nintendo.com/us/store/products/fast-fusion-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000096904/f10f7517f94ce8630b76b1654eb5a79d316e18d4e9bc279a74e6964fe3f8ce86",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/f/fast-fusion-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/f/fast-fusion-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "FINAL FANTASY TACTICS - The Ivalice Chronicles Nintendo Switch™ 2 Edition",
     "us": "https://www.nintendo.com/us/store/products/final-fantasy-tactics-the-ivalice-chronicles-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000100754/a79ce10127b30deb1b647f11aa85333fee47cb1237bc1b23c8a3a4ef3b1aef1a",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/f/final-fantasy-tactics-the-ivalice-chronicles-nintendo-switch-2-edition-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/f/final-fantasy-tactics-the-ivalice-chronicles-nintendo-switch-2-edition-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Fortnite",
     "us": "https://www.nintendo.com/us/store/products/fortnite-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000096855/f26fc9e1b11ce01369966ed9225e320a293c4eaad1329774f125e05629ffd437",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/f/fortnite-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/f/fortnite-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "HITMAN World of Assassination - Signature Edition",
     "us": "https://www.nintendo.com/us/store/products/hitman-world-of-assassination-signature-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000095780/32244565452126c7ea4f8e9f8aa343d3b40031e9c0926d8ed736143e1628fd3c",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/h/hitman-world-of-assassination-signature-edition-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/h/hitman-world-of-assassination-signature-edition-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Hogwarts Legacy",
     "us": "https://www.nintendo.com/us/store/products/hogwarts-legacy-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000095417/1474ec0ae203ee7a392f89ad9cf9d630b7f2d13b1300c65d27e435a607c0bda5",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/h/hogwarts-legacy-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/h/hogwarts-legacy-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Hogwarts Legacy: Digital Deluxe Edition",
     "us": "https://www.nintendo.com/us/store/products/hogwarts-legacy-digital-deluxe-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70070000027672/174545ceaee13785f7e73dc9dac60bf7d8e17f510170192a84a9136ae188920d",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/h/hogwarts-legacy-digital-deluxe-edition-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/h/hogwarts-legacy-digital-deluxe-edition-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Kirby™ and the Forgotten Land – Nintendo Switch™ 2 Edition + Star-Crossed World",
     "us": "https://www.nintendo.com/us/store/products/kirby-and-the-forgotten-land-nintendo-switch-2-edition-plus-star-crossed-world-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000096829/0a06bf277f1eb585fcbb7ddeb4f70014fd1c860d326eb33c8accf4d4827ade72",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/k/kirby-and-the-forgotten-land-nintendo-switch-2-edition-plus-star-crossed-world-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/k/kirby-and-the-forgotten-land-nintendo-switch-2-edition-plus-star-crossed-world-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Kunitsu-Gami: Path of the Goddess",
     "us": "https://www.nintendo.com/us/store/products/kunitsu-gami-path-of-the-goddess-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000095325/c0c771d7a44c927ec5fe0859fb33ab4e2ceca2e52f99833fa4689033bea704d7",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/k/kunitsu-gami-path-of-the-goddess-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/k/kunitsu-gami-path-of-the-goddess-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Mario Kart™ World",
     "us": "https://www.nintendo.com/us/store/products/mario-kart-world-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000095431/b664445df3f7a3765a760822d725ea1853bc6f43d2aa96ccee81d6f45cb281ef",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/mario-kart-world-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/mario-kart-world-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Nintendo Switch™ 2 Welcome Tour",
     "us": "https://www.nintendo.com/us/store/products/nintendo-switch-2-welcome-tour-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000096813/8a2fc51b02035bf067a473a66938322f1f1570bf21034f0ad2134ce93b0d1cac",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/n/nintendo-switch-2-welcome-tour-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/n/nintendo-switch-2-welcome-tour-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "No Man's Sky – Nintendo Switch™ 2 Edition",
     "us": "https://www.nintendo.com/us/store/products/no-mans-sky-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000099217/019e07d170c0a828eb8e8c20636f4d1fe413ff0044b1a4d3777d1ea268dc4724",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/n/no-mans-sky-nintendo-switch-2-edition-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/n/no-mans-sky-nintendo-switch-2-edition-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "No Sleep For Kaname Date - From AI: THE SOMNIUM FILES",
     "us": "https://www.nintendo.com/us/store/products/no-sleep-for-kaname-date-from-ai-the-somnium-files-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000097821/5edaec1db6e640daa3889c94f684179006398c6dae66af1d54ef561fcd280041",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/n/no-sleep-for-kaname-date-from-ai-the-somnium-files-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/n/no-sleep-for-kaname-date-from-ai-the-somnium-files-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "PAC-MAN WORLD 2 Re-PAC",
     "us": "https://www.nintendo.com/us/store/products/pac-man-world-2-re-pac-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000100042/2c7c40b05eed6b523e36afd8e24619c9323396fb6e42a05f5a8a0530d42e3dbf",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pac-man-world-2-re-pac-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pac-man-world-2-re-pac-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Persona 3 Reload",
     "us": "https://www.nintendo.com/us/store/products/persona-3-reload-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000100149/b755e5038e7fb59e09abe48fd4db575a346ceea53c4d146d7bb6e32b0fea3c0d",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/persona-3-reload-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/persona-3-reload-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Plants vs. Zombies™: Replanted",
     "us": "https://www.nintendo.com/us/store/products/plants-vs-zombies-replanted-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000098462/b192bd37698dbead21d4b0ff84a8d5f985a804f93ad767a29f9127bbf7aa904d",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/plants-vs-zombies-replanted-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/plants-vs-zombies-replanted-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Pokémon™ Legends: Z-A – Nintendo Switch™ 2 Edition",
     "us": "https://www.nintendo.com/us/store/products/pokemon-legends-z-a-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000099365/870d2482d0369ab35e5615e585b8908c0365f1901d0ac39be73c5e922ad4b4ec",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pokemon-legends-z-a-nintendo-switch-2-edition-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pokemon-legends-z-a-nintendo-switch-2-edition-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Puyo Puyo™ Tetris® 2S",
     "us": "https://www.nintendo.com/us/store/products/puyo-puyo-tetris-2s-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000095330/029d803a2645117a44738e7f9bad81e7057bc3164ac3da8d4433340d5ee82be0",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/puyo-puyo-tetris-2s-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/puyo-puyo-tetris-2s-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "RAIDOU Remastered: The Mystery of the Soulless Army",
     "us": "https://www.nintendo.com/us/store/products/raidou-remastered-the-mystery-of-the-soulless-army-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000095777/d38c8715039edaa6578d9a69a37cc9573f48d43629c4e871a883eb4f1e6e375a",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/raidou-remastered-the-mystery-of-the-soulless-army-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/raidou-remastered-the-mystery-of-the-soulless-army-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Romancing SaGa 2: Revenge of the Seven – Nintendo Switch™ 2 Edition",
     "us": "https://www.nintendo.com/us/store/products/romancing-saga-2-revenge-of-the-seven-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000098265/ed95a1007322827315a4da52becbb2b97bf564483be4fa033eb3528b28e7e09a",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/romancing-saga-2-revenge-of-the-seven-nintendo-switch-2-edition-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/romancing-saga-2-revenge-of-the-seven-nintendo-switch-2-edition-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Rune Factory: Guardians of Azuma – Nintendo Switch™ 2 Edition",
     "us": "https://www.nintendo.com/us/store/products/rune-factory-guardians-of-azuma-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000096463/019f7a047aac970fd47e96314cf106a1bc0ad9cebdc312d45423b47b14829510",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/rune-factory-guardians-of-azuma-nintendo-switch-2-edition-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/rune-factory-guardians-of-azuma-nintendo-switch-2-edition-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Shadow Labyrinth Nintendo Switch™ 2 Edition",
     "us": "https://www.nintendo.com/us/store/products/shadow-labyrinth-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000097158/0fe91ef99db51662e2d6b7699ca7b42b6268b99778c353b29f2d194d4ca894f7",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/shadow-labyrinth-nintendo-switch-2-edition-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/shadow-labyrinth-nintendo-switch-2-edition-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Sid Meier's Civilization® VII – Nintendo Switch™ 2 Edition",
     "us": "https://www.nintendo.com/us/store/products/sid-meiers-civilization-vii-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000097159/bdfa7aef70b76ce7091f28392e97fc3b01b32658aa951f7a0b41bf255787b3a8",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/sid-meiers-civilization-vii-nintendo-switch-2-edition-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/sid-meiers-civilization-vii-nintendo-switch-2-edition-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "SONIC X SHADOW GENERATIONS",
     "us": "https://www.nintendo.com/us/store/products/sonic-x-shadow-generations-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000095220/bd042de319136af8b91fd23ca401ccab764cfe24aadfdd97e7e7c3498d7071ed",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/sonic-x-shadow-generations-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/sonic-x-shadow-generations-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Split Fiction",
     "us": "https://www.nintendo.com/us/store/products/split-fiction-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000097434/6de085f1efb6c90b754e383fe810f3cb0e847105bb584c706f4cd3b5c66491f4",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/split-fiction-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/split-fiction-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Star Wars Outlaws Gold Edition",
     "us": "https://www.nintendo.com/us/store/products/star-wars-outlaws-gold-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000095790/455ca5fbddbef43bacd8d8c3f91f6dbb0e2dee372cddfdd7ad912ffcc1d6b329",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/star-wars-outlaws-gold-edition-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/star-wars-outlaws-gold-edition-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "STORY OF SEASONS: Grand Bazaar – Nintendo Switch™ 2 Edition",
     "us": "https://www.nintendo.com/us/store/products/story-of-seasons-grand-bazaar-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000097148/e25ba5771b718f8e7ec95b05a96c8444ddb3a22eb7cb8c2317de52018e4fc4e8",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/story-of-seasons-grand-bazaar-nintendo-switch-2-edition-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/story-of-seasons-grand-bazaar-nintendo-switch-2-edition-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Street Fighter™ 6 Years 1-2 Fighters Edition",
     "us": "https://www.nintendo.com/us/store/products/street-fighter-6-years-1-2-fighters-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70070000027440/e36b172d84d33306a6f7b75b5eb884fe815ea2f79ca76de1b815cf008792b0f7",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/street-fighter-6-years-1-2-fighters-edition-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/street-fighter-6-years-1-2-fighters-edition-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Suikoden I&II HD Remaster for Nintendo Switch™ 2 Gate Rune and Dunan Unification Wars",
     "us": "https://www.nintendo.com/us/store/products/suikoden-i-and-ii-hd-remaster-for-nintendo-switch-2-gate-rune-and-dunan-unification-wars-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000095288/72438d0f1082bd2d1644a4b1fbdb6ac7547f46edfb65828d299af5658ba959aa",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/suikoden-i-and-ii-hd-remaster-for-nintendo-switch-2-gate-rune-and-dunan-unification-wars-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/suikoden-i-and-ii-hd-remaster-for-nintendo-switch-2-gate-rune-and-dunan-unification-wars-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Super Mario Party™ Jamboree – Nintendo Switch™ 2 Edition + Jamboree TV",
     "us": "https://www.nintendo.com/us/store/products/super-mario-party-jamboree-nintendo-switch-2-edition-plus-jamboree-tv-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000096825/1c6d36132c3f96d24ba95ebc60e6cb7534bfe9f81b0b590177adf1cf47d3cc81",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/super-mario-party-jamboree-nintendo-switch-2-edition-plus-jamboree-tv-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/super-mario-party-jamboree-nintendo-switch-2-edition-plus-jamboree-tv-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Survival Kids",
     "us": "https://www.nintendo.com/us/store/products/survival-kids-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000095298/2b3323afcafadd09cfdd46d6f239f1402e072d4e29051eadbc44580c9bb7427b",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/survival-kids-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/survival-kids-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "The Adventures of Elliot: The Millennium Tales Debut Demo",
     "us": "https://www.nintendo.com/us/store/products/the-adventures-of-elliot-the-millennium-tales-debut-demo-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000099141/652c24cafd167df2ffd134ed1a786aefce5a782863a1f35fcf8218dff422b4da",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-adventures-of-elliot-the-millennium-tales-debut-demo-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-adventures-of-elliot-the-millennium-tales-debut-demo-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "The Legend of Zelda™: Breath of the Wild – Nintendo Switch™ 2 Edition",
     "us": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-breath-of-the-wild-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000096817/cfe9f8d674be958326d3ba11fc7598a4383e5c5d7809b6239ccac0783aac6cd8",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-breath-of-the-wild-nintendo-switch-2-edition-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-breath-of-the-wild-nintendo-switch-2-edition-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "The Legend of Zelda™: Tears of the Kingdom – Nintendo Switch™ 2 Edition",
     "us": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-tears-of-the-kingdom-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000096821/f20258999e8d852a496dad2961a87faf2b119488f97fb81442f378043e58b000",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-tears-of-the-kingdom-nintendo-switch-2-edition-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/the-legend-of-zelda-tears-of-the-kingdom-nintendo-switch-2-edition-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Tony Hawk's™ Pro Skater™ 3 + 4 - Digital Deluxe Edition",
     "us": "https://www.nintendo.com/us/store/products/tony-hawks-pro-skater-3-plus-4-digital-deluxe-edition-switch/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70070000025386/498bfeac8af0614538594381fe3e86782f58eb5c6448323c34eda7a26272a9c3",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/tony-hawks-pro-skater-3-plus-4-digital-deluxe-edition-switch/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/tony-hawks-pro-skater-3-plus-4-digital-deluxe-edition-switch/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Tony Hawk's™ Pro Skater™ 3 + 4 - Standard Edition",
     "us": "https://www.nintendo.com/us/store/products/tony-hawks-pro-skater-3-plus-4-standard-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70070000028038/c2d9baecde5d1bcc478f06ca3886095a48935749f907590e3b8d696532bab191",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/tony-hawks-pro-skater-3-plus-4-standard-edition-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/tony-hawks-pro-skater-3-plus-4-standard-edition-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "WILD HEARTS S",
     "us": "https://www.nintendo.com/us/store/products/wild-hearts-s-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000097419/910a1273e79d4f1936799093f952a9ac3db0d7644149e51fdd8b0323e8c96737",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/w/wild-hearts-s-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/w/wild-hearts-s-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "WWE 2K25 Standard Edition",
     "us": "https://www.nintendo.com/us/store/products/wwe-2k25-standard-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000097826/2fef9ae0ce3c03fc5066e028fb9d0ca997b502a2a7cb6853911a623b18cf96c2",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/w/wwe-2k25-standard-edition-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/w/wwe-2k25-standard-edition-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   },
   {
     "name": "Yakuza 0 Director's Cut",
     "us": "https://www.nintendo.com/us/store/products/yakuza-0-directors-cut-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000095215/4143fb5796c4d7fbd66872693dc1ec0223570237f2ae463ff9b847b2980e37f8",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/y/yakuza-0-directors-cut-switch-2/hero"
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/y/yakuza-0-directors-cut-switch-2/hero",
+    "price_eur": null,
+    "release_date": null
   }
 ]
