@@ -2,36 +2,35 @@ name: Update New Switch 2 Games
 
 on:
   schedule:
-    - cron: "0 3 * * *"   # täglich 03:00 UTC
-  workflow_dispatch: {}    # manuell startbar
-
-permissions:
-  contents: write
+    - cron: "0 3 * * *"   # Läuft jeden Tag um 03:00 UTC
+  workflow_dispatch:      # Manuelles Starten im GitHub Web-Interface
 
 jobs:
-  update:
+  scrape:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: "20"
+          node-version: 18
 
-      - name: Install Playwright
+      - name: Install dependencies
         run: |
-          npm i playwright
-          npx playwright install --with-deps chromium
+          npm init -y
+          npm install playwright
+          npx playwright install chromium
 
-      - name: Build new_switch2_games.json (with prices)
+      - name: Run scraper
         run: node scripts/fetch-switch2.js
 
-      - name: Commit & push if changed
+      - name: Commit updated JSON
         run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add new_switch2_games.json
-          git commit -m "chore: update new_switch2_games.json [skip ci]" || echo "no changes"
+          git commit -m "Update Switch 2 Games JSON"
           git push
