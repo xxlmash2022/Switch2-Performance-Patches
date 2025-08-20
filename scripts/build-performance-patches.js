@@ -2,9 +2,10 @@
 // Input:  data/performance_seed.json
 // Output: performance_patches.json (von index.html konsumiert)
 // Features:
-//  - Prüft DE-Link: wenn 404/Weiterleitung auf 404-Seite → DE wird leer, US bleibt (Fallback).
-//  - Liest og:image vom gültigen Produktlink (DE bevorzugt, sonst US).
-//  - Behält "kern" + Quellen bei.
+//  - Prüft DE-Link (404 / 404-Redirect) → fallback auf US
+//  - Liest og:image + Veröffentlichungsdatum (JSON-LD) von gültiger Seite
+//  - Schreibt release_date im ISO-Format YYYY-MM-DD
+//  - Sortiert neueste zuerst, fehlende Daten ans Ende
 
 const fs = require("fs");
 const path = require("path");
@@ -20,6 +21,13 @@ function heroFromUS(us){
   const c = slug[0].toLowerCase();
   return `https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/${c}/${slug}/hero`;
 }
+function normDate(s){
+  if(!s) return null;
+  const d = new Date(String(s).trim());
+  if (isNaN(d)) return null;
+  const y=d.getUTCFullYear(), mo=String(d.getUTCMonth()+1).padStart(2,'0'), da=String(d.getUTCDate()).padStart(2,'0');
+  return `${y}-${mo}-${da}`;
+}
 
 async function is404(page, url){
   try{
@@ -34,11 +42,21 @@ async function is404(page, url){
   }
 }
 
-async function readOG(page){
+async function grabMeta(page){
   try{
-    const og = await page.evaluate(() => document.querySelector('meta[property="og:image"]')?.content || "");
-    return og || "";
-  }catch{ return ""; }
+    const r = await page.evaluate(() => {
+      const og = document.querySelector('meta[property="og:image"]')?.content || "";
+      const jsons = Array.from(document.querySelectorAll('script[type="application/ld+json"]')).map(s => { try{ return JSON.parse(s.textContent); }catch{ return null; } }).filter(Boolean);
+      const flat = (x)=> Array.isArray(x)? x.flatMap(flat): (x && typeof x==='object'? [x, ...Object.values(x).flatMap(flat)]: []);
+      let release = null;
+      for(const obj of flat(jsons)){
+        const cand = obj.releaseDate || obj.datePublished || obj.dateCreated;
+        if(cand){ release = cand; }
+      }
+      return { og, release };
+    });
+    return r || { og:"", release:null };
+  }catch{ return { og:"", release:null }; }
 }
 
 async function main(){
@@ -54,22 +72,28 @@ async function main(){
     let us = e.us || "";
     let img = "";
     let img2 = e.us_hero || heroFromUS(us);
+    let release_date = null;
 
-    // Prüfe DE-Link, falls vorhanden
+    // Prüfe DE zuerst
     if(de){
       const { looks404 } = await is404(page, de);
-      if(looks404){ de = ""; } // DE raus, US bleibt als Fallback
-      else { img = await readOG(page); } // og:image von DE nehmen
+      if(looks404){ de = ""; } 
+      else {
+        const meta = await grabMeta(page);
+        img = meta.og || "";
+        release_date = normDate(meta.release);
+      }
     }
 
-    // Wenn kein DE (oder DE kaputt) → US nehmen
+    // Falls DE nicht ging → US
     if(!de){
       if(us){
         const { looks404 } = await is404(page, us);
         if(!looks404){
-          img = img || await readOG(page);
+          const meta = await grabMeta(page);
+          img = img || meta.og || "";
+          release_date = release_date || normDate(meta.release);
         } else {
-          // Wenn sogar US kaputt ist: Felder leer lassen; Client zeigt Proxy/SVG
           us = "";
         }
       }
@@ -81,19 +105,30 @@ async function main(){
       name: e.name,
       de,
       us,
-      img: img || e.eu || "",    // og:image bevorzugt; EU-Bild als zusätzlicher Fallback
-      img2: img2 || "",          // US-Hero
+      img: img || e.eu || "",
+      img2: img2 || "",
       kern: e.kern || "—",
-      sources: e.sources || []
+      sources: e.sources || [],
+      release_date
     });
 
-    // sanfte Pause
     await new Promise(r => setTimeout(r, 80));
   }
 
   await browser.close();
+
+  // neueste zuerst
+  out.sort((a,b)=>{
+    const ta = Date.parse(a.release_date||'');
+    const tb = Date.parse(b.release_date||'');
+    if(isNaN(ta) && isNaN(tb)) return a.name.localeCompare(b.name,"de");
+    if(isNaN(ta)) return 1;
+    if(isNaN(tb)) return -1;
+    return tb - ta;
+  });
+
   fs.writeFileSync(OUT, JSON.stringify(out, null, 2), "utf8");
   console.log(`Wrote ${out.length} items -> ${OUT}`);
 }
 
-main
+main().catch(e => { console.error(e); process.exit(1); });
