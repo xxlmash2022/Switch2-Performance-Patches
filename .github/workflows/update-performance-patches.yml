@@ -1,36 +1,74 @@
-name: Update Switch 2 Performance Patches
+name: Update Performance Patches
 
 on:
   schedule:
-    - cron: "0 4 * * *"   # Läuft jeden Tag um 04:00 UTC
-  workflow_dispatch:      # Manuelles Starten möglich
+    - cron: "0 4 * * *"   # täglich 04:00 UTC
+  workflow_dispatch:
 
 jobs:
-  scrape:
+  update:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: ⚙️ Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: Install dependencies
+      - name: 📦 Install deps + Playwright
         run: |
-          npm init -y
-          npm install playwright
-          npx playwright install chromium
+          npm install
+          npx playwright install --with-deps chromium
 
-      - name: Run scraper
-        run: node scripts/fetch-performance-patches.js
+      - name: ▶️ Build TMP patches
+        run: node scripts/build-performance-patches.js
 
-      - name: Commit updated JSON
+      - name: 🔎 Validate TMP vs. current
+        id: validate
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          CURR_COUNT=$(node -e "try{console.log(JSON.parse(require('fs').readFileSync('performance_patches.json','utf8')).length)}catch(e){console.log(-1)}")
+          TMP_COUNT=$(node -e "try{console.log(JSON.parse(require('fs').readFileSync('performance_patches.tmp.json','utf8')).length)}catch(e){console.log(0)}")
+          echo "CURR=$CURR_COUNT TMP=$TMP_COUNT"
+          echo "CURR_COUNT=$CURR_COUNT" >> $GITHUB_OUTPUT
+          echo "TMP_COUNT=$TMP_COUNT"   >> $GITHUB_OUTPUT
+
+          # Regeln:
+          # - Startfall (keine alte Datei): TMP muss >=1 sein
+          # - Sonst: TMP darf nicht kleiner als CURR sein
+          if [ "$CURR_COUNT" -lt 0 ]; then
+            if [ "$TMP_COUNT" -lt 1 ]; then
+              echo "BAD_RUN=true" >> $GITHUB_ENV
+            fi
+          else
+            if [ "$TMP_COUNT" -lt "$CURR_COUNT" ]; then
+              echo "BAD_RUN=true" >> $GITHUB_ENV
+            fi
+          fi
+
+      - name: 📸 Upload debug (bei BAD_RUN)
+        if: env.BAD_RUN == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: perfpatches-debug
+          path: |
+            performance_patches.tmp.json
+
+      - name: 🚚 Promote TMP → final
+        if: env.BAD_RUN != 'true'
+        run: mv -f performance_patches.tmp.json performance_patches.json
+
+      - name: 💾 Commit JSON (nur wenn geändert)
+        if: env.BAD_RUN != 'true'
+        run: |
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add performance_patches.json
-          git commit -m "Update Switch 2 Performance Patches JSON"
-          git push
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "chore: update performance_patches.json (incremental, safe)"
+            git push
+          fi
