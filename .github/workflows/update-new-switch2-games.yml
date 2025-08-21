@@ -18,18 +18,65 @@ jobs:
         with:
           node-version: 18
 
-      - name: 📦 Install deps
+      - name: 📦 Install deps + Playwright
         run: |
           npm install
           npx playwright install --with-deps chromium
 
-      - name: ▶️ Run scraper
-        run: |
-          set -e
-          node scripts/fetch-switch2.js || echo "SCRAPER_FAILED=true" >> $GITHUB_ENV
+      - name: ▶️ Step 1 – Links & Thumbs → TMP
+        run: node scripts/fetch-switch2.js
 
-      - name: 💾 Commit JSON
-        if: env.SCRAPER_FAILED != 'true'
+      - name: 🔎 Validate TMP count
+        id: validate1
+        run: |
+          COUNT=$(node -e "try{console.log(JSON.parse(require('fs').readFileSync('new_switch2_games.tmp.json','utf8')).length)}catch(e){console.log(0)}")
+          echo "COUNT=$COUNT"
+          echo "COUNT=$COUNT" >> $GITHUB_OUTPUT
+          if [ "$COUNT" -lt 30 ]; then
+            echo "TOO_FEW=true" >> $GITHUB_ENV
+          fi
+
+      - name: 📸 Upload debug (too few after Step 1)
+        if: env.TOO_FEW == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: switch2-debug-step1
+          path: |
+            debug_list.html
+            debug_list.png
+            new_switch2_games.tmp.json
+
+      - name: ▶️ Step 2 – Preise & Release in TMP anreichern
+        if: env.TOO_FEW != 'true'
+        run: node scripts/enrich-prices-from-list.js
+
+      - name: 🔎 Validate TMP count (post-enrich)
+        if: env.TOO_FEW != 'true'
+        id: validate2
+        run: |
+          COUNT=$(node -e "try{console.log(JSON.parse(require('fs').readFileSync('new_switch2_games.tmp.json','utf8')).length)}catch(e){console.log(0)}")
+          echo "COUNT=$COUNT"
+          echo "COUNT=$COUNT" >> $GITHUB_OUTPUT
+          if [ "$COUNT" -lt 30 ]; then
+            echo "TOO_FEW2=true" >> $GITHUB_ENV
+          fi
+
+      - name: 📸 Upload debug (too few after Step 2)
+        if: env.TOO_FEW2 == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: switch2-debug-step2
+          path: |
+            debug_list.html
+            debug_list.png
+            new_switch2_games.tmp.json
+
+      - name: 🚚 Promote TMP → final JSON
+        if: env.TOO_FEW != 'true' && env.TOO_FEW2 != 'true'
+        run: mv -f new_switch2_games.tmp.json new_switch2_games.json
+
+      - name: 💾 Commit JSON (nur wenn geändert)
+        if: env.TOO_FEW != 'true' && env.TOO_FEW2 != 'true'
         run: |
           git config --global user.name  "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -37,15 +84,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No JSON changes."
           else
-            git commit -m "chore: update new_switch2_games.json"
+            git commit -m "chore: update new_switch2_games.json (safe)"
             git push
           fi
-
-      - name: 📸 Upload debug artifacts (if failed)
-        if: env.SCRAPER_FAILED == 'true'
-        uses: actions/upload-artifact@v4
-        with:
-          name: switch2-scraper-debug
-          path: |
-            debug_list.html
-            debug_list.png
