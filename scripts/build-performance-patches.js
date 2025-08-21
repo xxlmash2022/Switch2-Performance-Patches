@@ -1,134 +1,48 @@
-// scripts/build-performance-patches.js
-// Input:  data/performance_seed.json
-// Output: performance_patches.json (von index.html konsumiert)
-// Features:
-//  - Prüft DE-Link (404 / 404-Redirect) → fallback auf US
-//  - Liest og:image + Veröffentlichungsdatum (JSON-LD) von gültiger Seite
-//  - Schreibt release_date im ISO-Format YYYY-MM-DD
-//  - Sortiert neueste zuerst, fehlende Daten ans Ende
+name: Update Performance Patches
 
-const fs = require("fs");
-const path = require("path");
-const { chromium } = require("playwright");
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 */12 * * *"  # alle 12 Stunden
 
-const IN  = path.resolve(process.cwd(), "data/performance_seed.json");
-const OUT = path.resolve(process.cwd(), "performance_patches.json");
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
 
-function heroFromUS(us){
-  if(!us) return "";
-  const slug = us.split("/").filter(Boolean).pop();
-  if(!slug) return "";
-  const c = slug[0].toLowerCase();
-  return `https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/${c}/${slug}/hero`;
-}
-function normDate(s){
-  if(!s) return null;
-  const d = new Date(String(s).trim());
-  if (isNaN(d)) return null;
-  const y=d.getUTCFullYear(), mo=String(d.getUTCMonth()+1).padStart(2,'0'), da=String(d.getUTCDate()).padStart(2,'0');
-  return `${y}-${mo}-${da}`;
-}
+      - name: ⚙️ Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
-async function is404(page, url){
-  try{
-    const resp = await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
-    await page.waitForTimeout(400);
-    const code = resp ? resp.status() : 0;
-    const finalUrl = page.url();
-    const looks404 = /\/404(\.html)?/i.test(finalUrl) || code >= 400;
-    return { looks404, code, finalUrl };
-  }catch(e){
-    return { looks404: true, code: 0, finalUrl: "" };
-  }
-}
+      - name: 📦 Install deps + Playwright
+        run: |
+          npm install || true
+          npx playwright install --with-deps chromium || true
 
-async function grabMeta(page){
-  try{
-    const r = await page.evaluate(() => {
-      const og = document.querySelector('meta[property="og:image"]')?.content || "";
-      const jsons = Array.from(document.querySelectorAll('script[type="application/ld+json"]')).map(s => { try{ return JSON.parse(s.textContent); }catch{ return null; } }).filter(Boolean);
-      const flat = (x)=> Array.isArray(x)? x.flatMap(flat): (x && typeof x==='object'? [x, ...Object.values(x).flatMap(flat)]: []);
-      let release = null;
-      for(const obj of flat(jsons)){
-        const cand = obj.releaseDate || obj.datePublished || obj.dateCreated;
-        if(cand){ release = cand; }
-      }
-      return { og, release };
-    });
-    return r || { og:"", release:null };
-  }catch{ return { og:"", release:null }; }
-}
+      - name: ▶️ Build patches JSON (dein Skript)
+        run: node scripts/fetch-performance-patches.js || true
 
-async function main(){
-  const seed = JSON.parse(fs.readFileSync(IN, "utf8"));
-  const browser = await chromium.launch({ headless: true });
-  const context = await browser.newContext({ viewport: { width: 1280, height: 1600 } });
+      - name: 🔎 Validate patches count
+        id: validate
+        run: |
+          COUNT=$(node -e "try{console.log(JSON.parse(require('fs').readFileSync('performance_patches.json','utf8')).length)}catch(e){console.log(0)}")
+          echo "COUNT=$COUNT"
+          if [ "$COUNT" -lt 1 ]; then
+            echo "PATCH_TOO_FEW=true" >> $GITHUB_ENV
+          fi
 
-  const out = [];
-  for(const e of seed){
-    const page = await context.newPage();
-
-    let de = e.de || "";
-    let us = e.us || "";
-    let img = "";
-    let img2 = e.us_hero || heroFromUS(us);
-    let release_date = null;
-
-    // Prüfe DE zuerst
-    if(de){
-      const { looks404 } = await is404(page, de);
-      if(looks404){ de = ""; } 
-      else {
-        const meta = await grabMeta(page);
-        img = meta.og || "";
-        release_date = normDate(meta.release);
-      }
-    }
-
-    // Falls DE nicht ging → US
-    if(!de){
-      if(us){
-        const { looks404 } = await is404(page, us);
-        if(!looks404){
-          const meta = await grabMeta(page);
-          img = img || meta.og || "";
-          release_date = release_date || normDate(meta.release);
-        } else {
-          us = "";
-        }
-      }
-    }
-
-    await page.close();
-
-    out.push({
-      name: e.name,
-      de,
-      us,
-      img: img || e.eu || "",
-      img2: img2 || "",
-      kern: e.kern || "—",
-      sources: e.sources || [],
-      release_date
-    });
-
-    await new Promise(r => setTimeout(r, 80));
-  }
-
-  await browser.close();
-
-  // neueste zuerst
-  out.sort((a,b)=>{
-    const ta = Date.parse(a.release_date||'');
-    const tb = Date.parse(b.release_date||'');
-    if(isNaN(ta) && isNaN(tb)) return a.name.localeCompare(b.name,"de");
-    if(isNaN(ta)) return 1;
-    if(isNaN(tb)) return -1;
-    return tb - ta;
-  });
-
-  fs.writeFileSync(OUT, JSON.stringify(out, null, 2), "utf8");
-  console.log(`Wrote ${out.length} items -> ${OUT}`);
-}
-
-main().catch(e => { console.error(e); process.exit(1); });
+      - name: 💾 Commit patches (nur wenn sinnvoll)
+        if: env.PATCH_TOO_FEW != 'true'
+        run: |
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add performance_patches.json
+          if git diff --cached --quiet; then
+            echo "No JSON changes."
+          else
+            git commit -m "chore: update performance_patches.json (safe)"
+            git push
+          fi
