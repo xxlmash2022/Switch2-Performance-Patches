@@ -40,6 +40,22 @@
     "release_date": null
   },
   {
+    "name": "Hollow Knight: Silksong – Nintendo Switch 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/hollow-knight-silksong-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/bb5aafe146ab43ee8b45cbe07512a11e_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/h/hollow-knight-silksong-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 19.99,
+    "release_date": null
+  },
+  {
+    "name": "Cronos: The New Dawn",
+    "us": "https://www.nintendo.com/us/store/products/cronos-the-new-dawn-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/aa0441c0899e44078fb2be96c669d466_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/cronos-the-new-dawn-switch-2/hero",
+    "price_usd": 59.99,
+    "release_date": null
+  },
+  {
     "name": "Apex Legends™",
     "us": "https://www.nintendo.com/us/store/products/apex-legends-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/57a98783b7214835aef9533d30da3c69_1024",
@@ -85,14 +101,6 @@
     "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/software/switch-2/70010000100754/a79ce10127b30deb1b647f11aa85333fee47cb1237bc1b23c8a3a4ef3b1aef1a",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/f/final-fantasy-tactics-the-ivalice-chronicles-nintendo-switch-2-edition-switch-2/hero",
     "price_usd": 49.99,
-    "release_date": null
-  },
-  {
-    "name": "Cronos: The New Dawn",
-    "us": "https://www.nintendo.com/us/store/products/cronos-the-new-dawn-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/aa0441c0899e44078fb2be96c669d466_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/cronos-the-new-dawn-switch-2/hero",
-    "price_usd": 59.99,
     "release_date": null
   },
   {
