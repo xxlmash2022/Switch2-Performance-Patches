@@ -84,7 +84,7 @@
     "us": "https://www.nintendo.com/us/store/products/tony-hawks-pro-skater-3-plus-4-standard-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/software/switch-2/70070000028038/c2d9baecde5d1bcc478f06ca3886095a48935749f907590e3b8d696532bab191",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/tony-hawks-pro-skater-3-plus-4-standard-edition-switch-2/hero",
-    "price_usd": 37.49,
+    "price_usd": 49.99,
     "release_date": null
   },
   {
@@ -92,7 +92,7 @@
     "us": "https://www.nintendo.com/us/store/products/tony-hawks-pro-skater-3-plus-4-digital-deluxe-edition-switch/",
     "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/software/switch/70070000025386/498bfeac8af0614538594381fe3e86782f58eb5c6448323c34eda7a26272a9c3",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/tony-hawks-pro-skater-3-plus-4-digital-deluxe-edition-switch/hero",
-    "price_usd": 48.99,
+    "price_usd": 69.99,
     "release_date": null
   },
   {
@@ -170,7 +170,7 @@
   {
     "name": "WWE 2K25 Standard Edition",
     "us": "https://www.nintendo.com/us/store/products/wwe-2k25-standard-edition-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/6a9a15fdd3e84da6a42506e5279e7075_1024",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/c66e2035bfde4ce292b4339ae259d05e_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/w/wwe-2k25-standard-edition-switch-2/hero",
     "price_usd": 69.99,
     "release_date": null
@@ -220,7 +220,7 @@
     "us": "https://www.nintendo.com/us/store/products/cyberpunk-2077-ultimate-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/a3b2791f575e41efa3a8bf33f3008fbe_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/cyberpunk-2077-ultimate-edition-switch-2/hero",
-    "price_usd": 59.49,
+    "price_usd": 69.99,
     "release_date": null
   },
   {
@@ -404,7 +404,7 @@
     "us": "https://www.nintendo.com/us/store/products/sonic-x-shadow-generations-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/246d1b03653548eaa0c59abe06d54ead_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/sonic-x-shadow-generations-switch-2/hero",
-    "price_usd": 32.49,
+    "price_usd": 49.99,
     "release_date": null
   },
   {
