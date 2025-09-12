@@ -1,5 +1,29 @@
 [
   {
+    "name": "Donkey Kong™ Bananza: DK Island & Emerald Rush",
+    "us": "https://www.nintendo.com/us/store/products/donkey-kong-bananza-dk-island-and-emerald-rush-70050000062442-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/software/switch-2/70050000062442/faacb13a960c8493939199c7d0b6488254d6a746765d3b7c388234ac7611056e",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/donkey-kong-bananza-dk-island-and-emerald-rush-70050000062442-switch-2/hero",
+    "price_usd": 19.99,
+    "release_date": null
+  },
+  {
+    "name": "Donkey Kong™ Bananza Bundle (game + DK Island & Emerald Rush DLC)",
+    "us": "https://www.nintendo.com/us/store/products/donkey-kong-bananza-bundle-game-plus-dk-island-and-emerald-rush-dlc-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/software/switch-2/70070000030721/ce4f1cde1eca93f07249754c4b4b97ddf2a9b8fd1f795e1ec7e937a95fd45e7a",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/donkey-kong-bananza-bundle-game-plus-dk-island-and-emerald-rush-dlc-switch-2/hero",
+    "price_usd": 89.98,
+    "release_date": null
+  },
+  {
+    "name": "Kirby™ and the Forgotten Land – Nintendo Switch™ 2 Edition + Star-Crossed World",
+    "us": "https://www.nintendo.com/us/store/products/kirby-and-the-forgotten-land-nintendo-switch-2-edition-plus-star-crossed-world-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/ba48fa0a86b04b17abe897af3774352f_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/k/kirby-and-the-forgotten-land-nintendo-switch-2-edition-plus-star-crossed-world-switch-2/hero",
+    "price_usd": 79.99,
+    "release_date": null
+  },
+  {
     "name": "Super Mario Party™ Jamboree – Nintendo Switch™ 2 Edition + Jamboree TV",
     "us": "https://www.nintendo.com/us/store/products/super-mario-party-jamboree-nintendo-switch-2-edition-plus-jamboree-tv-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/e5238d8cefd04edfaf3bbe4694334cc1_1024",
@@ -40,10 +64,122 @@
     "release_date": null
   },
   {
+    "name": "Hyrule Warriors: Age of Imprisonment",
+    "us": "https://www.nintendo.com/us/store/products/hyrule-warriors-age-of-imprisonment-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/0d870716cf3f4157ade5898e55857194_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/h/hyrule-warriors-age-of-imprisonment-switch-2/hero",
+    "price_usd": 69.99,
+    "release_date": null
+  },
+  {
+    "name": "Kirby™ Air Riders",
+    "us": "https://www.nintendo.com/us/store/products/kirby-air-riders-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/99538f376c2e4082a79fa1804ddf8e9d_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/k/kirby-air-riders-switch-2/hero",
+    "price_usd": 69.99,
+    "release_date": null
+  },
+  {
+    "name": "Metroid Prime™ 4: Beyond – Nintendo Switch™ 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/metroid-prime-4-beyond-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/software/switch-2/70010000104849/6bc40d5d63f7139f26f29c3d0d9b82dbcbae85e2bebcd2995d39c991e665c802",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/metroid-prime-4-beyond-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 69.99,
+    "release_date": null
+  },
+  {
+    "name": "Mario Tennis™ Fever",
+    "us": "https://www.nintendo.com/us/store/products/mario-tennis-fever-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/software/switch-2/70010000105869/86a26a6d9a870eee16d0ff1b5591f055d63dee475fe688c42c46fcd96a199805",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/mario-tennis-fever-switch-2/hero",
+    "price_usd": 69.99,
+    "release_date": null
+  },
+  {
+    "name": "Lynked: Banner of the Spark – Nintendo Switch™ 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/lynked-banner-of-the-spark-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/fa172b08047f4a179940ecdf6fa5de3d_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/l/lynked-banner-of-the-spark-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 24.99,
+    "release_date": null
+  },
+  {
     "name": "Hollow Knight: Silksong – Nintendo Switch 2 Edition",
     "us": "https://www.nintendo.com/us/store/products/hollow-knight-silksong-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/bb5aafe146ab43ee8b45cbe07512a11e_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/h/hollow-knight-silksong-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 19.99,
+    "release_date": null
+  },
+  {
+    "name": "EA SPORTS™ Madden NFL 26",
+    "us": "https://www.nintendo.com/us/store/products/ea-sports-madden-nfl-26-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/52479352cdb44f48a69ad3d0ac2617d0_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/e/ea-sports-madden-nfl-26-switch-2/hero",
+    "price_usd": 48.99,
+    "release_date": null
+  },
+  {
+    "name": "Hades II – Nintendo Switch™ 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/hades-ii-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/7db56451c7b74682a8a054ff6d9d518b_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/h/hades-ii-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 29.99,
+    "release_date": null
+  },
+  {
+    "name": "Two Point Museum",
+    "us": "https://www.nintendo.com/us/store/products/two-point-museum-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/6e3e0527933944b6bf566009140a59f9_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/two-point-museum-switch-2/hero",
+    "price_usd": 29.99,
+    "release_date": null
+  },
+  {
+    "name": "Little Nightmares III",
+    "us": "https://www.nintendo.com/us/store/products/little-nightmares-iii-switch/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/02f3878e5b98402eafcacee37ce93efa_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/l/little-nightmares-iii-switch/hero",
+    "price_usd": 39.99,
+    "release_date": null
+  },
+  {
+    "name": "DRAGON QUEST I & II HD-2D Remake",
+    "us": "https://www.nintendo.com/us/store/products/dragon-quest-i-and-ii-hd-2d-remake-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/7285748531dd41feb25dde217f4a30bd_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/dragon-quest-i-and-ii-hd-2d-remake-switch-2/hero",
+    "price_usd": 59.99,
+    "release_date": null
+  },
+  {
+    "name": "Persona 3 Reload",
+    "us": "https://www.nintendo.com/us/store/products/persona-3-reload-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/d50afcfec93e422abb527c42fda9b56e_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/persona-3-reload-switch-2/hero",
+    "price_usd": 59.99,
+    "release_date": null
+  },
+  {
+    "name": "DRAGON QUEST VII Reimagined",
+    "us": "https://www.nintendo.com/us/store/products/dragon-quest-vii-reimagined-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/5f39cef6137d4f9b8bd2fcfae8cfb292_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/dragon-quest-vii-reimagined-switch-2/hero",
+    "price_usd": 59.99,
+    "release_date": null
+  },
+  {
+    "name": "FINAL FANTASY VII REMAKE INTERGRADE",
+    "us": "https://www.nintendo.com/us/store/products/final-fantasy-vii-remake-intergrade-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/software/switch-2/70010000101698/833214b25828c4b093c4abde2564f399991438c9498594b3d88f3fc54dad4d75",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/f/final-fantasy-vii-remake-intergrade-switch-2/hero",
+    "price_usd": 39.99,
+    "release_date": null
+  },
+  {
+    "name": "Resident Evil Requiem",
+    "us": "https://www.nintendo.com/us/store/products/resident-evil-requiem-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/software/switch-2/70010000101675/7a13c0bcc2b1edd6871af2a8c0fe26310dc002538ef9b3305ab52c06c19e813b",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/resident-evil-requiem-switch-2/hero",
     "price_usd": 19.99,
     "release_date": null
   },
@@ -69,14 +205,6 @@
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/57a98783b7214835aef9533d30da3c69_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/apex-legends-switch-2/hero",
     "price_usd": 0,
-    "release_date": null
-  },
-  {
-    "name": "EA SPORTS™ Madden NFL 26",
-    "us": "https://www.nintendo.com/us/store/products/ea-sports-madden-nfl-26-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/52479352cdb44f48a69ad3d0ac2617d0_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/e/ea-sports-madden-nfl-26-switch-2/hero",
-    "price_usd": 48.99,
     "release_date": null
   },
   {
@@ -132,14 +260,6 @@
     "us": "https://www.nintendo.com/us/store/products/dragon-ball-sparking-zero-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/e114a9eb1b9a46c387bf0c3181efa862_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/dragon-ball-sparking-zero-switch-2/hero",
-    "price_usd": 59.99,
-    "release_date": null
-  },
-  {
-    "name": "Persona 3 Reload",
-    "us": "https://www.nintendo.com/us/store/products/persona-3-reload-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/d50afcfec93e422abb527c42fda9b56e_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/persona-3-reload-switch-2/hero",
     "price_usd": 59.99,
     "release_date": null
   },
@@ -352,11 +472,19 @@
     "release_date": null
   },
   {
+    "name": "STORY OF SEASONS: Grand Bazaar – Nintendo Switch™ 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/story-of-seasons-grand-bazaar-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/2e87c67a8ff640cf9bc00268fd2f5801_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/story-of-seasons-grand-bazaar-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 59.99,
+    "release_date": null
+  },
+  {
     "name": "Rune Factory: Guardians of Azuma – Nintendo Switch™ 2 Edition",
     "us": "https://www.nintendo.com/us/store/products/rune-factory-guardians-of-azuma-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/9e39d466e7b14df0a7a65f3956297a79_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/rune-factory-guardians-of-azuma-nintendo-switch-2-edition-switch-2/hero",
-    "price_usd": 69.99,
+    "price_usd": 55.99,
     "release_date": null
   },
   {
@@ -408,14 +536,6 @@
     "release_date": null
   },
   {
-    "name": "Kirby™ and the Forgotten Land – Nintendo Switch™ 2 Edition + Star-Crossed World",
-    "us": "https://www.nintendo.com/us/store/products/kirby-and-the-forgotten-land-nintendo-switch-2-edition-plus-star-crossed-world-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/ba48fa0a86b04b17abe897af3774352f_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/k/kirby-and-the-forgotten-land-nintendo-switch-2-edition-plus-star-crossed-world-switch-2/hero",
-    "price_usd": 79.99,
-    "release_date": null
-  },
-  {
     "name": "RAIDOU Remastered: The Mystery of the Soulless Army",
     "us": "https://www.nintendo.com/us/store/products/raidou-remastered-the-mystery-of-the-soulless-army-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/d45abe68800841a5ba4e22be517f4dc7_1024",
@@ -429,14 +549,6 @@
     "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/software/switch-2/70050000056741/d167aeb0e2d45d483a95da160beee9d82377e8cf5fe616246028d63a6ef16443",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/demons-of-the-aril-rift-70050000056741-switch-2/hero",
     "price_usd": 4.99,
-    "release_date": null
-  },
-  {
-    "name": "STORY OF SEASONS: Grand Bazaar – Nintendo Switch™ 2 Edition",
-    "us": "https://www.nintendo.com/us/store/products/story-of-seasons-grand-bazaar-nintendo-switch-2-edition-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/2e87c67a8ff640cf9bc00268fd2f5801_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/story-of-seasons-grand-bazaar-nintendo-switch-2-edition-switch-2/hero",
-    "price_usd": 59.99,
     "release_date": null
   }
 ]
