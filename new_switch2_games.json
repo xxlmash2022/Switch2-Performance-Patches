@@ -1,13 +1,5 @@
 [
   {
-    "name": "Donkey Kong™ Bananza: DK Island & Emerald Rush",
-    "us": "https://www.nintendo.com/us/store/products/donkey-kong-bananza-dk-island-and-emerald-rush-70050000062442-switch-2/",
-    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/software/switch-2/70050000062442/faacb13a960c8493939199c7d0b6488254d6a746765d3b7c388234ac7611056e",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/donkey-kong-bananza-dk-island-and-emerald-rush-70050000062442-switch-2/hero",
-    "price_usd": 19.99,
-    "release_date": null
-  },
-  {
     "name": "Donkey Kong™ Bananza Bundle (game + DK Island & Emerald Rush DLC)",
     "us": "https://www.nintendo.com/us/store/products/donkey-kong-bananza-bundle-game-plus-dk-island-and-emerald-rush-dlc-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/software/switch-2/70070000030721/ce4f1cde1eca93f07249754c4b4b97ddf2a9b8fd1f795e1ec7e937a95fd45e7a",
@@ -16,11 +8,35 @@
     "release_date": null
   },
   {
+    "name": "Hades II – Nintendo Switch™ 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/hades-ii-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/7db56451c7b74682a8a054ff6d9d518b_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/h/hades-ii-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 29.99,
+    "release_date": null
+  },
+  {
     "name": "Kirby™ and the Forgotten Land – Nintendo Switch™ 2 Edition + Star-Crossed World",
     "us": "https://www.nintendo.com/us/store/products/kirby-and-the-forgotten-land-nintendo-switch-2-edition-plus-star-crossed-world-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/ba48fa0a86b04b17abe897af3774352f_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/k/kirby-and-the-forgotten-land-nintendo-switch-2-edition-plus-star-crossed-world-switch-2/hero",
     "price_usd": 79.99,
+    "release_date": null
+  },
+  {
+    "name": "EA SPORTS FC™ 26",
+    "us": "https://www.nintendo.com/us/store/products/ea-sports-fc-26-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/5d7971497c4f4ed39d9ec3f52c868334_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/e/ea-sports-fc-26-switch-2/hero",
+    "price_usd": 69.99,
+    "release_date": null
+  },
+  {
+    "name": "Donkey Kong™ Bananza: DK Island & Emerald Rush",
+    "us": "https://www.nintendo.com/us/store/products/donkey-kong-bananza-dk-island-and-emerald-rush-70050000062442-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/software/switch-2/70050000062442/faacb13a960c8493939199c7d0b6488254d6a746765d3b7c388234ac7611056e",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/donkey-kong-bananza-dk-island-and-emerald-rush-70050000062442-switch-2/hero",
+    "price_usd": 19.99,
     "release_date": null
   },
   {
@@ -120,14 +136,6 @@
     "release_date": null
   },
   {
-    "name": "Hades II – Nintendo Switch™ 2 Edition",
-    "us": "https://www.nintendo.com/us/store/products/hades-ii-nintendo-switch-2-edition-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/7db56451c7b74682a8a054ff6d9d518b_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/h/hades-ii-nintendo-switch-2-edition-switch-2/hero",
-    "price_usd": 29.99,
-    "release_date": null
-  },
-  {
     "name": "Two Point Museum",
     "us": "https://www.nintendo.com/us/store/products/two-point-museum-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/6e3e0527933944b6bf566009140a59f9_1024",
@@ -172,7 +180,7 @@
     "us": "https://www.nintendo.com/us/store/products/resident-evil-requiem-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/software/switch-2/70010000101675/7a13c0bcc2b1edd6871af2a8c0fe26310dc002538ef9b3305ab52c06c19e813b",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/resident-evil-requiem-switch-2/hero",
-    "price_usd": 19.99,
+    "price_usd": 89.98,
     "release_date": null
   },
   {
@@ -284,14 +292,6 @@
     "us": "https://www.nintendo.com/us/store/products/wwe-2k25-standard-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/c66e2035bfde4ce292b4339ae259d05e_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/w/wwe-2k25-standard-edition-switch-2/hero",
-    "price_usd": 69.99,
-    "release_date": null
-  },
-  {
-    "name": "EA SPORTS FC™ 26",
-    "us": "https://www.nintendo.com/us/store/products/ea-sports-fc-26-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/5d7971497c4f4ed39d9ec3f52c868334_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/e/ea-sports-fc-26-switch-2/hero",
     "price_usd": 69.99,
     "release_date": null
   },
@@ -458,7 +458,7 @@
   {
     "name": "STORY OF SEASONS: Grand Bazaar – Nintendo Switch™ 2 Edition",
     "us": "https://www.nintendo.com/us/store/products/story-of-seasons-grand-bazaar-nintendo-switch-2-edition-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/2e87c67a8ff640cf9bc00268fd2f5801_1024",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/8f97da5947cc4d7cad4739f0f8a64858_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/story-of-seasons-grand-bazaar-nintendo-switch-2-edition-switch-2/hero",
     "price_usd": 59.99,
     "release_date": null
