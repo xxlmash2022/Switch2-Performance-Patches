@@ -1,5 +1,13 @@
 [
   {
+    "name": "LEGO Game Boy",
+    "us": "https://www.nintendo.com/us/store/products/lego-super-mario-game-boy-127157/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/l/lego-super-mario-game-boy-127157/hero",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/l/lego-super-mario-game-boy-127157/hero",
+    "price_usd": null,
+    "release_date": null
+  },
+  {
     "name": "Donkey Kong™ Bananza Bundle (game + DK Island & Emerald Rush DLC)",
     "us": "https://www.nintendo.com/us/store/products/donkey-kong-bananza-bundle-game-plus-dk-island-and-emerald-rush-dlc-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/software/switch-2/70070000030721/ce4f1cde1eca93f07249754c4b4b97ddf2a9b8fd1f795e1ec7e937a95fd45e7a",
@@ -250,7 +258,7 @@
   {
     "name": "Plants vs. Zombies™: Replanted",
     "us": "https://www.nintendo.com/us/store/products/plants-vs-zombies-replanted-switch-2/",
-    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/software/switch-2/70010000098462/b192bd37698dbead21d4b0ff84a8d5f985a804f93ad767a29f9127bbf7aa904d",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/8a91539269b649a6b56c57140191f4b5_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/plants-vs-zombies-replanted-switch-2/hero",
     "price_usd": 19.99,
     "release_date": null
