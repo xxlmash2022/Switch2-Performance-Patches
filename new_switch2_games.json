@@ -1,5 +1,29 @@
 [
   {
+    "name": "Pokémon™ Legends: Z-A – Nintendo Switch™ 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/pokemon-legends-z-a-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/6f65009317164f3d9f28d578133d1242_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pokemon-legends-z-a-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 69.99,
+    "release_date": null
+  },
+  {
+    "name": "Monster Hunter Stories 3: Twisted Reflection",
+    "us": "https://www.nintendo.com/us/store/products/monster-hunter-stories-3-twisted-reflection-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70010000097756/29e212a61e622133e16904cc8dcb80fe1df1f52b3beb53d5e1ba5bc0d64736a6",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/monster-hunter-stories-3-twisted-reflection-switch-2/hero",
+    "price_usd": 69.99,
+    "release_date": null
+  },
+  {
+    "name": "Resident Evil Requiem",
+    "us": "https://www.nintendo.com/us/store/products/resident-evil-requiem-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70010000101675/7a13c0bcc2b1edd6871af2a8c0fe26310dc002538ef9b3305ab52c06c19e813b",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/resident-evil-requiem-switch-2/hero",
+    "price_usd": 69.99,
+    "release_date": null
+  },
+  {
     "name": "Donkey Kong™ Bananza Bundle (game + DK Island & Emerald Rush DLC)",
     "us": "https://www.nintendo.com/us/store/products/donkey-kong-bananza-bundle-game-plus-dk-island-and-emerald-rush-dlc-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70070000030721/ce4f1cde1eca93f07249754c4b4b97ddf2a9b8fd1f795e1ec7e937a95fd45e7a",
@@ -96,14 +120,6 @@
     "release_date": null
   },
   {
-    "name": "Pokémon™ Legends: Z-A – Nintendo Switch™ 2 Edition",
-    "us": "https://www.nintendo.com/us/store/products/pokemon-legends-z-a-nintendo-switch-2-edition-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/6f65009317164f3d9f28d578133d1242_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pokemon-legends-z-a-nintendo-switch-2-edition-switch-2/hero",
-    "price_usd": 69.99,
-    "release_date": null
-  },
-  {
     "name": "Hyrule Warriors: Age of Imprisonment",
     "us": "https://www.nintendo.com/us/store/products/hyrule-warriors-age-of-imprisonment-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/0d870716cf3f4157ade5898e55857194_1024",
@@ -192,14 +208,6 @@
     "release_date": null
   },
   {
-    "name": "Resident Evil Requiem",
-    "us": "https://www.nintendo.com/us/store/products/resident-evil-requiem-switch-2/",
-    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70010000101675/7a13c0bcc2b1edd6871af2a8c0fe26310dc002538ef9b3305ab52c06c19e813b",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/resident-evil-requiem-switch-2/hero",
-    "price_usd": 69.99,
-    "release_date": null
-  },
-  {
     "name": "Cronos: The New Dawn",
     "us": "https://www.nintendo.com/us/store/products/cronos-the-new-dawn-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/1ef066c20d0e4bdba4ba79552fd7e45f_1024",
@@ -284,7 +292,7 @@
     "us": "https://www.nintendo.com/us/store/products/star-wars-outlaws-gold-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/5e2064db57104752acdb41ea65e9efbe_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/star-wars-outlaws-gold-edition-switch-2/hero",
-    "price_usd": 59.99,
+    "price_usd": 44.99,
     "release_date": null
   },
   {
