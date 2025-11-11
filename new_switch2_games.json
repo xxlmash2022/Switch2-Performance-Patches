@@ -24,6 +24,14 @@
     "release_date": null
   },
   {
+    "name": "Resident Evil Generation Pack",
+    "us": "https://www.nintendo.com/us/store/products/resident-evil-generation-pack-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70070000031660/da64032f813021fda428f7eb9f9dc089d0a798c0861eb265564f57b47f1a3fbe",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/resident-evil-generation-pack-switch-2/hero",
+    "price_usd": 89.99,
+    "release_date": null
+  },
+  {
     "name": "Donkey Kong™ Bananza Bundle (game + DK Island & Emerald Rush DLC)",
     "us": "https://www.nintendo.com/us/store/products/donkey-kong-bananza-bundle-game-plus-dk-island-and-emerald-rush-dlc-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70070000030721/ce4f1cde1eca93f07249754c4b4b97ddf2a9b8fd1f795e1ec7e937a95fd45e7a",
@@ -40,6 +48,14 @@
     "release_date": null
   },
   {
+    "name": "Overcooked! 2 – Nintendo Switch 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/overcooked-2-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70010000112136/64cbe903910d9bbd79caa5ef5a80fc3fb5a8784cfcf10728b6b4e802f9b1a6a2",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/o/overcooked-2-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 23.99,
+    "release_date": null
+  },
+  {
     "name": "Kirby™ and the Forgotten Land – Nintendo Switch™ 2 Edition + Star-Crossed World",
     "us": "https://www.nintendo.com/us/store/products/kirby-and-the-forgotten-land-nintendo-switch-2-edition-plus-star-crossed-world-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/ba48fa0a86b04b17abe897af3774352f_1024",
@@ -48,11 +64,51 @@
     "release_date": null
   },
   {
+    "name": "Mortal Kombat: Legacy Kollection",
+    "us": "https://www.nintendo.com/us/store/products/mortal-kombat-legacy-kollection-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/1f4109c467a748f59f88bfbbd7580624_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/mortal-kombat-legacy-kollection-switch-2/hero",
+    "price_usd": 49.99,
+    "release_date": null
+  },
+  {
+    "name": "Yakuza Kiwami 3 & Dark Ties",
+    "us": "https://www.nintendo.com/us/store/products/yakuza-kiwami-3-and-dark-ties-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70010000102005/0ffd828bc2e8909d2e87d0c2aeb6af766ef840b3ad74dabd6485dd6c12d95c31",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/y/yakuza-kiwami-3-and-dark-ties-switch-2/hero",
+    "price_usd": 59.99,
+    "release_date": null
+  },
+  {
+    "name": "Yakuza Kiwami 2",
+    "us": "https://www.nintendo.com/us/store/products/yakuza-kiwami-2-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/3217294a6c7f4bb6a358ce1c675c4413_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/y/yakuza-kiwami-2-switch-2/hero",
+    "price_usd": 29.99,
+    "release_date": null
+  },
+  {
+    "name": "Yakuza Kiwami",
+    "us": "https://www.nintendo.com/us/store/products/yakuza-kiwami-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/c0819c1153754f91b0ef5a14f8d20160_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/y/yakuza-kiwami-switch-2/hero",
+    "price_usd": 29.99,
+    "release_date": null
+  },
+  {
     "name": "Little Nightmares III",
     "us": "https://www.nintendo.com/us/store/products/little-nightmares-iii-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/1fc444d3546542489c5e57743a1f4df7_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/l/little-nightmares-iii-switch-2/hero",
     "price_usd": 39.99,
+    "release_date": null
+  },
+  {
+    "name": "PowerWash Simulator 2",
+    "us": "https://www.nintendo.com/us/store/products/powerwash-simulator-2-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/b3e03c3b052a4c3bb9376da19fb1bf93_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/powerwash-simulator-2-switch-2/hero",
+    "price_usd": 24.99,
     "release_date": null
   },
   {
