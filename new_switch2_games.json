@@ -1,10 +1,58 @@
 [
   {
+    "name": "Kirby™ Air Riders",
+    "us": "https://www.nintendo.com/us/store/products/kirby-air-riders-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/3caab108f15f4c21ade5cc1a33253456_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/k/kirby-air-riders-switch-2/hero",
+    "price_usd": 69.99,
+    "release_date": null
+  },
+  {
+    "name": "Hyrule Warriors: Age of Imprisonment",
+    "us": "https://www.nintendo.com/us/store/products/hyrule-warriors-age-of-imprisonment-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/a450392dad1b4191a9f3684b4b12d2a0_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/h/hyrule-warriors-age-of-imprisonment-switch-2/hero",
+    "price_usd": 69.99,
+    "release_date": null
+  },
+  {
     "name": "Pokémon™ Legends: Z-A – Nintendo Switch™ 2 Edition",
     "us": "https://www.nintendo.com/us/store/products/pokemon-legends-z-a-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/e6e82c60a627494ea3996b7e84732c13_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pokemon-legends-z-a-nintendo-switch-2-edition-switch-2/hero",
     "price_usd": 69.99,
+    "release_date": null
+  },
+  {
+    "name": "Goodnight Universe",
+    "us": "https://www.nintendo.com/us/store/products/goodnight-universe-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/084fe4cff5be4f0fbb1ada2e86261669_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/g/goodnight-universe-switch-2/hero",
+    "price_usd": 19.99,
+    "release_date": null
+  },
+  {
+    "name": "DAVE THE DIVER Nintendo Switch 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/dave-the-diver-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/5f86b998966c470cb4ee793d5f91ab83_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/dave-the-diver-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 19.99,
+    "release_date": null
+  },
+  {
+    "name": "Atelier Ryza Secret Trilogy Deluxe Pack",
+    "us": "https://www.nintendo.com/us/store/products/atelier-ryza-secret-trilogy-deluxe-pack-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70070000028846/ff38ed79041a1df383e8806bf295b0a8d62332edf3455f59f184684c40342cb5",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/atelier-ryza-secret-trilogy-deluxe-pack-switch-2/hero",
+    "price_usd": 89.99,
+    "release_date": null
+  },
+  {
+    "name": "Hello Kitty Island Adventure Nintendo Switch 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/hello-kitty-island-adventure-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/b1ead8038e234263ba0f52b9217b11d5_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/h/hello-kitty-island-adventure-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 49.99,
     "release_date": null
   },
   {
@@ -130,7 +178,7 @@
   {
     "name": "LEGO® Voyagers",
     "us": "https://www.nintendo.com/us/store/products/lego-voyagers-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/6cfd9f2ac873440c9b555e0ecc3097ce_1024",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/4fe46ce0f7a54de48ac6b603b5a769c5_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/l/lego-voyagers-switch-2/hero",
     "price_usd": 24.99,
     "release_date": null
@@ -173,22 +221,6 @@
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/f383bdbda8714666a680d84ac2452e91_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/drag-x-drive-switch-2/hero",
     "price_usd": 19.99,
-    "release_date": null
-  },
-  {
-    "name": "Hyrule Warriors: Age of Imprisonment",
-    "us": "https://www.nintendo.com/us/store/products/hyrule-warriors-age-of-imprisonment-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/a450392dad1b4191a9f3684b4b12d2a0_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/h/hyrule-warriors-age-of-imprisonment-switch-2/hero",
-    "price_usd": 69.99,
-    "release_date": null
-  },
-  {
-    "name": "Kirby™ Air Riders",
-    "us": "https://www.nintendo.com/us/store/products/kirby-air-riders-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/3caab108f15f4c21ade5cc1a33253456_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/k/kirby-air-riders-switch-2/hero",
-    "price_usd": 69.99,
     "release_date": null
   },
   {
