@@ -1,13 +1,5 @@
 [
   {
-    "name": "Nintendo Switch 2 + Mario Kart World Bundle",
-    "us": "https://www.nintendo.com/us/store/products/nintendo-switch-2-mario-kart-world-digital-bundle-122179/",
-    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/n/nintendo-switch-2-mario-kart-world-digital-bundle-122179/hero",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/n/nintendo-switch-2-mario-kart-world-digital-bundle-122179/hero",
-    "price_usd": null,
-    "release_date": null
-  },
-  {
     "name": "Kirby™ Air Riders",
     "us": "https://www.nintendo.com/us/store/products/kirby-air-riders-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/3bf56a1f0c254e518394d10f7062468e_1024",
@@ -372,7 +364,7 @@
     "us": "https://www.nintendo.com/us/store/products/chillin-by-the-fire-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/44d4476860a142778675cb9d4eb59541_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/chillin-by-the-fire-switch-2/hero",
-    "price_usd": 14.99,
+    "price_usd": 9.99,
     "release_date": null
   },
   {
@@ -669,6 +661,14 @@
     "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70050000056741/d167aeb0e2d45d483a95da160beee9d82377e8cf5fe616246028d63a6ef16443",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/demons-of-the-aril-rift-70050000056741-switch-2/hero",
     "price_usd": 4.99,
+    "release_date": null
+  },
+  {
+    "name": "Nintendo Switch 2 + Mario Kart World Bundle",
+    "us": "https://www.nintendo.com/us/store/products/nintendo-switch-2-mario-kart-world-digital-bundle-122179/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/n/nintendo-switch-2-mario-kart-world-digital-bundle-122179/hero",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/n/nintendo-switch-2-mario-kart-world-digital-bundle-122179/hero",
+    "price_usd": null,
     "release_date": null
   }
 ]
