@@ -16,6 +16,30 @@
     "release_date": null
   },
   {
+    "name": "Animal Crossing™: New Horizons – Nintendo Switch™ 2 Edition Upgrade Pack",
+    "us": "https://www.nintendo.com/us/store/products/animal-crossing-new-horizons-nintendo-switch-2-edition-upgrade-pack-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70050000064914/749cb30819c96dc883bf8ac71dfe5a27469b2ea035f81775dd23ab8b8c82bc9d",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/animal-crossing-new-horizons-nintendo-switch-2-edition-upgrade-pack-switch-2/hero",
+    "price_usd": 4.99,
+    "release_date": null
+  },
+  {
+    "name": "Animal Crossing™: New Horizons – Nintendo Switch™ 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/animal-crossing-new-horizons-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/d890d936e1a94f31be845608487a9f3a_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/animal-crossing-new-horizons-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 64.99,
+    "release_date": null
+  },
+  {
+    "name": "Metroid Prime™ 4: Beyond",
+    "us": "https://www.nintendo.com/us/store/products/metroid-prime-4-beyond-switch/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/fd09ef5995014399a47ea0afac83ee0a_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/metroid-prime-4-beyond-switch/hero",
+    "price_usd": 59.99,
+    "release_date": null
+  },
+  {
     "name": "Kirby™ Air Riders",
     "us": "https://www.nintendo.com/us/store/products/kirby-air-riders-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/97d3df78bfc340eba5b55bcd8907ff6c_1024",
