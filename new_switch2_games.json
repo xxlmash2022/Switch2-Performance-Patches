@@ -48,6 +48,38 @@
     "release_date": null
   },
   {
+    "name": "FINAL FANTASY VII REMAKE INTERGRADE",
+    "us": "https://www.nintendo.com/us/store/products/final-fantasy-vii-remake-intergrade-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/abe6eda314824116b40e91c5ef115ed0_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/f/final-fantasy-vii-remake-intergrade-switch-2/hero",
+    "price_usd": 39.99,
+    "release_date": null
+  },
+  {
+    "name": "Dispatch Nintendo Switch 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/dispatch-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/5ecdb35911544c97bb1670e14563f072_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/dispatch-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 26.99,
+    "release_date": null
+  },
+  {
+    "name": "Stardew Valley: Nintendo Switch 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/stardew-valley-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/23bbc2d115b14e0896af9415a87c1d2c_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/stardew-valley-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 14.99,
+    "release_date": null
+  },
+  {
+    "name": "Red Dead Redemption: Nintendo Switch™ 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/red-dead-redemption-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/6a461639ad9c4a3e9ef8df4710c9b5a8_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/red-dead-redemption-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 49.99,
+    "release_date": null
+  },
+  {
     "name": "Hyrule Warriors: Age of Imprisonment",
     "us": "https://www.nintendo.com/us/store/products/hyrule-warriors-age-of-imprisonment-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/dae7c1d538294612b118c923cda53ba9_1024",
@@ -61,14 +93,6 @@
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/621a7c95e6d541a3aa94fc4e485bb5e5_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pokemon-legends-z-a-nintendo-switch-2-edition-switch-2/hero",
     "price_usd": 69.99,
-    "release_date": null
-  },
-  {
-    "name": "Red Dead Redemption: Nintendo Switch™ 2 Edition",
-    "us": "https://www.nintendo.com/us/store/products/red-dead-redemption-nintendo-switch-2-edition-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/6a461639ad9c4a3e9ef8df4710c9b5a8_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/red-dead-redemption-nintendo-switch-2-edition-switch-2/hero",
-    "price_usd": 49.99,
     "release_date": null
   },
   {
@@ -308,7 +332,7 @@
     "us": "https://www.nintendo.com/us/store/products/lynked-banner-of-the-spark-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/38dc2256578d40eea45875e31034ea8a_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/l/lynked-banner-of-the-spark-nintendo-switch-2-edition-switch-2/hero",
-    "price_usd": 24.99,
+    "price_usd": 14.99,
     "release_date": null
   },
   {
