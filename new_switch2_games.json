@@ -64,11 +64,27 @@
     "release_date": null
   },
   {
+    "name": "Suika Game Planet",
+    "us": "https://www.nintendo.com/us/store/products/suika-game-planet-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/9c06beea7b5a4a78a4ac7349d011edb3_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/suika-game-planet-switch-2/hero",
+    "price_usd": 3.75,
+    "release_date": null
+  },
+  {
     "name": "Stardew Valley: Nintendo Switch 2 Edition",
     "us": "https://www.nintendo.com/us/store/products/stardew-valley-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/23bbc2d115b14e0896af9415a87c1d2c_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/stardew-valley-nintendo-switch-2-edition-switch-2/hero",
     "price_usd": 14.99,
+    "release_date": null
+  },
+  {
+    "name": "Stardew Valley: Nintendo Switch 2 Edition Upgrade Pack",
+    "us": "https://www.nintendo.com/us/store/products/stardew-valley-nintendo-switch-2-edition-upgrade-pack-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70050000061921/f22d158c394286e3cff146b61baf2100491b24c9bb75e03ecf320cd0d920c19c",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/stardew-valley-nintendo-switch-2-edition-upgrade-pack-switch-2/hero",
+    "price_usd": 0,
     "release_date": null
   },
   {
