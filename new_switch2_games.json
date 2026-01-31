@@ -72,6 +72,38 @@
     "release_date": null
   },
   {
+    "name": "WWE 2K26 Monday Night War Edition",
+    "us": "https://www.nintendo.com/us/store/products/wwe-2k26-monday-night-war-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70070000033144/ed3927ba6e269058bceb2d011cd745ff3bb6d569804ea45a353bd1a4cef56f21",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/w/wwe-2k26-monday-night-war-edition-switch-2/hero",
+    "price_usd": 149.99,
+    "release_date": null
+  },
+  {
+    "name": "WWE 2K26 Attitude Era Edition",
+    "us": "https://www.nintendo.com/us/store/products/wwe-2k26-attitude-era-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70070000033143/e1bdb3659749fe0e43cfdc8c07f3be238d5e51d5773e801206a88b3b8667c547",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/w/wwe-2k26-attitude-era-edition-switch-2/hero",
+    "price_usd": 129.99,
+    "release_date": null
+  },
+  {
+    "name": "WWE 2K26 King of Kings Edition",
+    "us": "https://www.nintendo.com/us/store/products/wwe-2k26-king-of-kings-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70070000033142/0fb4d443aff085a7a3a67c0a29f4761c1db56152e17b14888e90782acfdbe833",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/w/wwe-2k26-king-of-kings-edition-switch-2/hero",
+    "price_usd": 99.99,
+    "release_date": null
+  },
+  {
+    "name": "WWE 2K26 Standard Edition",
+    "us": "https://www.nintendo.com/us/store/products/wwe-2k26-standard-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/69c2f4a96eba424bbaad06ac065c6465_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/w/wwe-2k26-standard-edition-switch-2/hero",
+    "price_usd": 69.99,
+    "release_date": null
+  },
+  {
     "name": "Stardew Valley: Nintendo Switch 2 Edition Upgrade Pack",
     "us": "https://www.nintendo.com/us/store/products/stardew-valley-nintendo-switch-2-edition-upgrade-pack-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70050000061921/f22d158c394286e3cff146b61baf2100491b24c9bb75e03ecf320cd0d920c19c",
