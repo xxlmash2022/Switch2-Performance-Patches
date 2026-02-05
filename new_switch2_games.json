@@ -24,11 +24,11 @@
     "release_date": null
   },
   {
-    "name": "Metroid Prime™ 4: Beyond",
-    "us": "https://www.nintendo.com/us/store/products/metroid-prime-4-beyond-switch/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/fd09ef5995014399a47ea0afac83ee0a_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/metroid-prime-4-beyond-switch/hero",
-    "price_usd": 59.99,
+    "name": "Metroid Prime™ 4: Beyond – Nintendo Switch™ 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/metroid-prime-4-beyond-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/b5e5024675c044939961f79a4813f752_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/metroid-prime-4-beyond-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 69.99,
     "release_date": null
   },
   {
@@ -37,6 +37,158 @@
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/97d3df78bfc340eba5b55bcd8907ff6c_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/k/kirby-air-riders-switch-2/hero",
     "price_usd": 69.99,
+    "release_date": null
+  },
+  {
+    "name": "SUPER BOMBERMAN COLLECTION - Nintendo Switch 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/super-bomberman-collection-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/4099a7921400452381f38e9b1531f081_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/super-bomberman-collection-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 24.99,
+    "release_date": null
+  },
+  {
+    "name": "TOKYO SCRAMBLE",
+    "us": "https://www.nintendo.com/us/store/products/tokyo-scramble-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/339213f00ee44913bb3794d1bd9e92a6_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/tokyo-scramble-switch-2/hero",
+    "price_usd": 29.99,
+    "release_date": null
+  },
+  {
+    "name": "Resident Evil Requiem",
+    "us": "https://www.nintendo.com/us/store/products/resident-evil-requiem-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/88f937cd9b9b4e3aa8f4ed377d9b614e_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/resident-evil-requiem-switch-2/hero",
+    "price_usd": 69.99,
+    "release_date": null
+  },
+  {
+    "name": "FINAL FANTASY VII REBIRTH",
+    "us": "https://www.nintendo.com/us/store/products/final-fantasy-vii-rebirth-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70010000112477/99d3f9086b7b97984916c93456752d6981d56dcab942421cf71cd45836a62b72",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/f/final-fantasy-vii-rebirth-switch-2/hero",
+    "price_usd": 49.99,
+    "release_date": null
+  },
+  {
+    "name": "Indiana Jones and the Great Circle™",
+    "us": "https://www.nintendo.com/us/store/products/indiana-jones-and-the-great-circle-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/8b1b5e990a3e4ba9be30214211e83602_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/i/indiana-jones-and-the-great-circle-switch-2/hero",
+    "price_usd": 69.99,
+    "release_date": null
+  },
+  {
+    "name": "Fallout 4: Anniversary Edition",
+    "us": "https://www.nintendo.com/us/store/products/fallout-4-anniversary-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/1e39e7724c234f9797ec874b33ac8c04_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/f/fallout-4-anniversary-edition-switch-2/hero",
+    "price_usd": 59.99,
+    "release_date": null
+  },
+  {
+    "name": "PRAGMATA",
+    "us": "https://www.nintendo.com/us/store/products/pragmata-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70010000101665/3a8331b2f7b73d1fdb9b92dd9afdb2aff9602f1d89a9cfa171bf2561e480076e",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pragmata-switch-2/hero",
+    "price_usd": 59.99,
+    "release_date": null
+  },
+  {
+    "name": "Digimon Story Time Stranger",
+    "us": "https://www.nintendo.com/us/store/products/digimon-story-time-stranger-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/f494afc4f7a0492683b559ea3851137c_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/digimon-story-time-stranger-switch-2/hero",
+    "price_usd": 59.99,
+    "release_date": null
+  },
+  {
+    "name": "Monster Hunter Stories 3: Twisted Reflection",
+    "us": "https://www.nintendo.com/us/store/products/monster-hunter-stories-3-twisted-reflection-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/c01be673e98d4e01a04b207ef3af2821_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/monster-hunter-stories-3-twisted-reflection-switch-2/hero",
+    "price_usd": 69.99,
+    "release_date": null
+  },
+  {
+    "name": "Hollow Knight – Nintendo Switch 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/hollow-knight-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/d79e86dd888a4776b11bb41e93c4d03e_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/h/hollow-knight-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 15,
+    "release_date": null
+  },
+  {
+    "name": "Console Archives Cool Boarders",
+    "us": "https://www.nintendo.com/us/store/products/console-archives-cool-boarders-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/a45057e26082497ca4905b773a598365_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/console-archives-cool-boarders-switch-2/hero",
+    "price_usd": 11.99,
+    "release_date": null
+  },
+  {
+    "name": "PGA TOUR 2K25",
+    "us": "https://www.nintendo.com/us/store/products/pga-tour-2k25-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/f09fda7f8e3e405798868aa4735e3815_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pga-tour-2k25-switch-2/hero",
+    "price_usd": 4.99,
+    "release_date": null
+  },
+  {
+    "name": "Console Archives NINJA GAIDEN II: THE DARK SWORD OF CHAOS",
+    "us": "https://www.nintendo.com/us/store/products/console-archives-ninja-gaiden-ii-the-dark-sword-of-chaos-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/06f4961b08114d5a90f25b0864a96636_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/console-archives-ninja-gaiden-ii-the-dark-sword-of-chaos-switch-2/hero",
+    "price_usd": 7.99,
+    "release_date": null
+  },
+  {
+    "name": "WWE 2K26 Standard Edition",
+    "us": "https://www.nintendo.com/us/store/products/wwe-2k26-standard-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/69c2f4a96eba424bbaad06ac065c6465_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/w/wwe-2k26-standard-edition-switch-2/hero",
+    "price_usd": 69.99,
+    "release_date": null
+  },
+  {
+    "name": "Shadow Tactics: Blades of the Shogun",
+    "us": "https://www.nintendo.com/us/store/products/shadow-tactics-blades-of-the-shogun-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/fd6d7d9440864e6db4f7a9ba83e5c588_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/shadow-tactics-blades-of-the-shogun-switch-2/hero",
+    "price_usd": 35.99,
+    "release_date": null
+  },
+  {
+    "name": "Shadow Tactics: Blades of the Shogun - Aiko's Choice",
+    "us": "https://www.nintendo.com/us/store/products/shadow-tactics-blades-of-the-shogun-aikos-choice-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/a9a3afafaf664b6a8ec4b72f0f3c208f_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/shadow-tactics-blades-of-the-shogun-aikos-choice-switch-2/hero",
+    "price_usd": 17.99,
+    "release_date": null
+  },
+  {
+    "name": "Goat Simulator 3",
+    "us": "https://www.nintendo.com/us/store/products/goat-simulator-3-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/176ee4dbf22e4c21b47947b92fd4bc4d_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/g/goat-simulator-3-switch-2/hero",
+    "price_usd": 29.99,
+    "release_date": null
+  },
+  {
+    "name": "Star Trek: Voyager - Across the Unknown",
+    "us": "https://www.nintendo.com/us/store/products/star-trek-voyager-across-the-unknown-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/9671c6ea4d154b52ae247ef75af84e81_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/star-trek-voyager-across-the-unknown-switch-2/hero",
+    "price_usd": 35.99,
+    "release_date": null
+  },
+  {
+    "name": "REANIMAL",
+    "us": "https://www.nintendo.com/us/store/products/reanimal-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/b8b44d7ca34e4f4e8efbf7d26b290571_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/reanimal-switch-2/hero",
+    "price_usd": 39.99,
     "release_date": null
   },
   {
@@ -96,14 +248,6 @@
     "release_date": null
   },
   {
-    "name": "WWE 2K26 Standard Edition",
-    "us": "https://www.nintendo.com/us/store/products/wwe-2k26-standard-edition-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/69c2f4a96eba424bbaad06ac065c6465_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/w/wwe-2k26-standard-edition-switch-2/hero",
-    "price_usd": 69.99,
-    "release_date": null
-  },
-  {
     "name": "Stardew Valley: Nintendo Switch 2 Edition Upgrade Pack",
     "us": "https://www.nintendo.com/us/store/products/stardew-valley-nintendo-switch-2-edition-upgrade-pack-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70050000061921/f22d158c394286e3cff146b61baf2100491b24c9bb75e03ecf320cd0d920c19c",
@@ -140,7 +284,7 @@
     "us": "https://www.nintendo.com/us/store/products/assassins-creed-shadows-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/fb8dff2d5180495eaed2e232713272da_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/assassins-creed-shadows-switch-2/hero",
-    "price_usd": 59.99,
+    "price_usd": 44.99,
     "release_date": null
   },
   {
@@ -181,22 +325,6 @@
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/9066a42c260542d9ba1eff4f15ba24a6_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/h/hello-kitty-island-adventure-nintendo-switch-2-edition-switch-2/hero",
     "price_usd": 49.99,
-    "release_date": null
-  },
-  {
-    "name": "Monster Hunter Stories 3: Twisted Reflection",
-    "us": "https://www.nintendo.com/us/store/products/monster-hunter-stories-3-twisted-reflection-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/c01be673e98d4e01a04b207ef3af2821_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/monster-hunter-stories-3-twisted-reflection-switch-2/hero",
-    "price_usd": 69.99,
-    "release_date": null
-  },
-  {
-    "name": "Resident Evil Requiem",
-    "us": "https://www.nintendo.com/us/store/products/resident-evil-requiem-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/88f937cd9b9b4e3aa8f4ed377d9b614e_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/resident-evil-requiem-switch-2/hero",
-    "price_usd": 69.99,
     "release_date": null
   },
   {
@@ -292,7 +420,7 @@
     "us": "https://www.nintendo.com/us/store/products/final-fantasy-tactics-the-ivalice-chronicles-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/88317f1928cf4155867df034fb3019d2_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/f/final-fantasy-tactics-the-ivalice-chronicles-nintendo-switch-2-edition-switch-2/hero",
-    "price_usd": 49.99,
+    "price_usd": 39.99,
     "release_date": null
   },
   {
@@ -352,14 +480,6 @@
     "release_date": null
   },
   {
-    "name": "Metroid Prime™ 4: Beyond – Nintendo Switch™ 2 Edition",
-    "us": "https://www.nintendo.com/us/store/products/metroid-prime-4-beyond-nintendo-switch-2-edition-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/b5e5024675c044939961f79a4813f752_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/metroid-prime-4-beyond-nintendo-switch-2-edition-switch-2/hero",
-    "price_usd": 69.99,
-    "release_date": null
-  },
-  {
     "name": "Mario Tennis™ Fever",
     "us": "https://www.nintendo.com/us/store/products/mario-tennis-fever-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/59faa730b78b4241b8d4f933f980b9ec_1024",
@@ -404,7 +524,7 @@
     "us": "https://www.nintendo.com/us/store/products/dragon-quest-i-and-ii-hd-2d-remake-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/038e2860665442cbac44265f4d2c22ab_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/dragon-quest-i-and-ii-hd-2d-remake-switch-2/hero",
-    "price_usd": 59.99,
+    "price_usd": 47.99,
     "release_date": null
   },
   {
@@ -445,14 +565,6 @@
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/ec42f4ea7587495e8e01c293ee6a57a2_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/apex-legends-switch-2/hero",
     "price_usd": 0,
-    "release_date": null
-  },
-  {
-    "name": "Tony Hawk's™ Pro Skater™ 3 + 4 - Standard Edition",
-    "us": "https://www.nintendo.com/us/store/products/tony-hawks-pro-skater-3-plus-4-standard-edition-switch-2/",
-    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70070000028038/c2d9baecde5d1bcc478f06ca3886095a48935749f907590e3b8d696532bab191",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/tony-hawks-pro-skater-3-plus-4-standard-edition-switch-2/hero",
-    "price_usd": 49.99,
     "release_date": null
   },
   {
@@ -508,7 +620,7 @@
     "us": "https://www.nintendo.com/us/store/products/star-wars-outlaws-gold-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/2f8ae0ff7d72412b96d9bd5b47ad2063_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/star-wars-outlaws-gold-edition-switch-2/hero",
-    "price_usd": 59.99,
+    "price_usd": 40.19,
     "release_date": null
   },
   {
@@ -516,7 +628,7 @@
     "us": "https://www.nintendo.com/us/store/products/romancing-saga-2-revenge-of-the-seven-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/3fc305e348ca4690bc2efd68b23c0859_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/romancing-saga-2-revenge-of-the-seven-nintendo-switch-2-edition-switch-2/hero",
-    "price_usd": 49.99,
+    "price_usd": 29.99,
     "release_date": null
   },
   {
@@ -604,7 +716,7 @@
     "us": "https://www.nintendo.com/us/store/products/bravely-default-flying-fairy-hd-remaster-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/a2877b2a00b74b1f95287e15c0d59f66_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/b/bravely-default-flying-fairy-hd-remaster-switch-2/hero",
-    "price_usd": 39.99,
+    "price_usd": 31.99,
     "release_date": null
   },
   {
@@ -765,6 +877,14 @@
     "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70050000056741/d167aeb0e2d45d483a95da160beee9d82377e8cf5fe616246028d63a6ef16443",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/demons-of-the-aril-rift-70050000056741-switch-2/hero",
     "price_usd": 4.99,
+    "release_date": null
+  },
+  {
+    "name": "Tony Hawk's™ Pro Skater™ 3 + 4 - Standard Edition",
+    "us": "https://www.nintendo.com/us/store/products/tony-hawks-pro-skater-3-plus-4-standard-edition-switch/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch/70070000027243/c2d9baecde5d1bcc478f06ca3886095a48935749f907590e3b8d696532bab191",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/tony-hawks-pro-skater-3-plus-4-standard-edition-switch/hero",
+    "price_usd": 49.99,
     "release_date": null
   }
 ]
