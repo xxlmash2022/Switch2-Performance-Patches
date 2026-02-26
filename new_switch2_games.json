@@ -1,5 +1,13 @@
 [
   {
+    "name": "Virtual Boy™ – Nintendo Classics",
+    "us": "https://www.nintendo.com/us/store/products/virtual-boy-nintendo-classics-switch/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/v/virtual-boy-nintendo-classics-switch/hero",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/v/virtual-boy-nintendo-classics-switch/hero",
+    "price_usd": null,
+    "release_date": null
+  },
+  {
     "name": "Animal Crossing™: New Horizons – Nintendo Switch™ 2 Edition Upgrade Pack",
     "us": "https://www.nintendo.com/us/store/products/animal-crossing-new-horizons-nintendo-switch-2-edition-upgrade-pack-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70050000064914/749cb30819c96dc883bf8ac71dfe5a27469b2ea035f81775dd23ab8b8c82bc9d",
@@ -772,7 +780,7 @@
     "us": "https://www.nintendo.com/us/store/products/hitman-world-of-assassination-signature-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/ef593b1d75a84e5c875639605378cad9_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/h/hitman-world-of-assassination-signature-edition-switch-2/hero",
-    "price_usd": 59.99,
+    "price_usd": 47.99,
     "release_date": null
   },
   {
