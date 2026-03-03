@@ -24,6 +24,54 @@
     "release_date": null
   },
   {
+    "name": "Resident Evil Requiem",
+    "us": "https://www.nintendo.com/us/store/products/resident-evil-requiem-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/75cb070a8d2945029428412291218acb_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/resident-evil-requiem-switch-2/hero",
+    "price_usd": 69.99,
+    "release_date": null
+  },
+  {
+    "name": "Blue Prince",
+    "us": "https://www.nintendo.com/us/store/products/blue-prince-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/29ace70a4c85417587be2c1c9f938771_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/b/blue-prince-switch-2/hero",
+    "price_usd": 4.99,
+    "release_date": null
+  },
+  {
+    "name": "Rotwood",
+    "us": "https://www.nintendo.com/us/store/products/rotwood-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/8a06431db97347ac962ce925fa2c24e8_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/rotwood-switch-2/hero",
+    "price_usd": 4.99,
+    "release_date": null
+  },
+  {
+    "name": "Denshattack!",
+    "us": "https://www.nintendo.com/us/store/products/denshattack-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70010000103978/511255af56eb4fff904465d7faf42f999ad9ab452e537dfb0c0e51c77fa134ad",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/denshattack-switch-2/hero",
+    "price_usd": 4.99,
+    "release_date": null
+  },
+  {
+    "name": "Minishoot' Adventures - Nintendo Switch™ 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/minishoot-adventures-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/bc082f587e6c43f9a204b775b400b4ac_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/minishoot-adventures-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 15.99,
+    "release_date": null
+  },
+  {
+    "name": "Deadzone: Rogue - Deluxe Edition",
+    "us": "https://www.nintendo.com/us/store/products/deadzone-rogue-deluxe-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70070000034289/02146744b348f4069d0c83f7aeb0a3fa5395c3c9fb7ed265f4b53dd4f65bfa3b",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/deadzone-rogue-deluxe-edition-switch-2/hero",
+    "price_usd": 35.99,
+    "release_date": null
+  },
+  {
     "name": "Kirby™ Air Riders",
     "us": "https://www.nintendo.com/us/store/products/kirby-air-riders-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/359c00a0f343472182446f2e4d0d7f5d_1024",
@@ -45,14 +93,6 @@
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/339213f00ee44913bb3794d1bd9e92a6_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/tokyo-scramble-switch-2/hero",
     "price_usd": 29.99,
-    "release_date": null
-  },
-  {
-    "name": "Resident Evil Requiem",
-    "us": "https://www.nintendo.com/us/store/products/resident-evil-requiem-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/75cb070a8d2945029428412291218acb_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/resident-evil-requiem-switch-2/hero",
-    "price_usd": 69.99,
     "release_date": null
   },
   {
@@ -189,6 +229,14 @@
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/13d91436730a488ea7c3a7efe5120a80_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/scott-pilgrim-ex-switch-2/hero",
     "price_usd": 28.99,
+    "release_date": null
+  },
+  {
+    "name": "Outbound",
+    "us": "https://www.nintendo.com/us/store/products/outbound-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/fd113797e31146cbb82f9f7eb04458be_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/o/outbound-switch-2/hero",
+    "price_usd": 4.99,
     "release_date": null
   },
   {
