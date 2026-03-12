@@ -40,6 +40,14 @@
     "release_date": null
   },
   {
+    "name": "Balatro",
+    "us": "https://www.nintendo.com/us/store/products/balatro-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/3cc530d7752f483ba7a1e771518c95c1_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/b/balatro-switch-2/hero",
+    "price_usd": 14.99,
+    "release_date": null
+  },
+  {
     "name": "Rotwood",
     "us": "https://www.nintendo.com/us/store/products/rotwood-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/8a06431db97347ac962ce925fa2c24e8_1024",
@@ -69,6 +77,22 @@
     "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70070000034289/02146744b348f4069d0c83f7aeb0a3fa5395c3c9fb7ed265f4b53dd4f65bfa3b",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/deadzone-rogue-deluxe-edition-switch-2/hero",
     "price_usd": 35.99,
+    "release_date": null
+  },
+  {
+    "name": "Monster Hunter Stories 3: Twisted Reflection",
+    "us": "https://www.nintendo.com/us/store/products/monster-hunter-stories-3-twisted-reflection-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/c01be673e98d4e01a04b207ef3af2821_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/monster-hunter-stories-3-twisted-reflection-switch-2/hero",
+    "price_usd": 69.99,
+    "release_date": null
+  },
+  {
+    "name": "WWE 2K26 Standard Edition",
+    "us": "https://www.nintendo.com/us/store/products/wwe-2k26-standard-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/69c2f4a96eba424bbaad06ac065c6465_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/w/wwe-2k26-standard-edition-switch-2/hero",
+    "price_usd": 69.99,
     "release_date": null
   },
   {
@@ -136,14 +160,6 @@
     "release_date": null
   },
   {
-    "name": "Monster Hunter Stories 3: Twisted Reflection",
-    "us": "https://www.nintendo.com/us/store/products/monster-hunter-stories-3-twisted-reflection-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/c01be673e98d4e01a04b207ef3af2821_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/monster-hunter-stories-3-twisted-reflection-switch-2/hero",
-    "price_usd": 69.99,
-    "release_date": null
-  },
-  {
     "name": "Hollow Knight – Nintendo Switch 2 Edition",
     "us": "https://www.nintendo.com/us/store/products/hollow-knight-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/d79e86dd888a4776b11bb41e93c4d03e_1024",
@@ -173,14 +189,6 @@
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/06f4961b08114d5a90f25b0864a96636_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/console-archives-ninja-gaiden-ii-the-dark-sword-of-chaos-switch-2/hero",
     "price_usd": 7.99,
-    "release_date": null
-  },
-  {
-    "name": "WWE 2K26 Standard Edition",
-    "us": "https://www.nintendo.com/us/store/products/wwe-2k26-standard-edition-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/69c2f4a96eba424bbaad06ac065c6465_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/w/wwe-2k26-standard-edition-switch-2/hero",
-    "price_usd": 69.99,
     "release_date": null
   },
   {
