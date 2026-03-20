@@ -1,5 +1,21 @@
 [
   {
+    "name": "Pokémon™ Pokopia",
+    "us": "https://www.nintendo.com/us/store/products/pokemon-pokopia-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/60121e151d8145079cebf447f02cc302_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/pokemon-pokopia-switch-2/hero",
+    "price_usd": 69.99,
+    "release_date": null
+  },
+  {
+    "name": "Mario Tennis™ Fever",
+    "us": "https://www.nintendo.com/us/store/products/mario-tennis-fever-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/59faa730b78b4241b8d4f933f980b9ec_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/mario-tennis-fever-switch-2/hero",
+    "price_usd": 69.99,
+    "release_date": null
+  },
+  {
     "name": "Animal Crossing™: New Horizons – Nintendo Switch™ 2 Edition Upgrade Pack",
     "us": "https://www.nintendo.com/us/store/products/animal-crossing-new-horizons-nintendo-switch-2-edition-upgrade-pack-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70050000064914/749cb30819c96dc883bf8ac71dfe5a27469b2ea035f81775dd23ab8b8c82bc9d",
@@ -32,11 +48,35 @@
     "release_date": null
   },
   {
+    "name": "Resident Evil Village Gold Edition",
+    "us": "https://www.nintendo.com/us/store/products/resident-evil-village-gold-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/87b8c79311514aa1b98151c8c5849289_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/resident-evil-village-gold-edition-switch-2/hero",
+    "price_usd": 49.99,
+    "release_date": null
+  },
+  {
+    "name": "Resident Evil 7 biohazard Gold Edition",
+    "us": "https://www.nintendo.com/us/store/products/resident-evil-7-biohazard-gold-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/27768da8184c4bf989e2dbf0f32db6ff_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/resident-evil-7-biohazard-gold-edition-switch-2/hero",
+    "price_usd": 39.99,
+    "release_date": null
+  },
+  {
+    "name": "Resident Evil Generation Pack",
+    "us": "https://www.nintendo.com/us/store/products/resident-evil-generation-pack-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70070000031660/d4a3674ddba43318736d086a5e49cc584fe6dcf51e07acd60dfd2cc55462e739",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/resident-evil-generation-pack-switch-2/hero",
+    "price_usd": 89.99,
+    "release_date": null
+  },
+  {
     "name": "Blue Prince",
     "us": "https://www.nintendo.com/us/store/products/blue-prince-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/29ace70a4c85417587be2c1c9f938771_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/b/blue-prince-switch-2/hero",
-    "price_usd": 4.99,
+    "price_usd": 69.99,
     "release_date": null
   },
   {
@@ -48,11 +88,19 @@
     "release_date": null
   },
   {
+    "name": "DRAGON QUEST VII Reimagined",
+    "us": "https://www.nintendo.com/us/store/products/dragon-quest-vii-reimagined-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/928000241958480faf4c0473c1e50b44_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/dragon-quest-vii-reimagined-switch-2/hero",
+    "price_usd": 59.99,
+    "release_date": null
+  },
+  {
     "name": "Rotwood",
     "us": "https://www.nintendo.com/us/store/products/rotwood-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/8a06431db97347ac962ce925fa2c24e8_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/rotwood-switch-2/hero",
-    "price_usd": 4.99,
+    "price_usd": 69.99,
     "release_date": null
   },
   {
@@ -60,7 +108,7 @@
     "us": "https://www.nintendo.com/us/store/products/denshattack-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70010000103978/511255af56eb4fff904465d7faf42f999ad9ab452e537dfb0c0e51c77fa134ad",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/denshattack-switch-2/hero",
-    "price_usd": 4.99,
+    "price_usd": 69.99,
     "release_date": null
   },
   {
@@ -133,6 +181,14 @@
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/8b1b5e990a3e4ba9be30214211e83602_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/i/indiana-jones-and-the-great-circle-switch-2/hero",
     "price_usd": 69.99,
+    "release_date": null
+  },
+  {
+    "name": "Yakuza Kiwami 3 & Dark Ties",
+    "us": "https://www.nintendo.com/us/store/products/yakuza-kiwami-3-and-dark-ties-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/80c4f88541e54b17b263e4be6485d3d8_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/y/yakuza-kiwami-3-and-dark-ties-switch-2/hero",
+    "price_usd": 59.99,
     "release_date": null
   },
   {
@@ -384,14 +440,6 @@
     "release_date": null
   },
   {
-    "name": "Resident Evil Generation Pack",
-    "us": "https://www.nintendo.com/us/store/products/resident-evil-generation-pack-switch-2/",
-    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70070000031660/d4a3674ddba43318736d086a5e49cc584fe6dcf51e07acd60dfd2cc55462e739",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/resident-evil-generation-pack-switch-2/hero",
-    "price_usd": 89.99,
-    "release_date": null
-  },
-  {
     "name": "Donkey Kong™ Bananza Bundle (game + DK Island & Emerald Rush DLC)",
     "us": "https://www.nintendo.com/us/store/products/donkey-kong-bananza-bundle-game-plus-dk-island-and-emerald-rush-dlc-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70070000030721/ce4f1cde1eca93f07249754c4b4b97ddf2a9b8fd1f795e1ec7e937a95fd45e7a",
@@ -429,14 +477,6 @@
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/c1e033a7e0914ea9a49aa46396eeec60_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/mortal-kombat-legacy-kollection-switch-2/hero",
     "price_usd": 49.99,
-    "release_date": null
-  },
-  {
-    "name": "Yakuza Kiwami 3 & Dark Ties",
-    "us": "https://www.nintendo.com/us/store/products/yakuza-kiwami-3-and-dark-ties-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/80c4f88541e54b17b263e4be6485d3d8_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/y/yakuza-kiwami-3-and-dark-ties-switch-2/hero",
-    "price_usd": 59.99,
     "release_date": null
   },
   {
@@ -536,14 +576,6 @@
     "release_date": null
   },
   {
-    "name": "Mario Tennis™ Fever",
-    "us": "https://www.nintendo.com/us/store/products/mario-tennis-fever-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/59faa730b78b4241b8d4f933f980b9ec_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/mario-tennis-fever-switch-2/hero",
-    "price_usd": 69.99,
-    "release_date": null
-  },
-  {
     "name": "Lynked: Banner of the Spark – Nintendo Switch™ 2 Edition",
     "us": "https://www.nintendo.com/us/store/products/lynked-banner-of-the-spark-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/38dc2256578d40eea45875e31034ea8a_1024",
@@ -588,14 +620,6 @@
     "us": "https://www.nintendo.com/us/store/products/persona-3-reload-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/148174173cc7486f965df44f54a9fad6_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/p/persona-3-reload-switch-2/hero",
-    "price_usd": 59.99,
-    "release_date": null
-  },
-  {
-    "name": "DRAGON QUEST VII Reimagined",
-    "us": "https://www.nintendo.com/us/store/products/dragon-quest-vii-reimagined-switch-2/",
-    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/928000241958480faf4c0473c1e50b44_1024",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/dragon-quest-vii-reimagined-switch-2/hero",
     "price_usd": 59.99,
     "release_date": null
   },
