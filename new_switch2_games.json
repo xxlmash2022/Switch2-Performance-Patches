@@ -8,6 +8,14 @@
     "release_date": null
   },
   {
+    "name": "Super Mario Bros.™ Wonder – Nintendo Switch™ 2 Edition + Meetup in Bellabel Park",
+    "us": "https://www.nintendo.com/us/store/products/super-mario-bros-wonder-nintendo-switch-2-edition-plus-meetup-in-bellabel-park-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70010000115567/901218f8b149d63c90c125a3969db5f6d06f3a7cc649300b3e788116a21a84cd",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/super-mario-bros-wonder-nintendo-switch-2-edition-plus-meetup-in-bellabel-park-switch-2/hero",
+    "price_usd": 79.99,
+    "release_date": null
+  },
+  {
     "name": "Pokémon™ Pokopia",
     "us": "https://www.nintendo.com/us/store/products/pokemon-pokopia-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/cc2886d159304952b2124c4b635ab873_1024",
@@ -56,6 +64,14 @@
     "release_date": null
   },
   {
+    "name": "Tales of the Shire: A The Lord of the Rings™ Game Nintendo Switch 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/tales-of-the-shire-a-the-lord-of-the-rings-game-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70010000120682/4897713da712c90730688218218baea4df655a8cd36c9490f4b6e4655c594dee",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/t/tales-of-the-shire-a-the-lord-of-the-rings-game-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 34.99,
+    "release_date": null
+  },
+  {
     "name": "Resident Evil Village Gold Edition",
     "us": "https://www.nintendo.com/us/store/products/resident-evil-village-gold-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/87b8c79311514aa1b98151c8c5849289_1024",
@@ -84,7 +100,7 @@
     "us": "https://www.nintendo.com/us/store/products/blue-prince-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/29ace70a4c85417587be2c1c9f938771_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/b/blue-prince-switch-2/hero",
-    "price_usd": 69.99,
+    "price_usd": 79.99,
     "release_date": null
   },
   {
@@ -108,7 +124,7 @@
     "us": "https://www.nintendo.com/us/store/products/rotwood-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/8a06431db97347ac962ce925fa2c24e8_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/r/rotwood-switch-2/hero",
-    "price_usd": 69.99,
+    "price_usd": 79.99,
     "release_date": null
   },
   {
@@ -116,7 +132,7 @@
     "us": "https://www.nintendo.com/us/store/products/denshattack-switch-2/",
     "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70010000103978/511255af56eb4fff904465d7faf42f999ad9ab452e537dfb0c0e51c77fa134ad",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/denshattack-switch-2/hero",
-    "price_usd": 69.99,
+    "price_usd": 79.99,
     "release_date": null
   },
   {
@@ -668,7 +684,7 @@
     "us": "https://www.nintendo.com/us/store/products/chillin-by-the-fire-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/44d4476860a142778675cb9d4eb59541_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/chillin-by-the-fire-switch-2/hero",
-    "price_usd": 9.99,
+    "price_usd": 14.99,
     "release_date": null
   },
   {
