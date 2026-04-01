@@ -32,19 +32,51 @@
     "release_date": null
   },
   {
-    "name": "Animal Crossing™: New Horizons – Nintendo Switch™ 2 Edition Upgrade Pack",
-    "us": "https://www.nintendo.com/us/store/products/animal-crossing-new-horizons-nintendo-switch-2-edition-upgrade-pack-switch-2/",
-    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70050000064914/749cb30819c96dc883bf8ac71dfe5a27469b2ea035f81775dd23ab8b8c82bc9d",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/animal-crossing-new-horizons-nintendo-switch-2-edition-upgrade-pack-switch-2/hero",
-    "price_usd": 4.99,
-    "release_date": null
-  },
-  {
     "name": "Animal Crossing™: New Horizons – Nintendo Switch™ 2 Edition",
     "us": "https://www.nintendo.com/us/store/products/animal-crossing-new-horizons-nintendo-switch-2-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/5d19cb7c6966436394ffc0ccadd47e4c_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/animal-crossing-new-horizons-nintendo-switch-2-edition-switch-2/hero",
     "price_usd": 64.99,
+    "release_date": null
+  },
+  {
+    "name": "Deadzone: Rogue",
+    "us": "https://www.nintendo.com/us/store/products/deadzone-rogue-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/6edf25dc9aac47219b0e84cdaf9c2444_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/deadzone-rogue-switch-2/hero",
+    "price_usd": 24.99,
+    "release_date": null
+  },
+  {
+    "name": "Kena: Bridge of Spirits",
+    "us": "https://www.nintendo.com/us/store/products/kena-bridge-of-spirits-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/008a270decc8485a9c22f6ac26877d76_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/k/kena-bridge-of-spirits-switch-2/hero",
+    "price_usd": 31.99,
+    "release_date": null
+  },
+  {
+    "name": "Disney Dreamlight Valley - Nintendo Switch™ 2 Edition",
+    "us": "https://www.nintendo.com/us/store/products/disney-dreamlight-valley-nintendo-switch-2-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/eddb3300f24d472d8133664f8ca7454a_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/disney-dreamlight-valley-nintendo-switch-2-edition-switch-2/hero",
+    "price_usd": 39.99,
+    "release_date": null
+  },
+  {
+    "name": "South of Midnight Weaver's Edition",
+    "us": "https://www.nintendo.com/us/store/products/south-of-midnight-weavers-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/785bc8476d364bb0bb352be9a84ce41b_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/s/south-of-midnight-weavers-edition-switch-2/hero",
+    "price_usd": 39.99,
+    "release_date": null
+  },
+  {
+    "name": "Animal Crossing™: New Horizons – Nintendo Switch™ 2 Edition Upgrade Pack",
+    "us": "https://www.nintendo.com/us/store/products/animal-crossing-new-horizons-nintendo-switch-2-edition-upgrade-pack-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70050000064914/749cb30819c96dc883bf8ac71dfe5a27469b2ea035f81775dd23ab8b8c82bc9d",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/a/animal-crossing-new-horizons-nintendo-switch-2-edition-upgrade-pack-switch-2/hero",
+    "price_usd": 4.99,
     "release_date": null
   },
   {
@@ -141,14 +173,6 @@
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/bc082f587e6c43f9a204b775b400b4ac_1024",
     "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/m/minishoot-adventures-nintendo-switch-2-edition-switch-2/hero",
     "price_usd": 15.99,
-    "release_date": null
-  },
-  {
-    "name": "Deadzone: Rogue - Deluxe Edition",
-    "us": "https://www.nintendo.com/us/store/products/deadzone-rogue-deluxe-edition-switch-2/",
-    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70070000034289/02146744b348f4069d0c83f7aeb0a3fa5395c3c9fb7ed265f4b53dd4f65bfa3b",
-    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/d/deadzone-rogue-deluxe-edition-switch-2/hero",
-    "price_usd": 44.99,
     "release_date": null
   },
   {
