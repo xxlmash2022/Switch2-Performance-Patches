@@ -24,6 +24,22 @@
     "release_date": null
   },
   {
+    "name": "Content Warning",
+    "us": "https://www.nintendo.com/us/store/products/content-warning-switch-2/",
+    "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/b8e8aba871d24d45ac88ba1371e4b756_1024",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/c/content-warning-switch-2/hero",
+    "price_usd": 9.99,
+    "release_date": null
+  },
+  {
+    "name": "EA SPORTS FC™ 26 ICONS Edition",
+    "us": "https://www.nintendo.com/us/store/products/ea-sports-fc-26-icons-edition-switch-2/",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/store/software/switch2/70070000033882/bfdbcf5170390be5312e35218d7a9615109187ca76227f24b430377161df677e",
+    "img2": "https://assets.nintendo.com/image/upload/f_auto/q_auto/ncom/en_US/games/switch/e/ea-sports-fc-26-icons-edition-switch-2/hero",
+    "price_usd": 19.99,
+    "release_date": null
+  },
+  {
     "name": "South of Midnight Weaver's Edition",
     "us": "https://www.nintendo.com/us/store/products/south-of-midnight-weavers-edition-switch-2/",
     "img": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/257b7838396d40a1b19ff81f190257a1_1024",
